@@ -1,14 +1,14 @@
 import ShinyText from "@/ui/ShinyText/ShinyText";
-import Header from "../../header/Header";
 import DarkVeil from "./DarkVeil";
 import TrueFocus from "@/ui/TrueFocus";
+import StarBorder from "@/ui/StarBorderBtn/StarBorderBtn";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section>
-      <div className="relative w-full h-screen">
-        <DarkVeil />
-        <Header />
+    <section className="relative w-full min-h-screen overflow-hidden">
+      <DarkVeil />
+      <div className="container mx-auto px-5">
         <div className="absolute inset-0 text-white">
           <TrueFocus
             sentence="Empowering Growth Across Africa"
@@ -24,10 +24,28 @@ const HeroSection = () => {
             speed={3}
             className="custom-class"
           />
-      <div className="relative top-60">
-          <button className="cursor-target w-fit border-4 border-red-600 m-5 p-5 rounded-full">Click me!</button>
-        <div className="cursor-target w-fit border-4 border-red-600 m-5 p-5 rounded-full">Hover target</div>
-      </div>
+          <div className="absolute inset-0 top-70 flex items-center justify-center gap-4">
+            <Link href={""}>
+              <StarBorder
+                as="button"
+                className="custom-class cursor-target"
+                color="magenta"
+                speed="5s"
+              >
+                Marketing Solutions
+              </StarBorder>
+            </Link>
+            <Link href={""}>
+              <StarBorder
+                as="button"
+                className="custom-class cursor-target"
+                color="magenta"
+                speed="5s"
+              >
+                Business Growth
+              </StarBorder>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

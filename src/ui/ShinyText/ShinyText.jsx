@@ -7,10 +7,10 @@ const ShinyText = ({ text, disabled = false, speed = 5 }) => {
     <div
       className={`shiny-text ${
         disabled ? "disabled" : ""
-      } relative max-w-6xl mx-auto text-center top-45 text-2xl`}
+      } relative container mx-auto text-center top-47 text-xl sm:text-2xl`}
       style={{ animationDuration }}
     >
-      {text}
+      <div className="max-w-5xl mx-auto px-5">{text}</div>
     </div>
   );
 };
