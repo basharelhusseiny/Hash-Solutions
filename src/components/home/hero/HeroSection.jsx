@@ -3,11 +3,18 @@ import DarkVeil from "./DarkVeil";
 import TrueFocus from "@/ui/TrueFocus";
 import StarBorder from "@/ui/StarBorderBtn/StarBorderBtn";
 import Link from "next/link";
+import Silk from "./Silk";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden">
-      <DarkVeil />
+    <section className="relative w-full min-h-screen h-screen overflow-hidden">
+      <Silk
+        speed={10}
+        scale={1}
+        color="#4c044e"
+        noiseIntensity={1}
+        rotation={0}
+      />
       <div className="container mx-auto px-5">
         <div className="absolute inset-0 text-white">
           <TrueFocus
@@ -19,12 +26,12 @@ const HeroSection = () => {
             pauseBetweenAnimations={1}
           />
           <ShinyText
-            text="At HASH Solutions, we craft innovative marketing and business development strategies from Sudan to South Sudan — and soon Nairobi. Since 2011, our creative team has delivered results-driven solutions in marketing, consulting, design, media, and events."
+            text="At HASH Solutions, we craft innovative marketing and business development strategies from Sudan to South Sudan — and soon Nairobi. Since 2011, our creative team has delivered results-driven solutions in marketing."
             disabled={false}
             speed={3}
             className="custom-class"
           />
-          <div className="absolute inset-0 top-70 flex items-center justify-center gap-4">
+          <div className="absolute inset-0 top-[40%] lg:top-70  flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href={""}>
               <StarBorder
                 as="button"

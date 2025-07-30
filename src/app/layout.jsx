@@ -21,7 +21,9 @@ export default function RootLayout({ children }) {
         className={`${roboto.className} antialiased min-h-screen flex flex-col`}
       >
         <main className="flex-grow">{children}</main>
-        <TargetCursor spinDuration={2} hideDefaultCursor={true} />
+        <div className="hidden md:block">
+          <TargetCursor spinDuration={2} hideDefaultCursor={true} />
+        </div>
         {/* <SplashCursor /> */}
         <Footer />
       </body>

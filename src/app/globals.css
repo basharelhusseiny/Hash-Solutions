@@ -10,7 +10,7 @@ body {
 }
 
 ::selection {
-  background-color: rgb(79, 23, 131);
+  background-color: #4f1783;
   color: white;
 }
 
@@ -19,7 +19,7 @@ body {
   width: 12px;
 }
 ::-webkit-scrollbar-track {
-  background: rgb(173, 126, 217);
+  background: #ad7ed9;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
