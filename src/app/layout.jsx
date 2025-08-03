@@ -24,7 +24,6 @@ export default function RootLayout({ children }) {
         <div className="hidden md:block">
           <TargetCursor spinDuration={2} hideDefaultCursor={true} />
         </div>
-        {/* <SplashCursor /> */}
         <Footer />
       </body>
     </html>

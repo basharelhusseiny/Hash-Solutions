@@ -4,17 +4,29 @@ import TrueFocus from "@/ui/TrueFocus";
 import StarBorder from "@/ui/StarBorderBtn/StarBorderBtn";
 import Link from "next/link";
 import Silk from "./Silk";
+import DotGrid from "./DotGrid";
 
 const HeroSection = () => {
   return (
     <section className="relative w-full min-h-screen h-screen overflow-hidden">
-      <Silk
+      <DotGrid
+        dotSize={8}
+        gap={8}
+        baseColor="#39064b"
+        activeColor="#bc94c7"
+        proximity={130}
+        shockRadius={250}
+        shockStrength={5}
+        resistance={750}
+        returnDuration={1.5}
+      />
+      {/* <Silk
         speed={10}
         scale={1}
         color="#4c044e"
         noiseIntensity={1}
         rotation={0}
-      />
+      /> */}
       <div className="container mx-auto px-5">
         <div className="absolute inset-0 text-white">
           <TrueFocus
