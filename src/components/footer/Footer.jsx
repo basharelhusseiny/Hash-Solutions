@@ -60,7 +60,7 @@ const Footer = () => {
           className="absolute top-10 left-10 opacity-30"
         >
           <Image
-            src="/images/HASH-main.png"
+            src="/images/hash-main.png"
             alt="HASH"
             width={60}
             height={60}
@@ -80,7 +80,7 @@ const Footer = () => {
           }}
           className="absolute bottom-20 right-20 opacity-40"
         >
-          <Image src="/images/HASH-cup.png" alt="HASH" width={80} height={80} />
+          <Image src="/images/hash-cup.png" alt="HASH" width={80} height={80} />
         </motion.div>
 
         {/* Gradient Orbs */}
