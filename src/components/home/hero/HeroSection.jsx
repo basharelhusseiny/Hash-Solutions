@@ -4,31 +4,23 @@ import TrueFocus from "@/ui/TrueFocus";
 import StarBorder from "@/ui/StarBorderBtn/StarBorderBtn";
 import Link from "next/link";
 import Silk from "./Silk";
-import DotGrid from "./DotGrid";
+import Particles from "./Particles";
 
 const HeroSection = () => {
   return (
     <section className="relative w-full min-h-screen h-screen overflow-hidden">
-      <DotGrid
-        dotSize={8}
-        gap={8}
-        baseColor="#39064b"
-        activeColor="#bc94c7"
-        proximity={130}
-        shockRadius={250}
-        shockStrength={5}
-        resistance={750}
-        returnDuration={1.5}
+      <Particles
+        particleColors={["#b10abd", "#8a0594"]}
+        particleCount={500}
+        particleSpread={10}
+        speed={0.2}
+        particleBaseSize={150}
+        moveParticlesOnHover={true}
+        alphaParticles={false}
+        disableRotation={false}
       />
-      {/* <Silk
-        speed={10}
-        scale={1}
-        color="#4c044e"
-        noiseIntensity={1}
-        rotation={0}
-      /> */}
       <div className="container mx-auto px-5">
-        <div className="absolute inset-0 text-white">
+        <div className="absolute inset-0 text-white z-40">
           <TrueFocus
             sentence="Empowering Growth Across Africa"
             manualMode={false}
