@@ -1,18 +1,17 @@
-import Header from "@/components/header/Header";
 import CompanyOverview from "@/components/home/CompanyOverview";
-import HeroSection from "@/components/home/hero/HeroSection";
-import MagicBento from "@/ui/MagicBento";
+import HeroSection from "@/components/home/HeroSection";
 import OurPhilosophy from "@/components/home/OurPhilosophy";
-import RubixSection from "@/components/home/RubixSection";
+import TargetCursor from "@/ui/TargetCursor";
 
 const Home = () => {
   return (
     <main>
-      <Header />
       <HeroSection />
       <CompanyOverview />
       <OurPhilosophy />
-      <RubixSection />
+      <div className="hidden md:block">
+        <TargetCursor spinDuration={2} hideDefaultCursor={true} />
+      </div>
     </main>
   );
 };

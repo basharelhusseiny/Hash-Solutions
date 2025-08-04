@@ -1,10 +1,9 @@
 import ShinyText from "@/ui/ShinyText/ShinyText";
-import DarkVeil from "./DarkVeil";
 import TrueFocus from "@/ui/TrueFocus";
 import StarBorder from "@/ui/StarBorderBtn/StarBorderBtn";
 import Link from "next/link";
-import Silk from "./Silk";
-import Particles from "./Particles";
+import Particles from "@/ui/Particles";
+import DraggableHeroImage from "@/ui/DraggableHeroImage";
 
 const HeroSection = () => {
   return (
@@ -20,6 +19,7 @@ const HeroSection = () => {
         disableRotation={false}
       />
       <div className="container mx-auto px-5">
+        {/* <DraggableHeroImage imageUrl="/images/hash-main.png" size={100} /> */}
         <div className="absolute inset-0 text-white z-40">
           <TrueFocus
             sentence="Empowering Growth Across Africa"

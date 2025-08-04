@@ -1,8 +1,7 @@
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import TargetCursor from "@/ui/TargetCursor";
 import Footer from "@/components/footer/Footer";
-import SplashCursor from "@/ui/SplashCursor";
+import Header from "@/components/header/Header";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -20,10 +19,8 @@ export default function RootLayout({ children }) {
       <body
         className={`${roboto.className} antialiased min-h-screen flex flex-col`}
       >
+        <Header />
         <main className="flex-grow">{children}</main>
-        <div className="hidden md:block">
-          <TargetCursor spinDuration={2} hideDefaultCursor={true} />
-        </div>
         <Footer />
       </body>
     </html>

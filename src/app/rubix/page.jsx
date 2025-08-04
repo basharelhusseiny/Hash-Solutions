@@ -2,12 +2,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import MagicBento from "@/ui/MagicBento";
-import SectionHeader from "@/ui/SectionHeader";
-import React from "react";
+import SplashCursor from "@/ui/SplashCursor";
 
-const RubixSection = () => {
+const RubixPage = () => {
   return (
-    <section id="RUBiX" className="pt-24 pb-10 relative overflow-hidden">
+    <div id="RUBiX" className="pt-30 pb-16 relative overflow-hidden">
       <div className="container mx-auto px-5">
         {/* Floating Images */}
         <div className="absolute inset-0 pointer-events-none">
@@ -99,7 +98,37 @@ const RubixSection = () => {
           </motion.div>
         </div>
 
-        <SectionHeader title="What We Do at RUBiX" />
+        {/* Rubix Logo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, y: 30 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="flex justify-center mb-8 relative z-10"
+        >
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative group"
+          >
+            {/* Glow Effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#bcfd5e]/30 to-green-400/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 animate-pulse" />
+
+            {/* Logo Container */}
+            <div className="relative bg-black/50 backdrop-blur-sm border border-[#bcfd5e]/30 rounded-2xl p-6 shadow-2xl">
+              <Image
+                src="/images/Rubix-logo.png"
+                alt="Rubix Logo"
+                width={770}
+                height={80}
+                className="drop-shadow-2xl filter "
+              />
+            </div>
+
+            {/* Floating Particles */}
+            <div className="absolute -top-1 -left-1 w-5 h-5 bg-[#bcfd5e] rounded-full animate-ping opacity-75" />
+            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-[#bcfd5e] rounded-full animate-ping opacity-75 " />
+          </motion.div>
+        </motion.div>
         <div className="flex items-center justify-center relative z-10">
           <MagicBento
             textAutoHide={true}
@@ -115,12 +144,13 @@ const RubixSection = () => {
           />
         </div>
         <div className="absolute top-50 left-20 w-96 h-96 bg-[#bcfd5e]/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-20 right-0 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-150 left-50 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-20 right-0 w-96 h-96 bg-[#bcfd5e]0/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-150 left-50 w-96 h-96 bg-[#bcfd5e]/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#bcfd5e]/20 rounded-full blur-3xl animate-pulse" />
       </div>
-    </section>
+      <SplashCursor />
+    </div>
   );
 };
 
-export default RubixSection;
+export default RubixPage;

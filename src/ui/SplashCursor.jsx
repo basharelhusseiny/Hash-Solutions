@@ -5,16 +5,16 @@ function SplashCursor({
   SIM_RESOLUTION = 128,
   DYE_RESOLUTION = 1440,
   CAPTURE_RESOLUTION = 512,
-  DENSITY_DISSIPATION = 4.5, // زيادة لتقليل الكثافة أكتر
-  VELOCITY_DISSIPATION = 3.0, // زيادة لتقليل سرعة الحركة
+  DENSITY_DISSIPATION = 5,
+  VELOCITY_DISSIPATION = 3.0,
   PRESSURE = 0.1,
   PRESSURE_ITERATIONS = 20,
   CURL = 3,
-  SPLAT_RADIUS = 0.05, // تقليل لحجم أصغر للـ cursor
-  SPLAT_FORCE = 2000, // تقليل لقوة تأثير أضعف
+  SPLAT_RADIUS = 0.05,
+  SPLAT_FORCE = 2000,
   SHADING = true,
-  COLOR_UPDATE_SPEED = 5, // تقليل لتغيير ألوان أبطأ
-  BACK_COLOR = { r: 0.4, g: 0.2, b: 0.8 }, // لون موف أغمق
+  COLOR_UPDATE_SPEED = 5,
+  BACK_COLOR = { r: 0.737, g: 0.992, b: 0.368 },
   TRANSPARENT = true,
 }) {
   const canvasRef = useRef(null);
@@ -1065,19 +1065,12 @@ function SplashCursor({
     }
 
     function generateColor() {
-      // تعيين قيمة ثابتة للون الموف الغامق
-      let h = 0.78; // قيمة ثابتة للون الموف
-      let s = 0.8; // زيادة التشبع للحصول على لون أغمق
-      let v = 0.4; // تقليل السطوع للحصول على درجة أغمق
-
-      let c = HSVtoRGB(h, s, v);
-
-      // زيادة شدة اللون
-      c.r *= 0.8;
-      c.g *= 0.2;
-      c.b *= 0.9;
-
-      return c;
+      // إرجاع اللون #bcfd5e مباشرة (RGB: 188, 253, 94)
+      return {
+        r: 0.737, // 188 / 255
+        g: 0.992, // 253 / 255
+        b: 0.368, // 94 / 255
+      };
     }
 
     function HSVtoRGB(h, s, v) {
@@ -1184,20 +1177,17 @@ function SplashCursor({
       updatePointerMoveData(pointer, posX, posY, color);
     });
 
-    document.body.addEventListener(
-      "touchstart",
-      function handleFirstTouchStart(e) {
-        const touches = e.targetTouches;
-        let pointer = pointers[0];
-        for (let i = 0; i < touches.length; i++) {
-          let posX = scaleByPixelRatio(touches[i].clientX);
-          let posY = scaleByPixelRatio(touches[i].clientY);
-          updateFrame();
-          updatePointerDownData(pointer, touches[i].identifier, posX, posY);
-        }
-        document.body.removeEventListener("touchstart", handleFirstTouchStart);
+    window.addEventListener("touchstart", function handleFirstTouchStart(e) {
+      const touches = e.targetTouches;
+      let pointer = pointers[0];
+      for (let i = 0; i < touches.length; i++) {
+        let posX = scaleByPixelRatio(touches[i].clientX);
+        let posY = scaleByPixelRatio(touches[i].clientY);
+        updateFrame();
+        updatePointerDownData(pointer, touches[i].identifier, posX, posY);
       }
-    );
+      document.body.removeEventListener("touchstart", handleFirstTouchStart);
+    });
 
     window.addEventListener("touchstart", (e) => {
       const touches = e.targetTouches;
