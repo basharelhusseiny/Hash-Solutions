@@ -43,10 +43,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative pt-16 pb-10 bg-gradient-to-b from-black via-purple-950/20 to-black border-t border-purple-500/30 overflow-hidden">
+    <footer className="relative pt-16 pb-10 bg-gradient-to-b from-black via-purple-950/20 to-black border-t border-purple-500/50 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Floating Hash Images */}
+        {/* Floating HASH Images */}
         <motion.div
           animate={{
             y: [0, -15, 0],
@@ -57,11 +57,11 @@ const Footer = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-10 left-10 opacity-20"
+          className="absolute top-10 left-10 opacity-30"
         >
           <Image
-            src="/images/hash-main.png"
-            alt="Hash"
+            src="/images/HASH-main.png"
+            alt="HASH"
             width={60}
             height={60}
           />
@@ -78,9 +78,9 @@ const Footer = () => {
             ease: "easeInOut",
             delay: 2,
           }}
-          className="absolute bottom-20 right-20 opacity-20"
+          className="absolute bottom-20 right-20 opacity-40"
         >
-          <Image src="/images/hash-cup.png" alt="Hash" width={80} height={80} />
+          <Image src="/images/HASH-cup.png" alt="HASH" width={80} height={80} />
         </motion.div>
 
         {/* Gradient Orbs */}
@@ -102,7 +102,7 @@ const Footer = () => {
               <div className="mb-6">
                 <Image
                   src="/images/HASH-SOLUTIONS-LOGO-white-removebg-preview.png"
-                  alt="Hash Solutions Logo"
+                  alt="HASH Solutions Logo"
                   width={200}
                   height={80}
                   className="mb-4"
@@ -143,14 +143,14 @@ const Footer = () => {
               </h3>
               <ul className="space-y-3">
                 {[
-                  { name: "Marketing", href: "#marketing" },
-                  { name: "Business", href: "#business" },
-                  { name: "RUBiX", href: "#rubix" },
-                  { name: "Contact Us", href: "#contact" },
+                  { name: "Marketing" },
+                  { name: "Business" },
+                  { name: "RUBiX" },
+                  { name: "Contact Us" },
                 ].map((link, index) => (
                   <li key={index}>
                     <Link
-                      href={link.href}
+                      href={`#${link.name}`}
                       className="cursor-target text-gray-400 hover:text-purple-400 transition-colors duration-300 flex items-center group"
                     >
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
@@ -192,10 +192,10 @@ const Footer = () => {
                 <div className="flex items-center space-x-3 group">
                   <FaEnvelope className="text-green-400 group-hover:scale-110 transition-transform duration-300" />
                   <a
-                    href="mailto:info@hashsolutions.com"
+                    href="mailto:info@HASHsolutions.com"
                     className="cursor-target text-gray-400 hover:text-green-400 transition-colors duration-300"
                   >
-                    info@hashsolutions.com
+                    info@HASHsolutions.com
                   </a>
                 </div>
               </div>
@@ -244,18 +244,25 @@ const Footer = () => {
           {/* Bottom Section */}
           <motion.div
             variants={itemVariants}
-            className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center"
+            className="border-t border-purple-500/50 pt-9 flex flex-col md:flex-row mx-auto justify-center items-center"
           >
-            <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 Hash Solutions. All rights reserved. | Empowering Growth
-              Across Africa
+            <div className="text-gray-400 text-center text-sm mb-4 md:mb-0 w-full md:w-auto">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
+                <span>© 2024 HASH Solutions. All rights reserved.</span>
+                <span className="hidden md:inline">|</span>
+                <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-medium">
+                  Developed by HASH Solutions
+                </span>
+                <span className="hidden md:inline">|</span>
+                <span>Empowering Growth Across Africa</span>
+              </div>
             </div>
 
             <motion.button
               onClick={scrollToTop}
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="cursor-target w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center text-white shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
+              className="cursor-target w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center text-white shadow-lg hover:shadow-purple-500/25 transition-all duration-300 md:absolute md:right-5"
             >
               <FaArrowUp className="text-sm" />
             </motion.button>

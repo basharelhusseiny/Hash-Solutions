@@ -11,40 +11,45 @@ const MOBILE_BREAKPOINT = 768;
 const cardData = [
   {
     color: "#060010",
-    title: "Analytics",
+    title: "Creative Visions, Real Results",
     description:
-      "Track user behavior loreemdsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaakjlkjkjljjkljkljsdajljopiajksdjklasjkdljasljk",
-    label: "Insights dsadsadasdas d asdasdasda sdasdas",
+      "At HASH Solutions, we bring creative visions to life through RUBiX PRODUCTIONS.",
   },
   {
     color: "#060010",
-    title: "Dashboard",
-    description: "Centralized data view",
-    label: "Overview",
+    title: "Your Media Partner",
+    description:
+      "RUBiX Productions is your go-to source for all media production needs, creating content that not only engages but elevates your brand.",
   },
   {
     color: "#060010",
-    title: "Collaboration",
-    description: "Work together seamlessly",
-    label: "Teamwork",
+    title: "Media Services",
+    services: [
+      "TV Commercials (TVC)",
+      "Documentaries",
+      "Corporate Videos",
+      "Social Media Reels",
+      "Photography & Event Coverage",
+      "Motion Graphic Design",
+    ],
   },
   {
     color: "#060010",
-    title: "Automation",
-    description: "Streamline workflows",
-    label: "Efficiency",
+    title: "See Our Work",
+    description:
+      "We promote our work through our Instagram and Facebook pages, showcasing projects and building a network of businesses looking to enhance their media presence.",
   },
   {
     color: "#060010",
-    title: "Integration",
-    description: "Connect favorite tools",
-    label: "Connectivity",
+    title: "From Reels to Full-Scale",
+    description:
+      "Whether it’s social media content or full-scale productions, we ensure your brand’s story is told in the most impactful way.",
   },
   {
     color: "#060010",
-    title: "Security",
-    description: "Enterprise-grade protection",
-    label: "Protection",
+    title: "Powered by Tangerine",
+    description:
+      "Through Tangerine Productions, we offer a wide range of media services tailored to your brand’s goals.",
   },
 ];
 
@@ -547,7 +552,6 @@ const MagicBento = ({
             margin: 0 auto;
             padding: 0.5rem;
           }
-          
           @media (min-width: 600px) {
             .card-responsive {
               grid-template-columns: repeat(2, 1fr);
@@ -692,24 +696,38 @@ const MagicBento = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
                 >
-                  <div className="card__header flex justify-between gap-3 relative text-white">
-                    <span className="card__label text-base">{card.label}</span>
-                  </div>
                   <div className="card__content flex flex-col relative text-white">
                     <h3
-                      className={`card__title font-normal text-base m-0 mb-1 ${
-                        textAutoHide ? "text-clamp-1" : ""
+                      className={`card__title font-semibold tracking-wide text-[17px] m-0 mb-1 text-[#bcfd5e]  ${
+                        textAutoHide ? "text-clamp-2" : ""
                       }`}
                     >
                       {card.title}
                     </h3>
                     <p
-                      className={`card__description text-xs leading-5 opacity-90 ${
-                        textAutoHide ? "text-clamp-2" : ""
+                      className={`card__description text-sm tracking-wide ${
+                        textAutoHide ? "" : ""
                       }`}
                     >
                       {card.description}
                     </p>
+
+                    {/* Services List */}
+                    {card.services && (
+                      <div className="mt-3">
+                        <ul className="space-y-0.5 md:space-y-2">
+                          {card.services.map((service, serviceIndex) => (
+                            <li
+                              key={serviceIndex}
+                              className="flex items-center text-sm"
+                            >
+                              <span className="w-1.5 h-1.5 bg-[#bcfd5e] rounded-full mr-2 flex-shrink-0"></span>
+                              {service}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </ParticleCard>
               );

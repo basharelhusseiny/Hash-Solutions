@@ -113,7 +113,7 @@ const CompanyOverview = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-20 relative overflow-hidden bg-gradient-to-b from-black via-purple-950/10 to-black"
+      className="pt-24 pb-10 relative overflow-hidden bg-gradient-to-b from-black via-purple-950/10 to-black"
     >
       <div className="container mx-auto px-5">
         {/* Floating Animated Images */}

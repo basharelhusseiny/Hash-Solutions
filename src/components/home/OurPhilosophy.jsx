@@ -90,7 +90,7 @@ const OurPhilosophy = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-20 relative overflow-hidden bg-gradient-to-b from-black via-purple-950/10 to-black"
+      className="pt-24 pb-10 relative overflow-hidden bg-gradient-to-b from-black via-purple-950/10 to-black"
     >
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0">
@@ -217,7 +217,7 @@ const OurPhilosophy = () => {
             transition={{ delay: 0.8, duration: 0.8 }}
             className="relative"
           >
-            <p className="text-xl text-gray-300 max-w-5xl mx-auto leading-relaxed font-light">
+            <p className="text-xl text-gray-200 max-w-5xl mx-auto leading-relaxed font-light">
               To re-invent how people share knowledge, tell stories, & inspire
               their audience, and to put clients at the center of their business
               by providing a range of creative high quality technical assistance
@@ -265,7 +265,7 @@ const OurPhilosophy = () => {
               <h3 className="text-xl font-bold text-purple-300 mb-3 group-hover:text-white transition-colors duration-300">
                 OUR MISSION
               </h3>
-              <p className="text-gray-400 leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-sm">
+              <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-sm">
                 To inspire businesses & to help them become more productive &
                 successful.
               </p>
@@ -295,7 +295,7 @@ const OurPhilosophy = () => {
               <h3 className="text-xl font-bold text-pink-300 mb-3 group-hover:text-white transition-colors duration-300">
                 VISION
               </h3>
-              <p className="text-gray-400 leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-sm">
+              <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-sm">
                 To be a highly ethical & quality service house to vibrant privet
                 & governmental establishments.
               </p>
@@ -325,7 +325,7 @@ const OurPhilosophy = () => {
               <h3 className="text-xl font-bold text-blue-300 mb-3 group-hover:text-white transition-colors duration-300">
                 OUR GOALS
               </h3>
-              <p className="text-gray-400 leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-sm">
+              <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-sm">
                 To create business growth by focusing on current & absent market
                 opportunities.
               </p>
@@ -355,21 +355,21 @@ const OurPhilosophy = () => {
               <h3 className="text-xl font-bold text-violet-300 mb-3 group-hover:text-white transition-colors duration-300">
                 VALUES
               </h3>
-              <ul className="text-gray-400 space-y-2 group-hover:text-gray-200 transition-colors duration-300 text-sm">
+              <ul className="text-gray-200 tracking-wide space-y-2 group-hover:text-gray-200 transition-colors duration-300 text-sm">
                 <li className="flex items-center">
-                  <FaStar className="text-violet-400 mr-2 text-xs" />
+                  <FaStar className="text-violet-400 mr-2 text-sm" />
                   Focus on innovative business ideas
                 </li>
                 <li className="flex items-center">
-                  <FaStar className="text-violet-400 mr-2 text-xs" />
+                  <FaStar className="text-violet-400 mr-2 text-sm" />
                   Practice high ethical standards
                 </li>
                 <li className="flex items-center">
-                  <FaStar className="text-violet-400 mr-2 text-xs" />
+                  <FaStar className="text-violet-400 mr-2 text-sm" />
                   Respect and protect business
                 </li>
                 <li className="flex items-center">
-                  <FaStar className="text-violet-400 mr-2 text-xs" />
+                  <FaStar className="text-violet-400 mr-2 text-sm" />
                   Meet client needs and desires
                 </li>
               </ul>
@@ -400,31 +400,31 @@ const OurPhilosophy = () => {
                 OUR PERKS
               </h3>
               <div className="grid md:grid-cols-2 gap-4">
-                <ul className="text-gray-400 space-y-2 group-hover:text-gray-200 transition-colors duration-300 text-sm">
+                <ul className="text-gray-200 tracking-wide space-y-2 group-hover:text-gray-200 transition-colors duration-300 text-sm">
                   <li className="flex items-center">
-                    <FaStar className="text-green-400 mr-2 text-xs" />
+                    <FaStar className="text-green-400 mr-2 text-sm" />
                     Create new business opportunities
                   </li>
                   <li className="flex items-center">
-                    <FaStar className="text-green-400 mr-2 text-xs" />
+                    <FaStar className="text-green-400 mr-2 text-sm" />
                     Increase productivity margin
                   </li>
                   <li className="flex items-center">
-                    <FaStar className="text-green-400 mr-2 text-xs" />
+                    <FaStar className="text-green-400 mr-2 text-sm" />
                     Increase efficiency
                   </li>
                 </ul>
-                <ul className="text-gray-400 space-y-2 group-hover:text-gray-200 transition-colors duration-300 text-sm">
+                <ul className="text-gray-200 tracking-wide space-y-2 group-hover:text-gray-200 transition-colors duration-300 text-sm">
                   <li className="flex items-center">
-                    <FaStar className="text-green-400 mr-2 text-xs" />
+                    <FaStar className="text-green-400 mr-2 text-sm" />
                     Capture bigger market share
                   </li>
                   <li className="flex items-center">
-                    <FaStar className="text-green-400 mr-2 text-xs" />
+                    <FaStar className="text-green-400 mr-2 text-sm" />
                     Provide better client service
                   </li>
                   <li className="flex items-center">
-                    <FaStar className="text-green-400 mr-2 text-xs" />
+                    <FaStar className="text-green-400 mr-2 text-sm" />
                     Improving the business
                   </li>
                 </ul>

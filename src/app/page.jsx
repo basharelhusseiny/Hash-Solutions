@@ -1,8 +1,9 @@
 import Header from "@/components/header/Header";
 import CompanyOverview from "@/components/home/CompanyOverview";
 import HeroSection from "@/components/home/hero/HeroSection";
-import MagicBento from "@/components/home/hero/MagicBento";
+import MagicBento from "@/ui/MagicBento";
 import OurPhilosophy from "@/components/home/OurPhilosophy";
+import RubixSection from "@/components/home/RubixSection";
 
 const Home = () => {
   return (
@@ -11,20 +12,7 @@ const Home = () => {
       <HeroSection />
       <CompanyOverview />
       <OurPhilosophy />
-      {/* <div className="flex items-center justify-center">
-        <MagicBento
-          textAutoHide={true}
-          enableStars={true}
-          enableSpotlight={true}
-          enableBorderGlow={true}
-          enableTilt={true}
-          enableMagnetism={true}
-          clickEffect={true}
-          spotlightRadius={600}
-          particleCount={15}
-          glowColor="0, 1000, 0"
-        />
-      </div> */}
+      <RubixSection />
     </main>
   );
 };

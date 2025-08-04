@@ -5,11 +5,6 @@ import GooeyNav from "./GooeyNav";
 
 const Header = () => {
   const navLinks = ["marketing", "business", "RUBiX", "contact us"];
-  const items = [
-    { label: "marketing", href: "#" },
-    { label: "business", href: "#" },
-    { label: "contact us", href: "#" },
-  ];
   return (
     <header>
       <div className="container mx-auto px-5">
@@ -30,9 +25,9 @@ const Header = () => {
                   key={index}
                   className="cursor-target text-sm md:text-base opacity-70 hover:opacity-100 duration-200"
                 >
-                  <a href={`#${link}`} className="block py-2">
+                  <Link href={`#${link}`} className="block py-2">
                     {link}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
