@@ -6,7 +6,7 @@ import SplashCursor from "@/ui/SplashCursor";
 
 const RubixPage = () => {
   return (
-    <div id="RUBiX" className="pt-30 pb-16 relative overflow-hidden">
+    <div id="RUBiX" className="pt-40 sm:pt-30 pb-16 relative overflow-hidden">
       <div className="container mx-auto px-5">
         {/* Floating Images */}
         <div className="absolute inset-0 pointer-events-none">
@@ -28,6 +28,7 @@ const RubixPage = () => {
               alt="Hash Camera"
               width={150}
               height={120}
+              loading="lazy"
             />
           </motion.div>
 
@@ -50,6 +51,7 @@ const RubixPage = () => {
               alt="Hash Chair"
               width={150}
               height={150}
+              loading="lazy"
             />
           </motion.div>
 
@@ -72,6 +74,7 @@ const RubixPage = () => {
               alt="Hash LED"
               width={150}
               height={70}
+              loading="lazy"
             />
           </motion.div>
 
@@ -94,6 +97,7 @@ const RubixPage = () => {
               alt="Hash Camera"
               width={170}
               height={100}
+              loading="lazy"
             />
           </motion.div>
         </div>
@@ -111,7 +115,7 @@ const RubixPage = () => {
             className="relative group"
           >
             {/* Glow Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#bcfd5e]/30 to-green-400/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 animate-pulse" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#bcfd5e]/30 to-green-400/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 animate-pulse will-change-transform" />
 
             {/* Logo Container */}
             <div className="relative bg-black/50 backdrop-blur-sm border border-[#bcfd5e]/30 rounded-2xl p-6 shadow-2xl">
@@ -120,13 +124,15 @@ const RubixPage = () => {
                 alt="Rubix Logo"
                 width={770}
                 height={80}
-                className="drop-shadow-2xl filter "
+                className="drop-shadow-2xl filter"
+                priority
+                quality={90}
               />
             </div>
 
             {/* Floating Particles */}
-            <div className="absolute -top-1 -left-1 w-5 h-5 bg-[#bcfd5e] rounded-full animate-ping opacity-75" />
-            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-[#bcfd5e] rounded-full animate-ping opacity-75 " />
+            <div className="absolute -top-1 -left-1 w-5 h-5 bg-[#bcfd5e] rounded-full animate-ping opacity-75 will-change-transform" />
+            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-[#bcfd5e] rounded-full animate-ping opacity-75 will-change-transform" />
           </motion.div>
         </motion.div>
         <div className="flex items-center justify-center relative z-10">
@@ -148,7 +154,9 @@ const RubixPage = () => {
         <div className="absolute top-150 left-50 w-96 h-96 bg-[#bcfd5e]/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#bcfd5e]/20 rounded-full blur-3xl animate-pulse" />
       </div>
-      <SplashCursor />
+      <div className="hidden md:block">
+        <SplashCursor />
+      </div>
     </div>
   );
 };
