@@ -1,4 +1,3 @@
-import BusinessDev from "@/components/home/BusinessDev";
 import CompanyOverview from "@/components/home/CompanyOverview";
 import HeroSection from "@/components/home/HeroSection";
 import OurPhilosophy from "@/components/home/OurPhilosophy";
@@ -12,7 +11,6 @@ const Home = () => {
       <CompanyOverview />
       <OurPhilosophy />
       <OurSolutions />
-      <BusinessDev />
       <div className="hidden md:block">
         <TargetCursor spinDuration={2} hideDefaultCursor={true} />
       </div>

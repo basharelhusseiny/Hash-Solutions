@@ -105,7 +105,7 @@ const BusinessDev = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-24 relative overflow-hidden bg-gradient-to-br from-black via-purple-950/20 to-black"
+      className="pt-40 sm:pt-34 pb-30 relative overflow-hidden bg-gradient-to-br from-black via-purple-950/20 to-black"
     >
       {/* Enhanced Background */}
       <div className="absolute inset-0">

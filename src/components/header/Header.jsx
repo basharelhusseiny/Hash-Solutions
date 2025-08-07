@@ -2,7 +2,13 @@
 import Link from "next/link";
 
 const Header = () => {
-  const navLinks = ["marketing", "business DEV", "rubix", "contact us"];
+  const navLinks = [
+    { id: 1, title: "marketing", href: "/marketing" },
+    { id: 2, title: "business DEV", href: "/business" },
+    { id: 3, title: "rubix", href: "/rubix" },
+    { id: 4, title: "contact us", href: "/contact" },
+  ];
+
   return (
     <header>
       <div className="container mx-auto px-5">
@@ -23,13 +29,8 @@ const Header = () => {
                   key={index}
                   className="cursor-target text-sm md:text-base opacity-70 hover:opacity-100 duration-200"
                 >
-                  <Link
-                    href={`${
-                      link.toLowerCase() === "rubix" ? "/" : "#"
-                    }${link}`}
-                    className="block py-2"
-                  >
-                    {link}
+                  <Link href={link.href} className="block py-2">
+                    {link.title}
                   </Link>
                 </li>
               );
