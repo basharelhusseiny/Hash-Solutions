@@ -12,7 +12,7 @@ const Header = () => {
               <img
                 src="/images/HASH-SOLUTIONS-LOGO2.png"
                 alt="logo Hash Solution"
-                className="cursor-target w-48"
+                className="cursor-target w-42"
               />
             </Link>
           </div>
