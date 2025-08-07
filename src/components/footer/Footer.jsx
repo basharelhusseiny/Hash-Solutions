@@ -122,13 +122,13 @@ const Footer = () => {
                   <div className="text-lg font-bold text-white">100+</div>
                   <div className="text-xs text-gray-400">Projects</div>
                 </div>
-                <div className="text-center p-3 rounded-lg bg-blue-900/20 border border-blue-500/20">
-                  <FaGlobe className="text-blue-400 text-xl mx-auto mb-1" />
+                <div className="text-center p-3 rounded-lg bg-purple-900/20 border border-blue-500/20">
+                  <FaGlobe className="text-purple-400 text-xl mx-auto mb-1" />
                   <div className="text-lg font-bold text-white">2+</div>
                   <div className="text-xs text-gray-400">Countries</div>
                 </div>
-                <div className="text-center p-3 rounded-lg bg-green-900/20 border border-green-500/20">
-                  <FaRocket className="text-green-400 text-xl mx-auto mb-1" />
+                <div className="text-center p-3 rounded-lg bg-purple-900/20 border border-green-500/20">
+                  <FaRocket className="text-purple-400 text-xl mx-auto mb-1" />
                   <div className="text-lg font-bold text-white">12+</div>
                   <div className="text-xs text-gray-400">Years</div>
                 </div>
@@ -180,20 +180,20 @@ const Footer = () => {
                 </div>
 
                 <div className="flex items-center space-x-3 group">
-                  <FaPhone className="text-blue-400 group-hover:scale-110 transition-transform duration-300" />
+                  <FaPhone className="text-purple-400 group-hover:scale-110 transition-transform duration-300" />
                   <a
                     href="tel:+201234567890"
-                    className="cursor-target text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                    className="cursor-target text-gray-400 hover:text-purple-400 transition-colors duration-300"
                   >
                     +20 123 456 7890
                   </a>
                 </div>
 
                 <div className="flex items-center space-x-3 group">
-                  <FaEnvelope className="text-green-400 group-hover:scale-110 transition-transform duration-300" />
+                  <FaEnvelope className="text-purple-400 group-hover:scale-110 transition-transform duration-300" />
                   <a
                     href="mailto:info@HASHsolutions.com"
-                    className="cursor-target text-gray-400 hover:text-green-400 transition-colors duration-300"
+                    className="cursor-target text-gray-400 hover:text-purple-400 transition-colors duration-300"
                   >
                     info@HASHsolutions.com
                   </a>

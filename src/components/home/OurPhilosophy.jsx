@@ -287,7 +287,7 @@ const OurPhilosophy = () => {
             <div className="relative z-10">
               <motion.div
                 variants={iconVariants}
-                className="w-16 h-16 mb-5 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg"
+                className="w-16 h-16 mb-5 bg-gradient-to-br bg-[#771e73] to-pink-900 rounded-xl flex items-center justify-center shadow-lg"
               >
                 <FaEye className="text-2xl text-white" />
               </motion.div>
@@ -310,19 +310,19 @@ const OurPhilosophy = () => {
               y: -5,
               boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)",
             }}
-            className="group relative p-6 rounded-2xl bg-gradient-to-br from-blue-900/50 to-blue-800/20 backdrop-blur-lg border border-blue-500/30 hover:border-blue-400/60 transition-all duration-500 overflow-hidden"
+            className="group relative p-6 rounded-2xl bg-gradient-to-br from-purple-900/50 to-purple-800/20 backdrop-blur-lg border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500 overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-blue-400/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-purple-400/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             <div className="relative z-10">
               <motion.div
                 variants={iconVariants}
-                className="w-16 h-16 mb-5 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg"
+                className="w-16 h-16 mb-5 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg"
               >
                 <FaBullseye className="text-2xl text-white" />
               </motion.div>
 
-              <h3 className="text-xl font-bold text-blue-300 mb-3 group-hover:text-white transition-colors duration-300">
+              <h3 className="text-xl font-bold text-purple-300 mb-3 group-hover:text-white transition-colors duration-300">
                 OUR GOALS
               </h3>
               <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-sm">
@@ -340,36 +340,36 @@ const OurPhilosophy = () => {
               y: -5,
               boxShadow: "0 20px 40px rgba(168, 85, 247, 0.3)",
             }}
-            className="group relative p-6 rounded-2xl bg-gradient-to-br from-violet-900/50 to-violet-800/20 backdrop-blur-lg border border-violet-500/30 hover:border-violet-400/60 transition-all duration-500 overflow-hidden"
+            className="group relative p-6 rounded-2xl bg-gradient-to-br from-pink-900/50 to-pink-800/20 backdrop-blur-lg border border-pink-500/30 hover:border-pink-400/60 transition-all duration-500 overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-violet-600/10 to-violet-400/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-r from-pink-600/10 to-pink-400/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             <div className="relative z-10">
               <motion.div
                 variants={iconVariants}
-                className="w-16 h-16 mb-5 bg-gradient-to-br from-violet-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg"
+                className="w-16 h-16 mb-5 bg-gradient-to-br bg-[#771e73] to-pink-900 rounded-xl flex items-center justify-center shadow-lg"
               >
                 <FaGem className="text-2xl text-white" />
               </motion.div>
 
-              <h3 className="text-xl font-bold text-violet-300 mb-3 group-hover:text-white transition-colors duration-300">
+              <h3 className="text-xl font-bold text-pink-300 mb-3 group-hover:text-white transition-colors duration-300">
                 VALUES
               </h3>
               <ul className="text-gray-200 tracking-wide space-y-2 group-hover:text-gray-200 transition-colors duration-300 text-sm">
                 <li className="flex items-center">
-                  <FaStar className="text-violet-400 mr-2 text-sm" />
+                  <FaStar className="text-pink-400 mr-2 text-sm" />
                   Focus on innovative business ideas
                 </li>
                 <li className="flex items-center">
-                  <FaStar className="text-violet-400 mr-2 text-sm" />
+                  <FaStar className="text-pink-400 mr-2 text-sm" />
                   Practice high ethical standards
                 </li>
                 <li className="flex items-center">
-                  <FaStar className="text-violet-400 mr-2 text-sm" />
+                  <FaStar className="text-pink-400 mr-2 text-sm" />
                   Respect and protect business
                 </li>
                 <li className="flex items-center">
-                  <FaStar className="text-violet-400 mr-2 text-sm" />
+                  <FaStar className="text-pink-400 mr-2 text-sm" />
                   Meet client needs and desires
                 </li>
               </ul>
@@ -384,47 +384,47 @@ const OurPhilosophy = () => {
               y: -5,
               boxShadow: "0 20px 40px rgba(34, 197, 94, 0.3)",
             }}
-            className="group relative p-6 rounded-2xl bg-gradient-to-br from-green-900/50 to-green-800/20 backdrop-blur-lg border border-green-500/30 hover:border-green-400/60 transition-all duration-500 overflow-hidden md:col-span-2"
+            className="group relative p-6 rounded-2xl bg-gradient-to-br from-purple-900/50 to-purple-800/20 backdrop-blur-lg border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500 overflow-hidden md:col-span-2"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-green-600/10 to-green-400/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-purple-400/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             <div className="relative z-10">
               <motion.div
                 variants={iconVariants}
-                className="w-16 h-16 mb-5 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg"
+                className="w-16 h-16 mb-5 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg"
               >
                 <FaRocket className="text-2xl text-white" />
               </motion.div>
 
-              <h3 className="text-xl font-bold text-green-300 mb-4 group-hover:text-white transition-colors duration-300">
+              <h3 className="text-xl font-bold text-purple-300 mb-4 group-hover:text-white transition-colors duration-300">
                 OUR PERKS
               </h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <ul className="text-gray-200 tracking-wide space-y-2 group-hover:text-gray-200 transition-colors duration-300 text-sm">
                   <li className="flex items-center">
-                    <FaStar className="text-green-400 mr-2 text-sm" />
+                    <FaStar className="text-purple-400 mr-2 text-sm" />
                     Create new business opportunities
                   </li>
                   <li className="flex items-center">
-                    <FaStar className="text-green-400 mr-2 text-sm" />
+                    <FaStar className="text-purple-400 mr-2 text-sm" />
                     Increase productivity margin
                   </li>
                   <li className="flex items-center">
-                    <FaStar className="text-green-400 mr-2 text-sm" />
+                    <FaStar className="text-purple-400 mr-2 text-sm" />
                     Increase efficiency
                   </li>
                 </ul>
                 <ul className="text-gray-200 tracking-wide space-y-2 group-hover:text-gray-200 transition-colors duration-300 text-sm">
                   <li className="flex items-center">
-                    <FaStar className="text-green-400 mr-2 text-sm" />
+                    <FaStar className="text-purple-400 mr-2 text-sm" />
                     Capture bigger market share
                   </li>
                   <li className="flex items-center">
-                    <FaStar className="text-green-400 mr-2 text-sm" />
+                    <FaStar className="text-purple-400 mr-2 text-sm" />
                     Provide better client service
                   </li>
                   <li className="flex items-center">
-                    <FaStar className="text-green-400 mr-2 text-sm" />
+                    <FaStar className="text-purple-400 mr-2 text-sm" />
                     Improving the business
                   </li>
                 </ul>

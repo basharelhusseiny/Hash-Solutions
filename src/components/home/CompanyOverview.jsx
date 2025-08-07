@@ -119,22 +119,6 @@ const CompanyOverview = () => {
         {/* Floating Animated Images */}
         <div className="absolute inset-0 pointer-events-none">
           <FloatingImage
-            src="/images/hash-main.png"
-            alt="Hash Cup"
-            delay={0}
-            size={100}
-            position={{ top: "15%", left: "3%" }}
-            animationType="float"
-          />
-          <FloatingImage
-            src="/images/hash-cup.png"
-            alt="Hash Main"
-            delay={1}
-            size={120}
-            position={{ top: "15%", right: "5%" }}
-            animationType="spin"
-          />
-          <FloatingImage
             src="/images/hash-cup.png"
             alt="Hash Cup"
             delay={2}
@@ -189,7 +173,7 @@ const CompanyOverview = () => {
               {/* Card Icon */}
               <div className="absolute -top-4 -right-4 transition-opacity duration-300">
                 <Image
-                  src="/images/hash-main.png"
+                  src="/images/hash-cup.png"
                   alt="Hash Main"
                   width={60}
                   height={60}

@@ -1,0 +1,370 @@
+"use client";
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import {
+  FaRocket,
+  FaChartLine,
+  FaCogs,
+  FaHandshake,
+  FaGlobe,
+  FaStar,
+  FaArrowRight,
+  FaCheckCircle,
+} from "react-icons/fa";
+import { IoDiamond } from "react-icons/io5";
+
+const BusinessDev = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState(null);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.4,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -50, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, x: 100, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      transition: { duration: 1, ease: "easeOut" },
+    },
+  };
+
+  const services = [
+    {
+      icon: FaCogs,
+      title: "Business Process Management (BPM) Consultation",
+      description:
+        "Optimize your operations with strategic process improvements",
+      color: "from-purple-600 to-purple-800",
+    },
+    {
+      icon: FaChartLine,
+      title: "Business Plans & Market Survey",
+      description: "Data-driven insights for informed business decisions",
+      color: "from-violet-500 to-purple-700",
+    },
+    {
+      icon: FaRocket,
+      title: "Business Development Strategies",
+      description: "Accelerate growth with proven strategic frameworks",
+      color: "from-indigo-500 to-purple-600",
+    },
+    {
+      icon: FaHandshake,
+      title: "Corporate Business Facilitation & Accounts Management",
+      description: "Streamline corporate operations and financial management",
+      color: "from-purple-500 to-indigo-600",
+    },
+    {
+      icon: FaGlobe,
+      title:
+        "Business Expansion Services: Preparation and Qualifying for Local & International Partnerships Acquisition",
+      description: "Scale globally with strategic partnership development",
+      color: "from-violet-600 to-purple-600",
+    },
+  ];
+
+  return (
+    <section
+      ref={sectionRef}
+      className="py-24 relative overflow-hidden bg-gradient-to-br from-black via-purple-950/20 to-black"
+    >
+      {/* Enhanced Background */}
+      <div className="absolute inset-0">
+        {/* Animated Geometric Pattern */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `
+                linear-gradient(30deg, transparent 40%, rgba(147, 51, 234, 0.1) 40%, rgba(147, 51, 234, 0.1) 60%, transparent 60%),
+                linear-gradient(-30deg, transparent 40%, rgba(139, 69, 219, 0.1) 40%, rgba(139, 69, 219, 0.1) 60%, transparent 60%)
+              `,
+              backgroundSize: "60px 60px",
+            }}
+          />
+        </div>
+
+        {/* Glowing Orbs */}
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.1, 0.2, 0.1],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-20 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.15, 0.25, 0.15],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
+          className="absolute bottom-20 right-1/4 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl"
+        />
+
+        {/* Floating Diamonds */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            animate={{
+              y: [0, -30, 0],
+              rotate: [0, 360],
+              scale: [1, 1.3, 1],
+            }}
+            transition={{
+              duration: 6 + i,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.8,
+            }}
+            className={`absolute ${
+              i % 4 === 0
+                ? "top-10"
+                : i % 4 === 1
+                ? "top-1/3"
+                : i % 4 === 2
+                ? "bottom-1/3"
+                : "bottom-10"
+            } ${
+              i % 3 === 0 ? "left-10" : i % 3 === 1 ? "right-10" : "left-1/2"
+            }`}
+          >
+            <IoDiamond
+              className={`text-${2 + (i % 3)}xl text-purple-400/${15 + i * 3}`}
+            />
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Content Side */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={isVisible ? "visible" : "hidden"}
+            className="space-y-8"
+          >
+            {/* Header */}
+            <motion.div
+              initial={{ opacity: 0, y: -30 }}
+              animate={
+                isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }
+              }
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <h2 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                BUSINESS
+                <br />
+                <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">
+                  DEVELOPMENT
+                </span>
+                <br />
+                SOLUTIONS
+              </h2>
+
+              <div className="flex items-center gap-3 text-purple-300 mb-6">
+                <FaStar className="text-violet-400" />
+                <span className="text-lg font-medium">
+                  Premium Business Growth Services
+                </span>
+                <FaStar className="text-violet-400" />
+              </div>
+            </motion.div>
+
+            {/* Services List */}
+            <motion.div variants={containerVariants} className="space-y-6">
+              {services.map((service, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  onHoverStart={() => setHoveredItem(index)}
+                  onHoverEnd={() => setHoveredItem(null)}
+                  whileHover={{ x: 10, scale: 1.02 }}
+                  className="group relative"
+                >
+                  <div className="flex items-start p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
+                    {/* Icon */}
+                    <motion.div
+                      whileHover={{ scale: 1.2, rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                      className={`w-14 h-14 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center text-white shadow-lg mr-5 relative overflow-hidden`}
+                    >
+                      <service.icon className="text-xl relative z-10" />
+                      <motion.div
+                        animate={{
+                          scale: hoveredItem === index ? 1 : 0,
+                          opacity: hoveredItem === index ? 0.3 : 0,
+                        }}
+                        className="absolute inset-0 bg-white rounded-xl"
+                      />
+                    </motion.div>
+
+                    {/* Content */}
+                    <div className="flex-1">
+                      <div className="flex items-start justify-between mb-3">
+                        <h3 className="text-white font-bold text-lg leading-tight group-hover:text-purple-200 transition-colors duration-300">
+                          {service.title}
+                        </h3>
+                        <motion.div
+                          animate={{ rotate: hoveredItem === index ? 45 : 0 }}
+                          className="text-purple-400 opacity-60 group-hover:opacity-100 transition-opacity duration-300 ml-4"
+                        >
+                          <FaArrowRight className="text-lg" />
+                        </motion.div>
+                      </div>
+
+                      <div className="flex items-center mb-2">
+                        <FaCheckCircle className="text-violet-400 text-sm mr-2" />
+                        <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300 text-sm leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Hover Effect Line */}
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: hoveredItem === index ? "100%" : 0 }}
+                    className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${service.color} rounded-full`}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Image Side */}
+          <motion.div
+            variants={imageVariants}
+            initial="hidden"
+            animate={isVisible ? "visible" : "hidden"}
+            className="relative"
+          >
+            {/* Main Image Container */}
+            <motion.div
+              whileHover={{ scale: 1.05, rotateY: 5 }}
+              transition={{ duration: 0.6 }}
+              className="relative group"
+            >
+              {/* Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600/30 to-violet-600/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500 animate-pulse" />
+
+              {/* Image */}
+              <div className="relative bg-black/20 backdrop-blur-sm border border-purple-500/30 rounded-3xl p-8 shadow-2xl">
+                <Image
+                  src="/images/meetHash.png"
+                  alt="Meet Hash - Business Development"
+                  width={600}
+                  height={500}
+                  className="w-full h-auto drop-shadow-2xl filter brightness-110 contrast-110"
+                  priority
+                  quality={95}
+                />
+              </div>
+
+              {/* Floating Elements */}
+              <motion.div
+                animate={{
+                  y: [0, -20, 0],
+                  rotate: [0, 10, -10, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-r from-purple-500 to-violet-500 rounded-full shadow-lg"
+              />
+
+              <motion.div
+                animate={{
+                  y: [0, 15, 0],
+                  rotate: [0, -15, 15, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
+                className="absolute -bottom-4 -right-4 w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full shadow-lg"
+              />
+
+              <motion.div
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.7, 1, 0.7],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 2,
+                }}
+                className="absolute top-1/4 -right-6 w-4 h-4 bg-gradient-to-r from-violet-400 to-purple-500 rounded-full shadow-lg"
+              />
+            </motion.div>
+
+            {/* Background Decoration */}
+            <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
+              <div className="w-full h-full border-2 border-purple-500/30 rounded-3xl transform rotate-6" />
+              <div className="absolute inset-0 w-full h-full border-2 border-violet-500/30 rounded-3xl transform -rotate-3" />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default BusinessDev;

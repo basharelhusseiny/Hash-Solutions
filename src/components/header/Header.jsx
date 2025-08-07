@@ -2,7 +2,7 @@
 import Link from "next/link";
 
 const Header = () => {
-  const navLinks = ["marketing", "business", "rubix", "contact us"];
+  const navLinks = ["marketing", "business DEV", "rubix", "contact us"];
   return (
     <header>
       <div className="container mx-auto px-5">
@@ -10,9 +10,9 @@ const Header = () => {
           <div className="px-3">
             <Link href="/">
               <img
-                src="/images/HASH-SOLUTIONS-LOGO-white-removebg-preview.png"
+                src="/images/HASH-SOLUTIONS-LOGO2.png"
                 alt="logo Hash Solution"
-                className="cursor-target w-50"
+                className="cursor-target w-48"
               />
             </Link>
           </div>
