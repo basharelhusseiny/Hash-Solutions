@@ -281,7 +281,10 @@ const ContactUsPage = () => {
                 </span>
               </h2>
 
-              <form onSubmit={handleSubmit} className="max-w-4xl mx-auto space-y-6">
+              <form
+                onSubmit={handleSubmit}
+                className="max-w-4xl mx-auto space-y-6"
+              >
                 <div className="grid md:grid-cols-2 gap-6">
                   <motion.div variants={itemVariants}>
                     <label className="block text-gray-300 text-sm font-medium mb-2">
@@ -295,7 +298,7 @@ const ContactUsPage = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full pl-12 pr-4 py-4 bg-black/40 backdrop-blur-xl border border-pink-500/30 rounded-xl text-white placeholder-gray-400 focus:border-pink-400 focus:outline-none transition-all duration-300"
+                        className="cursor-target w-full pl-12 pr-4 py-4 bg-black/40 backdrop-blur-xl border border-pink-500/30 rounded-xl text-white placeholder-gray-400 focus:border-pink-400 focus:outline-none transition-all duration-300"
                         placeholder="Your full name"
                       />
                     </div>
@@ -313,7 +316,7 @@ const ContactUsPage = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full pl-12 pr-4 py-4 bg-black/40 backdrop-blur-xl border border-pink-500/30 rounded-xl text-white placeholder-gray-400 focus:border-pink-400 focus:outline-none transition-all duration-300"
+                        className="cursor-target w-full pl-12 pr-4 py-4 bg-black/40 backdrop-blur-xl border border-pink-500/30 rounded-xl text-white placeholder-gray-400 focus:border-pink-400 focus:outline-none transition-all duration-300"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -332,7 +335,7 @@ const ContactUsPage = () => {
                         name="company"
                         value={formData.company}
                         onChange={handleInputChange}
-                        className="w-full pl-12 pr-4 py-4 bg-black/40 backdrop-blur-xl border border-pink-500/30 rounded-xl text-white placeholder-gray-400 focus:border-pink-400 focus:outline-none transition-all duration-300"
+                        className="cursor-target w-full pl-12 pr-4 py-4 bg-black/40 backdrop-blur-xl border border-pink-500/30 rounded-xl text-white placeholder-gray-400 focus:border-pink-400 focus:outline-none transition-all duration-300"
                         placeholder="Your company name"
                       />
                     </div>
@@ -349,7 +352,7 @@ const ContactUsPage = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full pl-12 pr-4 py-4 bg-black/40 backdrop-blur-xl border border-pink-500/30 rounded-xl text-white placeholder-gray-400 focus:border-pink-400 focus:outline-none transition-all duration-300"
+                        className="cursor-target w-full pl-12 pr-4 py-4 bg-black/40 backdrop-blur-xl border border-pink-500/30 rounded-xl text-white placeholder-gray-400 focus:border-pink-400 focus:outline-none transition-all duration-300"
                         placeholder="+1 (555) 123-4567"
                       />
                     </div>
@@ -366,7 +369,7 @@ const ContactUsPage = () => {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-4 bg-black/40 backdrop-blur-xl border border-pink-500/30 rounded-xl text-white placeholder-gray-400 focus:border-pink-400 focus:outline-none transition-all duration-300 resize-none"
+                    className="cursor-target w-full px-4 py-4 bg-black/40 backdrop-blur-xl border border-pink-500/30 rounded-xl text-white placeholder-gray-400 focus:border-pink-400 focus:outline-none transition-all duration-300 resize-none"
                     placeholder="Tell us about your project or how we can help..."
                   />
                 </motion.div>
@@ -377,7 +380,7 @@ const ContactUsPage = () => {
                     disabled={isSubmitting}
                     whileHover={{ scale: 1.02, y: -2 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full group relative px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl text-white font-bold text-lg shadow-2xl hover:shadow-pink-500/30 transition-all duration-300 overflow-hidden disabled:opacity-70"
+                    className="cursor-target w-full group relative px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl text-white font-bold text-lg shadow-2xl hover:shadow-pink-500/30 transition-all duration-300 overflow-hidden disabled:opacity-70"
                   >
                     <span className="relative z-10 flex items-center justify-center gap-3">
                       {isSubmitting ? (
@@ -420,13 +423,13 @@ const ContactUsPage = () => {
                     key={index}
                     variants={itemVariants}
                     whileHover={{ y: -5, scale: 1.02 }}
-                    className="group p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20"
+                    className="cursor-target group p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20"
                   >
                     <div className="text-center">
                       <motion.div
                         whileHover={{ scale: 1.2, rotate: 360 }}
                         transition={{ duration: 0.6 }}
-                        className="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-lg"
+                        className=" w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-lg"
                       >
                         <office.icon className="text-xl" />
                       </motion.div>
@@ -463,7 +466,7 @@ const ContactUsPage = () => {
                 </span>
               </h3>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
                 {contactInfo.map((info, index) => (
                   <motion.a
                     key={index}
@@ -472,7 +475,7 @@ const ContactUsPage = () => {
                     rel="noopener noreferrer"
                     variants={itemVariants}
                     whileHover={{ y: -5, scale: 1.05 }}
-                    className="group flex flex-col items-center text-center p-6 rounded-xl bg-black/30 backdrop-blur-xl border border-pink-500/20 hover:border-pink-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/10"
+                    className="cursor-target group flex flex-col items-center text-center p-6 rounded-xl bg-black/30 backdrop-blur-xl border border-pink-500/20 hover:border-pink-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/10"
                   >
                     <motion.div
                       whileHover={{ scale: 1.2, rotate: 360 }}

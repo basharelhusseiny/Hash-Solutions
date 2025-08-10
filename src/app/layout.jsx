@@ -2,6 +2,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
+import TargetCursor from "@/ui/TargetCursor";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -22,6 +23,9 @@ export default function RootLayout({ children }) {
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <div className="hidden md:block">
+          <TargetCursor spinDuration={2} hideDefaultCursor={true} />
+        </div>
       </body>
     </html>
   );
