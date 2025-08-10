@@ -131,8 +131,8 @@ const RubixPage = () => {
             </div>
 
             {/* Floating Particles */}
-            {/* <div className="absolute -top-1 -left-1 w-5 h-5 bg-[#bcfd5e] rounded-full animate-ping opacity-75 will-change-transform" />
-            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-[#bcfd5e] rounded-full animate-ping opacity-75 will-change-transform" /> */}
+            <div className="absolute -top-1 -left-1 w-5 h-5 bg-[#bcfd5e] rounded-full animate-ping opacity-75 will-change-transform" />
+            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-[#bcfd5e] rounded-full animate-ping opacity-75 will-change-transform" />
           </motion.div>
         </motion.div>
         <div className="flex items-center justify-center relative z-10">
@@ -154,9 +154,7 @@ const RubixPage = () => {
         <div className="absolute top-150 left-50 w-96 h-96 bg-[#bcfd5e]/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#bcfd5e]/20 rounded-full blur-3xl animate-pulse" />
       </div>
-      <div className="hidden md:block">
-        <SplashCursor />
-      </div>
+      <div className="hidden md:block">{/* <SplashCursor /> */}</div>
     </div>
   );
 };
