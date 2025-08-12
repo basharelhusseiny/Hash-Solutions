@@ -23,18 +23,17 @@ const RubikCube = ({ size = 400, position = { x: "50%", y: "20%" } }) => {
     // Renderer
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
-      alpha: true, // خلفية شفافة
+      alpha: true,
     });
     renderer.setSize(size, size);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     rendererRef.current = renderer;
     mount.appendChild(renderer.domElement);
 
-    // No background
     sceneRef.current.background = null;
 
     // Rubik's Cube
-    const cubeSize = 2.5; // حجم أصغر
+    const cubeSize = 2.5;
     const pieceSize = cubeSize / 3;
     const rubikGroup = new THREE.Group();
     const colors = [0x9370db, 0x6a5acd];
@@ -97,42 +96,48 @@ const RubikCube = ({ size = 400, position = { x: "50%", y: "20%" } }) => {
     };
     animate();
 
-    // Drag & Drop
+    // Drag & Drop with mouse + touch
     let isDragging = false;
     let offsetX = 0;
     let offsetY = 0;
 
-    const onMouseDown = (e) => {
+    const startDrag = (clientX, clientY) => {
       isDragging = true;
-      offsetX = e.clientX - mount.offsetLeft;
-      offsetY = e.clientY - mount.offsetTop;
+      offsetX = clientX - mount.offsetLeft;
+      offsetY = clientY - mount.offsetTop;
       mount.style.cursor = "grabbing";
     };
 
-    const onMouseMove = (e) => {
+    const moveDrag = (clientX, clientY) => {
       if (!isDragging) return;
-      mount.style.left = e.clientX - offsetX + "px";
-      mount.style.top = e.clientY - offsetY + "px";
+      mount.style.left = clientX - offsetX + "px";
+      mount.style.top = clientY - offsetY + "px";
     };
 
-    const onMouseUp = () => {
+    const endDrag = () => {
       isDragging = false;
       mount.style.cursor = "grab";
     };
 
-    mount.addEventListener("mousedown", onMouseDown);
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseup", onMouseUp);
+    // Mouse events
+    mount.addEventListener("mousedown", (e) => startDrag(e.clientX, e.clientY));
+    window.addEventListener("mousemove", (e) => moveDrag(e.clientX, e.clientY));
+    window.addEventListener("mouseup", endDrag);
+
+    // Touch events
+    mount.addEventListener("touchstart", (e) => {
+      const touch = e.touches[0];
+      startDrag(touch.clientX, touch.clientY);
+    });
+    window.addEventListener("touchmove", (e) => {
+      const touch = e.touches[0];
+      moveDrag(touch.clientX, touch.clientY);
+    });
+    window.addEventListener("touchend", endDrag);
 
     // Cleanup
     return () => {
       if (frameRef.current) cancelAnimationFrame(frameRef.current);
-      mount.removeEventListener("mousedown", onMouseDown);
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseup", onMouseUp);
-      if (mount && rendererRef.current.domElement) {
-        mount.removeChild(rendererRef.current.domElement);
-      }
       rendererRef.current.dispose();
     };
   }, [size]);

@@ -9,7 +9,7 @@ import RubikCube from "@/ui/RubikCube";
 const HeroSection = () => {
   return (
     <section className="relative w-full min-h-screen h-screen overflow-hidden">
-      <div className="absolute  z-50">
+      <div className="absolute z-49">
         <RubikCube />
       </div>
       <Particles
