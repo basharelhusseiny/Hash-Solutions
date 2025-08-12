@@ -4,10 +4,14 @@ import StarBorder from "@/ui/StarBorderBtn/StarBorderBtn";
 import Link from "next/link";
 import Particles from "@/ui/Particles";
 import DraggableHeroImage from "@/ui/DraggableHeroImage";
+import RubikCube from "@/ui/RubikCube";
 
 const HeroSection = () => {
   return (
     <section className="relative w-full min-h-screen h-screen overflow-hidden">
+      <div className="absolute  z-50">
+        <RubikCube />
+      </div>
       <Particles
         particleColors={["#b10abd", "#8a0594"]}
         particleCount={500}
@@ -18,6 +22,7 @@ const HeroSection = () => {
         alphaParticles={false}
         disableRotation={false}
       />
+
       <div className="container mx-auto px-5">
         {/* <DraggableHeroImage imageUrl="/images/hash-main.png" size={100} /> */}
         <div className="absolute inset-0 text-white z-40">
