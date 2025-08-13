@@ -10,12 +10,12 @@ import StickerPeel from "@/ui/StickerPeel";
 const HeroSection = () => {
   return (
     <section className="relative w-full min-h-screen h-screen overflow-hidden">
-      <div className="relative z-49">
+      {/* <div className="relative z-49">
         <RubikCube />
       </div>
       <div className="relative z-45">
         <StickerPeel
-          imageSrc="/images/hash-main.png"
+          imageSrc="/images/hash-main-3d.png"
           width={150}
           rotate={30}
           peelBackHoverPct={20}
@@ -24,7 +24,7 @@ const HeroSection = () => {
           lightingIntensity={0.1}
           initialPosition={{ x: -100, y: 100 }}
         />
-      </div>
+      </div> */}
       <Particles
         particleColors={["#b10abd", "#8a0594"]}
         particleCount={500}

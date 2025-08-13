@@ -172,7 +172,7 @@ const MarketingPage = () => {
         />
 
         {/* Floating Diamonds */}
-        {[...Array(8)].map((_, i) => (
+        {/* {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
             animate={{
@@ -202,7 +202,7 @@ const MarketingPage = () => {
               className={`text-${2 + (i % 3)}xl text-purple-400/${15 + i * 3}`}
             />
           </motion.div>
-        ))}
+        ))} */}
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -287,6 +287,8 @@ const MarketingPage = () => {
                   variants={itemVariants}
                   onHoverStart={() => setHoveredItem(`marketing-${index}`)}
                   onHoverEnd={() => setHoveredItem(null)}
+                  onTouchStart={() => setHoveredItem(`marketing-${index}`)}
+                  onTouchEnd={() => setHoveredItem(null)}
                   whileHover={{ x: 10, scale: 1.02 }}
                   className="group relative"
                 >
@@ -513,6 +515,8 @@ const MarketingPage = () => {
                   variants={itemVariants}
                   onHoverStart={() => setHoveredItem(`design-${index}`)}
                   onHoverEnd={() => setHoveredItem(null)}
+                  onTouchStart={() => setHoveredItem(`design-${index}`)}
+                  onTouchEnd={() => setHoveredItem(null)}
                   whileHover={{ x: 10, scale: 1.02 }}
                   className="group relative"
                 >
