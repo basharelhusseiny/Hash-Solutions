@@ -5,12 +5,25 @@ import Link from "next/link";
 import Particles from "@/ui/Particles";
 import DraggableHeroImage from "@/ui/DraggableHeroImage";
 import RubikCube from "@/ui/RubikCube";
+import StickerPeel from "@/ui/StickerPeel";
 
 const HeroSection = () => {
   return (
     <section className="relative w-full min-h-screen h-screen overflow-hidden">
-      <div className="absolute z-49">
+      <div className="relative z-49">
         <RubikCube />
+      </div>
+      <div className="relative z-45">
+        <StickerPeel
+          imageSrc="/images/hash-main.png"
+          width={150}
+          rotate={30}
+          peelBackHoverPct={20}
+          peelBackActivePct={40}
+          shadowIntensity={0.6}
+          lightingIntensity={0.1}
+          initialPosition={{ x: -100, y: 100 }}
+        />
       </div>
       <Particles
         particleColors={["#b10abd", "#8a0594"]}
