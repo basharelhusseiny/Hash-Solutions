@@ -3,28 +3,27 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import {
-  FaBullhorn,
-  FaPalette,
-  FaRocket,
-  FaStar,
-  FaArrowRight,
-  FaCheckCircle,
-  FaLightbulb,
   FaChartLine,
+  FaLightbulb,
+  FaGlobe,
+  FaCogs,
+  FaHandshake,
+  FaRocket,
+  FaBuilding,
+  FaUsers,
+  FaArrowRight,
 } from "react-icons/fa";
-import { IoDiamond } from "react-icons/io5";
+import { FiTarget } from "react-icons/fi";
 
-const MarketingPage = () => {
+const BusinessPage = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredItem, setHoveredItem] = useState(null);
+  const [activeCard, setActiveCard] = useState(null);
   const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.1 }
     );
@@ -42,460 +41,272 @@ const MarketingPage = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.4,
+        duration: 0.6,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -50, scale: 0.9 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
-      x: 0,
-      scale: 1,
-      transition: { duration: 0.8, ease: "easeOut" },
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
-  const imageVariants = {
-    hidden: { opacity: 0, x: 100, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      scale: 1,
-      transition: { duration: 1, ease: "easeOut" },
-    },
-  };
-
-  const marketingSolutions = [
+  const services = [
     {
-      icon: FaBullhorn,
-      title: "Brand Strategy & Brand Positioning",
-      description: "Strategic brand development and market positioning",
-      color: "from-purple-600 to-purple-800",
+      icon: FaCogs,
+      title: "Business Process Management (BPM) Consultation",
+      description:
+        "Streamline your operations with expert BPM strategies that optimize efficiency and reduce costs.",
+      features: [
+        "Process Mapping & Analysis",
+        "Workflow Optimization",
+        "Performance Metrics Setup",
+        "Quality Management Systems",
+      ],
+      color: "from-gray-700 to-gray-800",
     },
     {
       icon: FaChartLine,
-      title: "Marketing & Sales Strategy",
-      description: "Comprehensive marketing and sales frameworks",
-      color: "from-violet-500 to-purple-700",
-    },
-    {
-      icon: FaRocket,
-      title: "Campaign Creation & Execution",
-      description: "End-to-end campaign management and optimization",
-      color: "from-indigo-500 to-purple-600",
+      title: "Business Plans & Market Survey",
+      description:
+        "Comprehensive market analysis and strategic business planning to ensure your venture's success.",
+      features: [
+        "Market Research & Analysis",
+        "Competitive Assessment",
+        "Financial Projections",
+        "Risk Analysis",
+      ],
+      color: "from-zinc-800 to-zinc-900",
     },
     {
       icon: FaLightbulb,
-      title: "Sales Training Workshops",
-      description: "Professional sales training and skill development",
-      color: "from-purple-500 to-indigo-600",
+      title: "Business Development Strategies",
+      description:
+        "Innovative strategies tailored to accelerate your business growth and market penetration.",
+      features: [
+        "Growth Strategy Planning",
+        "Sales Process Optimization",
+        "Partnership Development",
+        "Market Entry Strategy",
+      ],
+      color: "from-gray-800 to-gray-900",
+    },
+    {
+      icon: FaBuilding,
+      title: "Corporate Business Facilitation",
+      description:
+        "Professional corporate services and financial management to support your business operations.",
+      features: [
+        "Corporate Structure Setup",
+        "Financial Management",
+        "Compliance Services",
+        "Business Advisory",
+      ],
+      color: "from-neutral-800 to-neutral-900",
+    },
+    {
+      icon: FaGlobe,
+      title: "Business Expansion Services",
+      description:
+        "Preparation and qualifying for local & international expansion opportunities.",
+      features: [
+        "Market Entry Analysis",
+        "International Partnership",
+        "Expansion Planning",
+        "Cross-border Operations",
+      ],
+      color: "from-gray-800 to-gray-900",
     },
   ];
 
-  const designSolutions = [
-    {
-      icon: FaPalette,
-      title: "Brand Identity & Logo Design",
-      description: "Complete brand identity and visual design systems",
-      color: "from-violet-600 to-purple-600",
-    },
-    {
-      icon: FaStar,
-      title: "Artwork & Visual Design",
-      description: "Creative artwork and visual communication design",
-      color: "from-purple-600 to-violet-700",
-    },
-    {
-      icon: FaBullhorn,
-      title: "Social Media Branding",
-      description: "Social media visual identity and content design",
-      color: "from-indigo-600 to-purple-600",
-    },
-    {
-      icon: FaRocket,
-      title: "Print Materials & Promotional Items",
-      description:
-        "Flyers, billboards, corporate gifts and promotional materials",
-      color: "from-purple-500 to-violet-600",
-    },
+  const stats = [
+    { icon: FaUsers, number: "500+", label: "Clients Served" },
+    { icon: FaRocket, number: "12+", label: "Years Experience" },
+    { icon: FiTarget, number: "95%", label: "Success Rate" },
+    { icon: FaHandshake, number: "3", label: "Countries" },
   ];
 
   return (
     <div
       ref={sectionRef}
-      className="pt-38 sm:pt-34 pb-30 relative overflow-hidden bg-gradient-to-br from-black via-purple-950/20 to-black min-h-screen"
+      className="pt-32 pb-16 relative overflow-hidden bg-gradient-to-b from-gray-900 to-black"
     >
-      {/* Enhanced Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 opacity-[0.03]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `
-                linear-gradient(30deg, transparent 40%, rgba(147, 51, 234, 0.1) 40%, rgba(147, 51, 234, 0.1) 60%, transparent 60%),
-                linear-gradient(-30deg, transparent 40%, rgba(139, 69, 219, 0.1) 40%, rgba(139, 69, 219, 0.1) 60%, transparent 60%)
-              `,
-              backgroundSize: "60px 60px",
-            }}
-          />
-        </div>
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.25, 0.15] }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-          className="absolute bottom-20 right-1/4 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl"
-        />
+      {/* Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gray-800/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gray-800/20 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Header Section */}
+      <div className="container mx-auto px-5 relative z-10">
+        {/* Hero Section */}
         <motion.div
-          initial={{ opacity: 0, y: -30 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
-          transition={{ duration: 0.8 }}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
           className="text-center mb-20"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            MARKETING &
-            <br />
-            <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">
-              DESIGN
+          <motion.div variants={itemVariants} className="mb-8">
+            <span className="inline-block px-4 py-2 bg-gray-800 text-gray-300 rounded-full text-sm font-medium border border-gray-700 mb-6">
+              Professional Business Solutions
             </span>
-            <br />
-            SOLUTIONS
-          </h1>
-          <div className="flex items-center justify-center gap-3 text-purple-300 mb-8">
-            <FaStar className="text-violet-400" />
-            <span className="text-xl font-medium">
-              Creative Excellence & Strategic Growth
-            </span>
-            <FaStar className="text-violet-400" />
-          </div>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              <span className="text-gray-200">Business Development</span>
+              <br />
+              <span className="text-gray-400">Solutions</span>
+            </h1>
+            <div className="flex justify-center items-center gap-4 mb-8">
+              <div className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent w-24" />
+              <span className="text-xl font-bold text-gray-400">
+                Let's Hash It Up!
+              </span>
+              <div className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent w-24" />
+            </div>
+          </motion.div>
+
+          {/* Hero Image and Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="relative"
+            variants={itemVariants}
+            className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto"
           >
-            <p className="text-[20px] text-gray-200 max-w-5xl mx-auto leading-relaxed font-light">
-              At HASH Solutions, we provide a comprehensive range of marketing
-              and business development services tailored to help businesses grow
-              and succeed. We are specialized in the following areas:
-            </p>
+            {/* Image Side */}
             <motion.div
-              initial={{ width: 0 }}
-              animate={isVisible ? { width: "60%" } : { width: 0 }}
-              transition={{ delay: 1.5, duration: 1.2 }}
-              className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-transparent via-purple-700 to-transparent"
-            />
+              whileHover={{ scale: 1.02 }}
+              className="relative group order-2 lg:order-1"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-800/20 to-gray-700/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
+              <div className="relative bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-8 shadow-2xl">
+                <Image
+                  src="/images/meetHash.png"
+                  alt="Business Development"
+                  width={400}
+                  height={200}
+                  className="rounded-2xl shadow-xl"
+                  priority
+                />
+              </div>
+            </motion.div>
+
+            {/* Content Side */}
+            <div className="text-left order-1 lg:order-2">
+              <p className="text-xl text-gray-400 leading-relaxed mb-8">
+                Empowering businesses with strategic solutions that drive
+                growth, optimize operations, and unlock new opportunities in
+                today's competitive landscape.
+              </p>
+
+              {/* Stats Grid */}
+              <div className="grid grid-cols-2 gap-4">
+                {stats.map((stat, index) => (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.05 }}
+                    className="p-4 cursor-target rounded-xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 text-center transition-all duration-300 hover:border-gray-600"
+                  >
+                    <stat.icon className="text-3xl text-gray-400 mx-auto mb-2" />
+                    <div className="text-2xl font-bold text-gray-200 mb-1">
+                      {stat.number}
+                    </div>
+                    <div className="text-gray-400">{stat.label}</div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </motion.div>
 
-        {/* Marketing Solutions Section */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isVisible ? "visible" : "hidden"}
-            className="space-y-8"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={
-                isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
-              }
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-                <span className="bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
-                  MARKETING
-                </span>
-                <br />
-                SOLUTIONS
-              </h2>
-            </motion.div>
-            <motion.div variants={containerVariants} className="space-y-6">
-              {marketingSolutions.map((service, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  onHoverStart={() => setHoveredItem(`marketing-${index}`)}
-                  onHoverEnd={() => setHoveredItem(null)}
-                  onClick={() =>
-                    setHoveredItem(
-                      hoveredItem === `marketing-${index}`
-                        ? null
-                        : `marketing-${index}`
-                    )
-                  }
-                  animate={{
-                    x: hoveredItem === `marketing-${index}` ? 10 : 0,
-                    scale: hoveredItem === `marketing-${index}` ? 1.02 : 1,
-                  }}
-                  className="group relative cursor-pointer"
-                >
-                  <div className="flex items-start p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
-                    <motion.div
-                      animate={{
-                        scale: hoveredItem === `marketing-${index}` ? 1.2 : 1,
-                        rotate: hoveredItem === `marketing-${index}` ? 360 : 0,
-                      }}
-                      transition={{ duration: 0.6 }}
-                      className={`w-14 h-14 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center text-white shadow-lg mr-5 relative overflow-hidden`}
-                    >
-                      <service.icon className="text-xl relative z-10" />
-                      <motion.div
-                        animate={{
-                          scale: hoveredItem === `marketing-${index}` ? 1 : 0,
-                          opacity:
-                            hoveredItem === `marketing-${index}` ? 0.3 : 0,
-                        }}
-                        className="absolute inset-0 bg-white rounded-xl"
-                      />
-                    </motion.div>
-                    <div className="flex-1">
-                      <div className="flex items-start justify-between mb-3">
-                        <h3 className="text-white font-bold text-lg leading-tight group-hover:text-purple-200 transition-colors duration-300">
-                          {service.title}
-                        </h3>
-                        <motion.div
-                          animate={{
-                            rotate:
-                              hoveredItem === `marketing-${index}` ? 45 : 0,
-                          }}
-                          className="text-purple-400 opacity-60 group-hover:opacity-100 transition-opacity duration-300 ml-4"
-                        >
-                          <FaArrowRight className="text-lg" />
-                        </motion.div>
-                      </div>
-                      <div className="flex items-center mb-2">
-                        <FaCheckCircle className="text-violet-400 text-sm mr-2" />
-                        <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300 text-sm leading-relaxed">
-                          {service.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{
-                      width: hoveredItem === `marketing-${index}` ? "100%" : 0,
-                    }}
-                    className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${service.color} rounded-full`}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
+        {/* Services Section */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+          className="mb-20"
+        >
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Our <span className="text-gray-300">Services</span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Comprehensive business solutions designed to accelerate your
+              growth and success
+            </p>
           </motion.div>
-          <motion.div
-            variants={imageVariants}
-            initial="hidden"
-            animate={isVisible ? "visible" : "hidden"}
-            className="relative"
-          >
-            <motion.div
-              whileHover={{ scale: 1.05, rotateY: 5 }}
-              transition={{ duration: 0.6 }}
-              className="relative group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600/30 to-violet-600/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500 animate-pulse" />
-              <div className="relative bg-black/20 backdrop-blur-sm border border-purple-500/30 rounded-3xl p-8 shadow-2xl">
-                <Image
-                  src="/images/hash-marketing.png"
-                  alt="Marketing Solutions"
-                  width={600}
-                  height={500}
-                  className="w-full h-auto drop-shadow-2xl filter brightness-110 contrast-110"
-                  priority
-                  quality={95}
-                />
-              </div>
-              <motion.div
-                animate={{ y: [0, -20, 0], rotate: [0, 10, -10, 0] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-r from-purple-500 to-violet-500 rounded-full shadow-lg"
-              />
-              <motion.div
-                animate={{ y: [0, 15, 0], rotate: [0, -15, 15, 0] }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-                className="absolute -bottom-4 -right-4 w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full shadow-lg"
-              />
-            </motion.div>
-            <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
-              <div className="w-full h-full border-2 border-purple-500/20 rounded-3xl transform rotate-6" />
-              <div className="absolute inset-0 w-full h-full border-2 border-violet-500/20 rounded-3xl transform -rotate-3" />
-            </div>
-          </motion.div>
-        </div>
 
-        {/* Design Solutions Section */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            variants={imageVariants}
-            initial="hidden"
-            animate={isVisible ? "visible" : "hidden"}
-            className="relative order-2 lg:order-1"
-          >
-            <motion.div
-              whileHover={{ scale: 1.05, rotateY: -5 }}
-              transition={{ duration: 0.6 }}
-              className="relative group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-violet-600/30 to-purple-600/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500 animate-pulse" />
-              <div className="relative bg-black/20 backdrop-blur-sm border border-violet-500/30 rounded-3xl p-8 shadow-2xl">
-                <Image
-                  src="/images/meetHash.png"
-                  alt="Design & Branding Solutions"
-                  width={600}
-                  height={500}
-                  className="w-full h-auto drop-shadow-2xl filter brightness-110 contrast-110"
-                  priority
-                  quality={95}
-                />
-              </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
               <motion.div
-                animate={{ y: [0, -15, 0], rotate: [0, -10, 10, 0] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full shadow-lg"
-              />
-              <motion.div
-                animate={{ y: [0, 20, 0], rotate: [0, 15, -15, 0] }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-                className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full shadow-lg"
-              />
-            </motion.div>
-            <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
-              <div className="w-full h-full border-2 border-violet-500/20 rounded-3xl transform -rotate-6" />
-              <div className="absolute inset-0 w-full h-full border-2 border-purple-500/20 rounded-3xl transform rotate-3" />
-            </div>
-          </motion.div>
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate={isVisible ? "visible" : "hidden"}
-            className="space-y-8 order-1 lg:order-2"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={
-                isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
-              }
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
-                <span className="bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
-                  DESIGN &
-                </span>
-                <br />
-                BRANDING
-              </h2>
-            </motion.div>
-            <motion.div variants={containerVariants} className="space-y-6">
-              {designSolutions.map((service, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  onHoverStart={() => setHoveredItem(`design-${index}`)}
-                  onHoverEnd={() => setHoveredItem(null)}
-                  onClick={() =>
-                    setHoveredItem(
-                      hoveredItem === `design-${index}`
-                        ? null
-                        : `design-${index}`
-                    )
-                  }
-                  animate={{
-                    x: hoveredItem === `design-${index}` ? 10 : 0,
-                    scale: hoveredItem === `design-${index}` ? 1.02 : 1,
-                  }}
-                  className="group relative cursor-pointer"
-                >
-                  <div className="flex items-start p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-violet-500/30 hover:border-violet-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-violet-500/20">
-                    <motion.div
-                      animate={{
-                        scale: hoveredItem === `design-${index}` ? 1.2 : 1,
-                        rotate: hoveredItem === `design-${index}` ? 360 : 0,
-                      }}
-                      transition={{ duration: 0.6 }}
-                      className={`w-14 h-14 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center text-white shadow-lg mr-5 relative overflow-hidden`}
-                    >
-                      <service.icon className="text-xl relative z-10" />
-                      <motion.div
-                        animate={{
-                          scale: hoveredItem === `design-${index}` ? 1 : 0,
-                          opacity: hoveredItem === `design-${index}` ? 0.3 : 0,
-                        }}
-                        className="absolute inset-0 bg-white rounded-xl"
-                      />
-                    </motion.div>
-                    <div className="flex-1">
-                      <div className="flex items-start justify-between mb-3">
-                        <h3 className="text-white font-bold text-lg leading-tight group-hover:text-violet-200 transition-colors duration-300">
-                          {service.title}
-                        </h3>
-                        <motion.div
-                          animate={{
-                            rotate: hoveredItem === `design-${index}` ? 45 : 0,
-                          }}
-                          className="text-violet-400 opacity-60 group-hover:opacity-100 transition-opacity duration-300 ml-4"
-                        >
-                          <FaArrowRight className="text-lg" />
-                        </motion.div>
-                      </div>
-                      <div className="flex items-center mb-2">
-                        <FaCheckCircle className="text-purple-400 text-sm mr-2" />
-                        <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300 text-sm leading-relaxed">
-                          {service.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                key={index}
+                variants={itemVariants}
+                whileHover={{ y: -5 }}
+                whileTap={{ scale: 0.98 }}
+                className={`group relative p-8 rounded-2xl bg-gradient-to-b ${service.color} border border-gray-700/50 transition-all duration-500 hover:border-gray-500`}
+              >
+                <div className="relative z-10">
                   <motion.div
-                    initial={{ width: 0 }}
-                    animate={{
-                      width: hoveredItem === `design-${index}` ? "100%" : 0,
-                    }}
-                    className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${service.color} rounded-full`}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-16 h-16 mb-6 bg-gray-800 rounded-xl flex items-center justify-center text-gray-300 shadow-lg"
+                  >
+                    <service.icon className="text-2xl" />
+                  </motion.div>
+
+                  <h3 className="text-xl font-bold text-gray-200 mb-4">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-gray-400 leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+
+                  <div className="space-y-3">
+                    {service.features.map((feature, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-center text-gray-400"
+                      >
+                        <div className="w-2 h-2 bg-gray-600 rounded-full mr-3"></div>
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* CTA Section */}
+        <motion.div
+          variants={itemVariants}
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+          className="text-center bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-12"
+        >
+          <h3 className="text-3xl md:text-4xl font-bold text-gray-200 mb-6">
+            Ready to Transform Your Business?
+          </h3>
+          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            Let's discuss how our business development solutions can drive your
+            success
+          </p>
+          <motion.button
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="cursor-target group px-8 py-4 bg-gray-800 rounded-xl text-gray-200 font-bold text-lg shadow-2xl hover:bg-gray-700 transition-all duration-300"
+          >
+            <span className="relative z-10 flex items-center gap-3">
+              Get Started Today
+              <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
+            </span>
+          </motion.button>
+        </motion.div>
       </div>
     </div>
   );
 };
 
-export default MarketingPage;
+export default BusinessPage;

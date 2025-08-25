@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import {
   FaPhone,
   FaMapMarkerAlt,
@@ -15,7 +14,6 @@ import {
   FaStar,
   FaHeart,
 } from "react-icons/fa";
-import { IoDiamond } from "react-icons/io5";
 
 const ContactUsPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -190,39 +188,6 @@ const ContactUsPage = () => {
           }}
           className="absolute bottom-20 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"
         />
-
-        {/* Floating Diamonds */}
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -30, 0],
-              rotate: [0, 360],
-              scale: [1, 1.3, 1],
-            }}
-            transition={{
-              duration: 6 + i,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.8,
-            }}
-            className={`absolute ${
-              i % 4 === 0
-                ? "top-10"
-                : i % 4 === 1
-                ? "top-1/3"
-                : i % 4 === 2
-                ? "bottom-1/3"
-                : "bottom-10"
-            } ${
-              i % 3 === 0 ? "left-10" : i % 3 === 1 ? "right-10" : "left-1/2"
-            }`}
-          >
-            <IoDiamond
-              className={`text-${2 + (i % 3)}xl text-pink-400/${15 + i * 3}`}
-            />
-          </motion.div>
-        ))}
       </div>
 
       <div className="container mx-auto px-5 relative z-10">

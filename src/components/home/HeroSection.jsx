@@ -6,25 +6,22 @@ import Particles from "@/ui/Particles";
 import DraggableHeroImage from "@/ui/DraggableHeroImage";
 import RubikCube from "@/ui/RubikCube";
 import StickerPeel from "@/ui/StickerPeel";
+import DotGrid from "@/ui/DotGrid";
 
 const HeroSection = () => {
   return (
     <section className="relative w-full min-h-screen h-screen overflow-hidden">
-      {/* <div className="relative z-49">
-        <RubikCube />
-      </div>
-      <div className="relative z-45">
-        <StickerPeel
-          imageSrc="/images/hash-main-3d.png"
-          width={150}
-          rotate={30}
-          peelBackHoverPct={20}
-          peelBackActivePct={40}
-          shadowIntensity={0.6}
-          lightingIntensity={0.1}
-          initialPosition={{ x: -100, y: 100 }}
-        />
-      </div> */}
+      <DotGrid
+        dotSize={10}
+        gap={15}
+        baseColor="#752075"
+        activeColor="#5227FF"
+        proximity={150}
+        shockRadius={250}
+        shockStrength={5}
+        resistance={750}
+        returnDuration={1.9}
+      />
       <Particles
         particleColors={["#b10abd", "#8a0594"]}
         particleCount={500}
@@ -37,7 +34,6 @@ const HeroSection = () => {
       />
 
       <div className="container mx-auto px-5">
-        {/* <DraggableHeroImage imageUrl="/images/hash-main.png" size={100} /> */}
         <div className="absolute inset-0 text-white z-40">
           <TrueFocus
             sentence="Empowering Growth Across Africa"

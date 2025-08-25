@@ -16,8 +16,100 @@ import {
   FaUsers,
   FaRocket,
 } from "react-icons/fa";
+import { usePathname } from "next/navigation"; // Add this import
 
 const Footer = () => {
+  const pathname = usePathname(); // Add this hook
+
+  // Add color theme configuration based on path
+  const getThemeColors = () => {
+    switch (pathname) {
+      case "/business":
+        return {
+          gradient: "from-black via-gray-900/20 to-black",
+          border: "border-gray-500/50",
+          primary: "text-gray-400",
+          highlight: "from-gray-500 to-gray-700",
+          statsBg: "bg-gray-900/20",
+          statsIcon: "text-gray-400",
+          statsBorder: "border-gray-500/20",
+          linkHover: "hover:text-gray-200",
+          socialHover: {
+            facebook: "hover:bg-gray-700/30 hover:text-gray-300",
+            twitter: "hover:bg-gray-700/30 hover:text-gray-300",
+            linkedin: "hover:bg-gray-700/30 hover:text-gray-300",
+            instagram: "hover:bg-gray-700/30 hover:text-gray-300",
+          },
+          buttonGradient: "from-gray-400 to-gray-700",
+          orbs: {
+            first: "bg-gray-600/45",
+            second: "bg-gray-600/45",
+          },
+          dotIndicator: "bg-gray-500",
+          developedBy: "from-gray-200 to-gray-500",
+          contactIcons: "text-gray-400",
+          contactHover: "hover:text-gray-200",
+          bottomBorder: "border-gray-500/50",
+        };
+      case "/rubix":
+        return {
+          gradient: "from-black via-green-900/20 to-black",
+          border: "border-green-500/50",
+          primary: "text-green-400",
+          highlight: "from-green-500 to-green-700",
+          statsBg: "bg-green-900/20",
+          statsIcon: "text-green-400",
+          statsBorder: "border-green-500/20",
+          linkHover: "hover:text-green-400",
+          socialHover: {
+            facebook: "hover:bg-green-700/30 hover:text-green-300",
+            twitter: "hover:bg-green-700/30 hover:text-green-300",
+            linkedin: "hover:bg-green-700/30 hover:text-green-300",
+            instagram: "hover:bg-green-700/30 hover:text-green-300",
+          },
+          buttonGradient: "from-green-300 to-green-800",
+          orbs: {
+            first: "bg-green-600/25",
+            second: "bg-green-600/25",
+          },
+          dotIndicator: "bg-green-500",
+          developedBy: "from-green-300 to-green-600",
+          contactIcons: "text-green-400",
+          contactHover: "hover:text-green-400",
+          bottomBorder: "border-green-500/50",
+        };
+      default:
+        return {
+          gradient: "from-black via-purple-950/20 to-black",
+          border: "border-purple-500/50",
+          primary: "text-purple-400",
+          highlight: "from-purple-500 to-blue-500",
+          statsBg: "bg-purple-900/20",
+          statsIcon: "text-purple-400",
+          statsBorder: "border-purple-500/20",
+          linkHover: "hover:text-purple-400",
+          socialHover: {
+            facebook: "hover:bg-blue-500/30 hover:text-blue-500",
+            twitter: "hover:bg-sky-400/30 hover:text-sky-400",
+            linkedin: "hover:bg-blue-600/30 hover:text-blue-600",
+            instagram: "hover:bg-pink-500/30 hover:text-pink-500",
+          },
+          buttonGradient: "from-purple-600 to-blue-600",
+          orbs: {
+            first: "bg-purple-600/15",
+            second: "bg-blue-600/15",
+          },
+          dotIndicator: "bg-purple-500",
+          developedBy: "from-purple-400 to-blue-400",
+          contactIcons: "text-purple-400",
+          contactHover: "hover:text-purple-400",
+          bottomBorder: "border-purple-500/50",
+        };
+    }
+  };
+
+  const theme = getThemeColors();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -43,7 +135,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative pt-16 pb-10 bg-gradient-to-b from-black via-purple-950/20 to-black border-t border-purple-500/50 overflow-hidden">
+    <footer
+      className={`relative pt-16 pb-10 bg-gradient-to-b ${theme.gradient} border-t ${theme.border} overflow-hidden`}
+    >
       {/* Animated Background */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Floating HASH Images */}
@@ -84,8 +178,12 @@ const Footer = () => {
         </motion.div>
 
         {/* Gradient Orbs */}
-        <div className="absolute top-0 left-50 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-50 w-80 h-80 bg-blue-600/15 rounded-full blur-3xl" />
+        <div
+          className={`absolute top-0 left-50 w-96 h-96 ${theme.orbs.first} rounded-full blur-3xl`}
+        />
+        <div
+          className={`absolute bottom-0 right-50 w-80 h-80 ${theme.orbs.second} rounded-full blur-3xl`}
+        />
       </div>
 
       <div className="relative z-10">
@@ -117,18 +215,30 @@ const Footer = () => {
 
               {/* Stats */}
               <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="text-center p-3 rounded-lg bg-purple-900/20 border border-purple-500/20">
-                  <FaUsers className="text-purple-400 text-xl mx-auto mb-1" />
+                <div
+                  className={`text-center p-3 rounded-lg ${theme.statsBg} border ${theme.statsBorder}`}
+                >
+                  <FaUsers
+                    className={`${theme.statsIcon} text-xl mx-auto mb-1`}
+                  />
                   <div className="text-lg font-bold text-white">100+</div>
                   <div className="text-xs text-gray-400">Projects</div>
                 </div>
-                <div className="text-center p-3 rounded-lg bg-purple-900/20 border border-blue-500/20">
-                  <FaGlobe className="text-purple-400 text-xl mx-auto mb-1" />
+                <div
+                  className={`text-center p-3 rounded-lg ${theme.statsBg} border ${theme.statsBorder}`}
+                >
+                  <FaGlobe
+                    className={`${theme.statsIcon} text-xl mx-auto mb-1`}
+                  />
                   <div className="text-lg font-bold text-white">2+</div>
                   <div className="text-xs text-gray-400">Countries</div>
                 </div>
-                <div className="text-center p-3 rounded-lg bg-purple-900/20 border border-green-500/20">
-                  <FaRocket className="text-purple-400 text-xl mx-auto mb-1" />
+                <div
+                  className={`text-center p-3 rounded-lg ${theme.statsBg} border ${theme.statsBorder}`}
+                >
+                  <FaRocket
+                    className={`${theme.statsIcon} text-xl mx-auto mb-1`}
+                  />
                   <div className="text-lg font-bold text-white">12+</div>
                   <div className="text-xs text-gray-400">Years</div>
                 </div>
@@ -139,21 +249,25 @@ const Footer = () => {
             <motion.div variants={itemVariants}>
               <h3 className="text-xl font-bold text-white mb-6 relative">
                 Quick Links
-                <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500"></div>
+                <div
+                  className={`absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r ${theme.highlight}`}
+                ></div>
               </h3>
               <ul className="space-y-3">
                 {[
-                  { name: "Marketing" },
-                  { name: "Business" },
-                  { name: "RUBiX" },
+                  { name: "Marketing " },
+                  { name: "Business Development" },
+                  { name: "Rubix Productions" },
                   { name: "Contact Us" },
                 ].map((link, index) => (
                   <li key={index}>
                     <Link
                       href={`#${link.name}`}
-                      className="cursor-target text-gray-400 hover:text-purple-400 transition-colors duration-300 flex items-center group"
+                      className={`cursor-target text-gray-400 ${theme.linkHover} transition-colors duration-300 flex items-center group`}
                     >
-                      <span className="w-2 h-2 bg-purple-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                      <span
+                        className={`w-2 h-2 ${theme.dotIndicator} rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                      ></span>
                       {link.name}
                     </Link>
                   </li>
@@ -165,11 +279,15 @@ const Footer = () => {
             <motion.div variants={itemVariants}>
               <h3 className="text-xl font-bold text-white mb-6 relative">
                 Contact Info
-                <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500"></div>
+                <div
+                  className={`absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r ${theme.highlight}`}
+                ></div>
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3 group">
-                  <FaMapMarkerAlt className="text-purple-400 mt-1 group-hover:scale-110 transition-transform duration-300" />
+                  <FaMapMarkerAlt
+                    className={`${theme.contactIcons} mt-1 group-hover:scale-110 transition-transform duration-300`}
+                  />
                   <div>
                     <p className="text-gray-400 leading-relaxed">
                       123 Business District
@@ -180,20 +298,24 @@ const Footer = () => {
                 </div>
 
                 <div className="flex items-center space-x-3 group">
-                  <FaPhone className="text-purple-400 group-hover:scale-110 transition-transform duration-300" />
+                  <FaPhone
+                    className={`${theme.contactIcons} group-hover:scale-110 transition-transform duration-300`}
+                  />
                   <a
                     href="tel:+201234567890"
-                    className="cursor-target text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                    className={`cursor-target text-gray-400 ${theme.contactHover} transition-colors duration-300`}
                   >
                     +20 123 456 7890
                   </a>
                 </div>
 
                 <div className="flex items-center space-x-3 group">
-                  <FaEnvelope className="text-purple-400 group-hover:scale-110 transition-transform duration-300" />
+                  <FaEnvelope
+                    className={`${theme.contactIcons} group-hover:scale-110 transition-transform duration-300`}
+                  />
                   <a
                     href="mailto:info@HASHsolutions.com"
-                    className="cursor-target text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                    className={`cursor-target ${theme.contactHover} text-gray-400 transition-colors duration-300`}
                   >
                     info@HASHsolutions.com
                   </a>
@@ -207,23 +329,19 @@ const Footer = () => {
                   {[
                     {
                       icon: FaFacebookF,
-                      color: "hover:text-blue-500",
-                      bg: "hover:bg-blue-500/30",
+                      hoverClass: theme.socialHover.facebook,
                     },
                     {
                       icon: FaTwitter,
-                      color: "hover:text-sky-400",
-                      bg: "hover:bg-sky-400/30",
+                      hoverClass: theme.socialHover.twitter,
                     },
                     {
                       icon: FaLinkedinIn,
-                      color: "hover:text-blue-600",
-                      bg: "hover:bg-blue-600/30",
+                      hoverClass: theme.socialHover.linkedin,
                     },
                     {
                       icon: FaInstagram,
-                      color: "hover:text-pink-500",
-                      bg: "hover:bg-pink-500/30",
+                      hoverClass: theme.socialHover.instagram,
                     },
                   ].map((social, index) => (
                     <motion.a
@@ -231,7 +349,7 @@ const Footer = () => {
                       href="#"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
-                      className={`cursor-target w-10 h-10 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-400 transition-all duration-300 ${social.color} ${social.bg}`}
+                      className={`cursor-target w-10 h-10 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-400 transition-all duration-300 ${social.hoverClass}`}
                     >
                       <social.icon className="text-sm" />
                     </motion.a>
@@ -244,13 +362,15 @@ const Footer = () => {
           {/* Bottom Section */}
           <motion.div
             variants={itemVariants}
-            className="border-t border-purple-500/50 pt-9 flex flex-col md:flex-row mx-auto justify-center items-center"
+            className={`border-t ${theme.bottomBorder} pt-9 flex flex-col md:flex-row mx-auto justify-center items-center`}
           >
             <div className="text-gray-400 text-center text-sm mb-4 md:mb-0 w-full md:w-auto">
               <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
                 <span>© 2024 HASH Solutions. All rights reserved.</span>
                 <span className="hidden md:inline">|</span>
-                <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-medium">
+                <span
+                  className={`bg-gradient-to-r ${theme.developedBy} bg-clip-text text-transparent font-medium`}
+                >
                   Developed by HASH Solutions
                 </span>
                 <span className="hidden md:inline">|</span>
@@ -262,7 +382,7 @@ const Footer = () => {
               onClick={scrollToTop}
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="cursor-target w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center text-white shadow-lg hover:shadow-purple-500/25 transition-all duration-300 md:absolute md:right-5"
+              className={`cursor-target w-12 h-12 rounded-full bg-gradient-to-r ${theme.buttonGradient} flex items-center justify-center text-white shadow-lg hover:shadow-current/25 transition-all duration-300 md:absolute md:right-5`}
             >
               <FaArrowUp className="text-sm" />
             </motion.button>
