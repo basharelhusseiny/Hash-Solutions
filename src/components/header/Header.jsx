@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <header>
-      <div className="container mx-auto px-5">
+      <div className="container mx-auto px-5 max-lg:hidden">
         <div className="flex flex-col sm:flex-row h-26 sm:h-16 items-center fixed left-0 right-0 top-0 z-50 mx-auto px-6 max-sm:pt-2 border-2 border-white/25 backdrop-blur-lg rounded-full mt-5 w-fit">
           <div className="px-3">
             <Link href="/">

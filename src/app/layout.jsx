@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import TargetCursor from "@/ui/TargetCursor";
+import BubbleMenu from "@/components/header/BubbleMenu";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -15,12 +16,67 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const items = [
+    {
+      label: "Home",
+      href: "/",
+      ariaLabel: "Home",
+      rotation: -8,
+      hoverStyles: { bgColor: "#3b82f6", textColor: "#ffffff" },
+    },
+    {
+      label: "Marketing",
+      href: "/marketing",
+      ariaLabel: "marketing",
+      rotation: -8,
+      hoverStyles: { bgColor: "#3b82f6", textColor: "#ffffff" },
+    },
+    {
+      label: "Business Development",
+      href: "/business",
+      ariaLabel: "business Development",
+      rotation: 8,
+      hoverStyles: { bgColor: "#10b981", textColor: "#ffffff" },
+    },
+    {
+      label: "Rubix Productions",
+      href: "/rubix",
+      ariaLabel: "Rubix",
+      rotation: 8,
+      hoverStyles: { bgColor: "#f59e0b", textColor: "#ffffff" },
+    },
+    {
+      label: "Contact us",
+      href: "/contact",
+      ariaLabel: "contact",
+      rotation: -8,
+      hoverStyles: { bgColor: "#8b5cf6", textColor: "#ffffff" },
+    },
+  ];
   return (
     <html lang="en">
       <body
         className={`${roboto.className} antialiased min-h-screen flex flex-col`}
       >
         <Header />
+        <BubbleMenu
+          logo={
+            <img
+              src="/images/HASH-SOLUTIONS-LOGO2.png"
+              alt="logo Hash Solution"
+              className="cursor-target w-full h-full object-contain"
+            />
+          }
+          items={items}
+          menuAriaLabel="Toggle navigation"
+          menuBg="transparent"
+          menuContentColor="#111111"
+          useFixedPosition={false}
+          animationEase="back.out(1.5)"
+          animationDuration={0.5}
+          staggerDelay={0.12}
+          className="larger-logo block lg:hidden"
+        />
         <main className="flex-grow">{children}</main>
         <Footer />
         <div className="hidden md:block">
