@@ -117,9 +117,9 @@ const CompanyOverview = () => {
     >
       <div className="container mx-auto px-5">
         {/* Floating Animated Images */}
-        <div className="absolute inset-0 pointer-events-none">
+        {/* <div className="absolute inset-0 pointer-events-none">
           <FloatingImage
-            src="/images/hash-cup.png"
+            src="/images/Hash-box-new.png"
             alt="Hash Cup"
             delay={2}
             size={80}
@@ -142,7 +142,7 @@ const CompanyOverview = () => {
             position={{ bottom: "10%", right: "25%" }}
             animationType="spin"
           />
-        </div>
+        </div> */}
 
         {/* Gradient Orbs */}
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
@@ -171,11 +171,11 @@ const CompanyOverview = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Card Icon */}
-              <div className="absolute -top-4 -right-4 transition-opacity duration-300">
+              <div className="absolute -top-9 -right-9 transition-opacity duration-300">
                 <Image
-                  src="/images/hash-cup.png"
+                  src="/images/Hash-box-new.png"
                   alt="Hash Main"
-                  width={60}
+                  width={80}
                   height={60}
                   className="filter brightness-150"
                 />
@@ -213,11 +213,11 @@ const CompanyOverview = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Card Icon */}
-              <div className="absolute -top-4 -right-4  transition-opacity duration-300">
+              <div className="absolute -top-9 -right-9 transition-opacity duration-300">
                 <Image
-                  src="/images/hash-cup.png"
-                  alt="Hash Cup"
-                  width={60}
+                  src="/images/Hash-box-new.png"
+                  alt="Hash Main"
+                  width={80}
                   height={60}
                   className="filter brightness-150"
                 />

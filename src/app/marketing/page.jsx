@@ -18,6 +18,10 @@ import { IoDiamond } from "react-icons/io5";
 const MarketingPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [activeImage, setActiveImage] = useState("/images/hash-marketing.png"); // State للصورة النشطة
+  const [activeDesignImage, setActiveDesignImage] = useState(
+    "/images/meetHash.png"
+  ); // New state for design image
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -74,24 +78,28 @@ const MarketingPage = () => {
       title: "Brand Strategy & Brand Positioning",
       description: "Strategic brand development and market positioning",
       color: "from-purple-600 to-purple-800",
+      image: "/images/hash-chair.png",
     },
     {
       icon: FaChartLine,
       title: "Marketing & Sales Strategy",
       description: "Comprehensive marketing and sales frameworks",
       color: "from-violet-500 to-purple-700",
+      image: "/images/hash-cup.png",
     },
     {
       icon: FaRocket,
       title: "Campaign Creation & Execution",
       description: "End-to-end campaign management and optimization",
       color: "from-indigo-500 to-purple-600",
+      image: "/images/hash-lens.png",
     },
     {
       icon: FaLightbulb,
       title: "Sales Training Workshops",
       description: "Professional sales training and skill development",
       color: "from-purple-500 to-indigo-600",
+      image: "/images/hash-camira.png",
     },
   ];
 
@@ -101,18 +109,21 @@ const MarketingPage = () => {
       title: "Brand Identity & Logo Design",
       description: "Complete brand identity and visual design systems",
       color: "from-violet-600 to-purple-600",
+      image: "/images/hash-chair.png",
     },
     {
       icon: FaStar,
       title: "Artwork & Visual Design",
       description: "Creative artwork and visual communication design",
       color: "from-purple-600 to-violet-700",
+      image: "/images/hash-cup.png",
     },
     {
       icon: FaBullhorn,
       title: "Social Media Branding",
       description: "Social media visual identity and content design",
       color: "from-indigo-600 to-purple-600",
+      image: "/images/hash-lens.png",
     },
     {
       icon: FaRocket,
@@ -120,6 +131,7 @@ const MarketingPage = () => {
       description:
         "Flyers, billboards, corporate gifts and promotional materials",
       color: "from-purple-500 to-violet-600",
+      image: "/images/hash-camira.png",
     },
   ];
 
@@ -170,39 +182,6 @@ const MarketingPage = () => {
           }}
           className="absolute bottom-20 right-1/4 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl"
         />
-
-        {/* Floating Diamonds */}
-        {/* {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -30, 0],
-              rotate: [0, 360],
-              scale: [1, 1.3, 1],
-            }}
-            transition={{
-              duration: 6 + i,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.8,
-            }}
-            className={`absolute ${
-              i % 4 === 0
-                ? "top-10"
-                : i % 4 === 1
-                ? "top-1/3"
-                : i % 4 === 2
-                ? "bottom-1/3"
-                : "bottom-10"
-            } ${
-              i % 3 === 0 ? "left-10" : i % 3 === 1 ? "right-10" : "left-1/2"
-            }`}
-          >
-            <IoDiamond
-              className={`text-${2 + (i % 3)}xl text-purple-400/${15 + i * 3}`}
-            />
-          </motion.div>
-        ))} */}
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -289,8 +268,9 @@ const MarketingPage = () => {
                   onHoverEnd={() => setHoveredItem(null)}
                   onTouchStart={() => setHoveredItem(`marketing-${index}`)}
                   onTouchEnd={() => setHoveredItem(null)}
+                  onClick={() => setActiveImage(service.image)} // تحديث الصورة النشطة
                   whileHover={{ x: 10, scale: 1.02 }}
-                  className="group relative"
+                  className="group relative cursor-pointer" // إضافة تأثير المؤشر
                 >
                   <div className="flex items-start p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
                     {/* Icon */}
@@ -368,7 +348,7 @@ const MarketingPage = () => {
               {/* Image */}
               <div className="relative bg-black/20 backdrop-blur-sm border border-purple-500/30 rounded-3xl p-8 shadow-2xl">
                 <Image
-                  src="/images/hash-marketing.png"
+                  src={activeImage} // استخدام الصورة النشطة
                   alt="Marketing Solutions"
                   width={600}
                   height={500}
@@ -436,7 +416,7 @@ const MarketingPage = () => {
               {/* Image */}
               <div className="relative bg-black/20 backdrop-blur-sm border border-violet-500/30 rounded-3xl p-8 shadow-2xl">
                 <Image
-                  src="/images/meetHash.png"
+                  src={activeDesignImage} // Update this line
                   alt="Design & Branding Solutions"
                   width={600}
                   height={500}
@@ -481,7 +461,7 @@ const MarketingPage = () => {
               <div className="absolute inset-0 w-full h-full border-2 border-purple-500/20 rounded-3xl transform rotate-3" />
             </div>
           </motion.div>
-
+          {/* ===================================================================== */}
           {/* Content Side */}
           <motion.div
             variants={containerVariants}
@@ -517,8 +497,9 @@ const MarketingPage = () => {
                   onHoverEnd={() => setHoveredItem(null)}
                   onTouchStart={() => setHoveredItem(`design-${index}`)}
                   onTouchEnd={() => setHoveredItem(null)}
+                  onClick={() => setActiveDesignImage(service.image)} // Add this line
                   whileHover={{ x: 10, scale: 1.02 }}
-                  className="group relative"
+                  className="group relative cursor-pointer" // Add cursor-pointer
                 >
                   <div className="flex items-start p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-violet-500/30 hover:border-violet-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-violet-500/20">
                     {/* Icon */}
