@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import SectionHeader from "@/ui/SectionHeader";
+import StarBorder from "@/ui/StarBorderBtn/StarBorderBtn";
+import Link from "next/link";
 
 const FloatingImage = ({
   src,
@@ -116,34 +118,6 @@ const CompanyOverview = () => {
       className="pt-24 pb-10 relative overflow-hidden bg-gradient-to-b from-black via-purple-950/10 to-black"
     >
       <div className="container mx-auto px-5">
-        {/* Floating Animated Images */}
-        {/* <div className="absolute inset-0 pointer-events-none">
-          <FloatingImage
-            src="/images/Hash-box-new.png"
-            alt="Hash Cup"
-            delay={2}
-            size={80}
-            position={{ bottom: "25%", left: "8%" }}
-            animationType="pulse"
-          />
-          <FloatingImage
-            src="/images/hash-cup.png"
-            alt="Hash Main"
-            delay={3}
-            size={90}
-            position={{ top: "45%", right: "12%" }}
-            animationType="float"
-          />
-          <FloatingImage
-            src="/images/hash-main.png"
-            alt="Hash Cup"
-            delay={4}
-            size={70}
-            position={{ bottom: "10%", right: "25%" }}
-            animationType="spin"
-          />
-        </div> */}
-
         {/* Gradient Orbs */}
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute top-120 left-20 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
@@ -151,13 +125,13 @@ const CompanyOverview = () => {
         <div className="absolute bottom-0 right-10 w-80 h-80 bg-blue-600/15 rounded-full blur-3xl animate-pulse delay-1000" />
 
         <div className="container mx-auto px-5 relative z-20">
-          <SectionHeader title="A Brief Story About The Company" />
+          <SectionHeader title="What We Do?" />
 
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}
-            className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+            className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto"
           >
             {/* First Card */}
             <motion.div
@@ -175,7 +149,7 @@ const CompanyOverview = () => {
                 <Image
                   src="/images/Hash-box-new.png"
                   alt="Hash Main"
-                  width={80}
+                  width={70}
                   height={60}
                   className="filter brightness-150"
                 />
@@ -185,18 +159,13 @@ const CompanyOverview = () => {
                 <div className="flex items-center mb-4">
                   <div className="w-3 h-3 bg-purple-500 rounded-full mr-3 animate-pulse" />
                   <span className="text-purple-300 text-sm font-medium">
-                    Our Journey
+                    Strategic Marketing
                   </span>
                 </div>
 
                 <p className="text-gray-300 leading-relaxed text-lg group-hover:text-white transition-colors duration-300">
-                  HASH Solutions is a dynamic marketing and business development
-                  Company with operations in Khartoum, Sudan and Juba, South
-                  Sudan. Since our inception in 2011, we've been committed to
-                  delivering tailored solutions that drive business growth and
-                  innovation. In 2023, we expanded to South Sudan to better
-                  serve a growing demand in the region, with plans to expand
-                  further into Nairobi in the near future.
+                  Drive awareness, demand, and measurable ROI through
+                  research-led strategy, campaigns, and content.
                 </p>
               </div>
             </motion.div>
@@ -217,7 +186,7 @@ const CompanyOverview = () => {
                 <Image
                   src="/images/Hash-box-new.png"
                   alt="Hash Main"
-                  width={80}
+                  width={70}
                   height={60}
                   className="filter brightness-150"
                 />
@@ -227,17 +196,48 @@ const CompanyOverview = () => {
                 <div className="flex items-center mb-4">
                   <div className="w-3 h-3 bg-blue-500 rounded-full mr-3 animate-pulse delay-500" />
                   <span className="text-blue-300 text-sm font-medium">
-                    Our Expertise
+                    Business Development
                   </span>
                 </div>
 
                 <p className="text-gray-300 leading-relaxed text-lg group-hover:text-white transition-colors duration-300">
-                  Our creative, results-driven team specializes in providing
-                  strategic marketing solutions, business development
-                  consulting, design services, media production, and event
-                  management. We pride ourselves on our ability to craft
-                  impactful strategies that align with our clients' business
-                  goals and deliver measurable success.
+                  Open new markets, build partnerships, and improve sales
+                  processes to convert opportunities into revenue.
+                </p>
+              </div>
+            </motion.div>
+            <motion.div
+              variants={cardVariants}
+              whileHover={{
+                scale: 1.02,
+                boxShadow: "0 20px 40px rgba(188, 148, 199, 0.3)",
+              }}
+              className="group relative p-8 rounded-2xl bg-gradient-to-br from-gray-900/80 to-fuchsia-900/20 backdrop-blur-sm border border-fuchsia-500/30 hover:border-fuchsia-400/60 transition-all duration-500"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-fuchsia-600/10 to-purple-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Card Icon */}
+              <div className="absolute -top-9 -right-9 transition-opacity duration-300">
+                <Image
+                  src="/images/Hash-box-new.png"
+                  alt="Hash Main"
+                  width={70}
+                  height={60}
+                  className="filter brightness-150"
+                />
+              </div>
+
+              <div className="relative z-10">
+                <div className="flex items-center mb-4">
+                  <div className="w-3 h-3 bg-fuchsia-500 rounded-full mr-3 animate-pulse delay-500" />
+                  <span className="text-fuchsia-300 text-sm font-medium">
+                    Creative & Media
+                  </span>
+                </div>
+
+                <p className="text-gray-300 leading-relaxed text-lg group-hover:text-white transition-colors duration-300">
+                  Brand identity, design, photography, and high quality video
+                  production that clarify your value and inspire action.
                 </p>
               </div>
             </motion.div>
@@ -253,7 +253,7 @@ const CompanyOverview = () => {
             {[
               { number: "2011", label: "Founded" },
               { number: "2+", label: "Countries" },
-              { number: "12+", label: "Years Experience" },
+              { number: "14+", label: "Years Experience" },
               { number: "100+", label: "Projects Delivered" },
             ].map((stat, index) => (
               <motion.div
@@ -268,6 +268,16 @@ const CompanyOverview = () => {
               </motion.div>
             ))}
           </motion.div>
+          <Link href={""} className="w-[200px] block mx-auto mt-14">
+            <StarBorder
+              as="button"
+              className="custom-class cursor-target"
+              color="magenta"
+              speed="5s"
+            >
+              Explore Services
+            </StarBorder>
+          </Link>
         </div>
       </div>
     </section>

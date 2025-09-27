@@ -11,45 +11,37 @@ const MOBILE_BREAKPOINT = 768;
 const cardData = [
   {
     color: "#060010",
-    title: "Creative Visions, Real Results",
+    title: "Corporate Visual Profile",
     description:
-      "At HASH Solutions, we bring creative visions to life through RUBiX PRODUCTIONS.",
+      "A Brand Short Film Purpose-driven stories for internal and external audiences.",
   },
   {
     color: "#060010",
-    title: "Your Media Partner",
-    description:
-      "RUBiX Productions is your go-to source for all media production needs, creating content that not only engages but elevates your brand.",
+    title: "TVC",
+    description: "TV & Social Media Commercials.",
   },
   {
     color: "#060010",
-    title: "Media Services",
-    services: [
-      "TV Commercials (TVC)",
-      "Documentaries",
-      "Corporate Videos",
-      "Social Media Reels",
-      "Photography & Event Coverage",
-      "Motion Graphic Design",
-    ],
+    title: "Reels",
+    description: "Creative engagement social media short videos.",
+    img: "/images/Productions.png",
   },
   {
     color: "#060010",
-    title: "See Our Work",
-    description:
-      "We promote our work through our Instagram and Facebook pages, showcasing projects and building a network of businesses looking to enhance their media presence.",
+    title: "Event Coverage",
+    description: "Capture moments, messages, and impact with precision.",
+    img: "/images/Productions.png",
   },
   {
     color: "#060010",
-    title: "From Reels to Full-Scale",
-    description:
-      "Whether it’s social media content or full-scale productions, we ensure your brand’s story is told in the most impactful way.",
+    title: "Photography",
+    description: "Corporate profiles, product, lifestyle, and editorial.",
   },
   {
     color: "#060010",
-    title: "Powered by Tangerine",
+    title: "Post-Production",
     description:
-      "Through Tangerine Productions, we offer a wide range of media services tailored to your brand’s goals.",
+      "Editing, color, sound design, motion graphics, and versioning. ",
   },
 ];
 
@@ -712,20 +704,10 @@ const MagicBento = ({
                       {card.description}
                     </p>
 
-                    {/* Services List */}
-                    {card.services && (
-                      <div className="mt-3">
-                        <ul className="space-y-0.5 md:space-y-2">
-                          {card.services.map((service, serviceIndex) => (
-                            <li
-                              key={serviceIndex}
-                              className="flex items-center text-sm"
-                            >
-                              <span className="w-1.5 h-1.5 bg-[#bcfd5e] rounded-full mr-2 flex-shrink-0"></span>
-                              {service}
-                            </li>
-                          ))}
-                        </ul>
+                    {/* Image List */}
+                    {card.img && (
+                      <div className="">
+                        <img src={card.img} alt="" />
                       </div>
                     )}
                   </div>

@@ -12,7 +12,12 @@ import {
   FaBuilding,
   FaUsers,
   FaArrowRight,
+  FaClipboardCheck,
 } from "react-icons/fa";
+import { MdOutlineAssessment } from "react-icons/md";
+import { BiTargetLock } from "react-icons/bi";
+import { BsSpeedometer } from "react-icons/bs";
+import { TbArrowsJoin } from "react-icons/tb";
 import { FiTarget } from "react-icons/fi";
 
 const BusinessPage = () => {
@@ -55,79 +60,94 @@ const BusinessPage = () => {
     },
   };
 
-  const services = [
+  const prosesData = [
     {
-      icon: FaCogs,
-      title: "Business Process Management (BPM) Consultation",
-      description:
-        "Streamline your operations with expert BPM strategies that optimize efficiency and reduce costs.",
-      features: [
-        "Process Mapping & Analysis",
-        "Workflow Optimization",
-        "Performance Metrics Setup",
-        "Quality Management Systems",
-      ],
-      color: "from-gray-700 to-gray-800",
-    },
-    {
-      icon: FaChartLine,
-      title: "Business Plans & Market Survey",
-      description:
-        "Comprehensive market analysis and strategic business planning to ensure your venture's success.",
-      features: [
-        "Market Research & Analysis",
-        "Competitive Assessment",
-        "Financial Projections",
-        "Risk Analysis",
-      ],
-      color: "from-zinc-800 to-zinc-900",
+      icon: MdOutlineAssessment,
+      title: "Assessment",
+      description: "We map your current state and goals.",
+      step: "01",
     },
     {
       icon: FaLightbulb,
-      title: "Business Development Strategies",
-      description:
-        "Innovative strategies tailored to accelerate your business growth and market penetration.",
-      features: [
-        "Growth Strategy Planning",
-        "Sales Process Optimization",
-        "Partnership Development",
-        "Market Entry Strategy",
-      ],
-      color: "from-gray-800 to-gray-900",
+      title: "Strategy",
+      description: "We design a practical plan tailored to your market.",
+      step: "02",
     },
     {
-      icon: FaBuilding,
-      title: "Corporate Business Facilitation",
-      description:
-        "Professional corporate services and financial management to support your business operations.",
-      features: [
-        "Corporate Structure Setup",
-        "Financial Management",
-        "Compliance Services",
-        "Business Advisory",
-      ],
-      color: "from-neutral-800 to-neutral-900",
+      icon: FaRocket,
+      title: "Activation",
+      description: "We implement and build capability with your team.",
+      step: "03",
     },
     {
-      icon: FaGlobe,
-      title: "Business Expansion Services",
-      description:
-        "Preparation and qualifying for local & international expansion opportunities.",
-      features: [
-        "Market Entry Analysis",
-        "International Partnership",
-        "Expansion Planning",
-        "Cross-border Operations",
-      ],
-      color: "from-gray-800 to-gray-900",
+      icon: FaChartLine,
+      title: "Review",
+      description: "We measure impact and iterate.",
+      step: "04",
     },
   ];
 
+  const outcomesData = [
+    {
+      icon: BiTargetLock,
+      title: "Clear growth plan",
+      description: "By segment and channel",
+      highlight: "Strategic",
+    },
+    {
+      icon: FaClipboardCheck,
+      title: "Better-qualified pipeline",
+      description: "With improved lead quality",
+      highlight: "Qualified",
+    },
+    {
+      icon: BsSpeedometer,
+      title: "Faster sales cycles",
+      description: "And improved close rates",
+      highlight: "Efficient",
+    },
+    {
+      icon: TbArrowsJoin,
+      title: "Repeatable process",
+      description: "For sustainable growth",
+      highlight: "Sustainable",
+    },
+  ];
+
+  const businessOffersData = [
+    {
+      title: "Go-to-Market Planning",
+      description:
+        "Prioritize segments, define value propositions, and map acquisition channels.",
+      icon: FaChartLine,
+    },
+    {
+      title: "Pipeline & Partnerships",
+      description:
+        "Prospecting frameworks, outreach, and partnership structuring.",
+      icon: FaHandshake,
+    },
+    {
+      title: "Sales Enablement",
+      description: "Offers, proposals, pitch materials.",
+      icon: FaRocket,
+    },
+    {
+      title: "Pricing & Packaging",
+      description: "Design service tiers.",
+      icon: FaBuilding,
+    },
+    {
+      title: "Sales & Customer Service",
+      description: "Training and development programs.",
+      icon: FaUsers,
+    },
+  ];
   const stats = [
     { icon: FaUsers, number: "500+", label: "Clients Served" },
-    { icon: FaRocket, number: "12+", label: "Years Experience" },
+    { icon: FaRocket, number: "14+", label: "Years Experience" },
     { icon: FiTarget, number: "95%", label: "Success Rate" },
-    { icon: FaHandshake, number: "3", label: "Countries" },
+    { icon: FaHandshake, number: "2", label: "Countries" },
   ];
 
   return (
@@ -149,22 +169,42 @@ const BusinessPage = () => {
           animate={isVisible ? "visible" : "hidden"}
           className="text-center mb-20"
         >
-          <motion.div variants={itemVariants} className="mb-8">
-            <span className="inline-block px-4 py-2 bg-gray-800 text-gray-300 rounded-full text-sm font-medium border border-gray-700 mb-6">
-              Professional Business Solutions
+          <motion.div variants={itemVariants} className="mb-20">
+            <span className="inline-block px-6 py-2 bg-gray-800 text-gray-300 rounded-full font-medium border border-gray-700 mb-6">
+              Business Development Solutions
             </span>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="text-gray-200">Business Development</span>
-              <br />
-              <span className="text-gray-400">Solutions</span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <span className="text-gray-100">Strategically Expanding </span>
+              <span className="text-gray-200">Businesses </span>
+              <span className="text-gray-300">and </span>
+              <span className="text-gray-400"> Driving</span>
+              <span className="text-gray-500"> Growth</span>
             </h1>
-            <div className="flex justify-center items-center gap-4 mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="relative"
+            >
+              <p className="text-[20px] text-gray-200 max-w-5xl mx-auto leading-relaxed font-light">
+                We help you identify opportunities, build partnerships, and
+                streamline your commercial engine to grow revenue.
+              </p>
+              {/* Underline Animation */}
+              <motion.div
+                initial={{ width: 0 }}
+                animate={isVisible ? { width: "70%" } : { width: 0 }}
+                transition={{ delay: 1.5, duration: 1.2 }}
+                className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-transparent via-gray-500 to-transparent"
+              />
+            </motion.div>
+            {/* <div className="flex justify-center items-center gap-4 my-8">
               <div className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent w-24" />
               <span className="text-xl font-bold text-gray-400">
                 Let's Hash It Up!
               </span>
               <div className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent w-24" />
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Hero Image and Content */}
@@ -178,11 +218,11 @@ const BusinessPage = () => {
               className="relative group order-2 lg:order-1"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-gray-800/20 to-gray-700/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
-              <div className="relative bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-8 shadow-2xl">
+              <div className="relative flex items-center justify-center bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-8 shadow-2xl">
                 <Image
                   src="/images/meetHash.png"
                   alt="Business Development"
-                  width={400}
+                  width={370}
                   height={200}
                   className="rounded-2xl shadow-xl"
                   priority
@@ -191,34 +231,55 @@ const BusinessPage = () => {
             </motion.div>
 
             {/* Content Side */}
+            {/* Content Side */}
             <div className="text-left order-1 lg:order-2">
-              <p className="text-xl text-gray-400 leading-relaxed mb-8">
-                Empowering businesses with strategic solutions that drive
-                growth, optimize operations, and unlock new opportunities in
-                today's competitive landscape.
-              </p>
+              <h3 className="text-2xl font-bold text-gray-200 mb-6">
+                Business Process Management
+                <span className="text-gray-400"> consultation (BPM)</span>
+              </h3>
 
-              {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-4">
-                {stats.map((stat, index) => (
+              <div className="space-y-6">
+                {businessOffersData.map((item, index) => (
                   <motion.div
                     key={index}
                     variants={itemVariants}
-                    whileHover={{ scale: 1.05 }}
-                    className="p-4 cursor-target rounded-xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 text-center transition-all duration-300 hover:border-gray-600"
+                    whileHover={{ x: 10 }}
+                    className="group flex items-start gap-4 p-4 rounded-xl bg-gray-800/20 border border-gray-700/50 hover:border-gray-600 transition-all duration-300"
                   >
-                    <stat.icon className="text-3xl text-gray-400 mx-auto mb-2" />
-                    <div className="text-2xl font-bold text-gray-200 mb-1">
-                      {stat.number}
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center flex-shrink-0">
+                      <item.icon className="text-xl text-gray-300 group-hover:text-gray-200 transition-colors" />
                     </div>
-                    <div className="text-gray-400">{stat.label}</div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-200 mb-1 group-hover:text-white transition-colors">
+                        {item.title}
+                      </h4>
+                      <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
+                        {item.description}
+                      </p>
+                    </div>
                   </motion.div>
                 ))}
               </div>
             </div>
           </motion.div>
         </motion.div>
-
+        {/* Grid ============================= */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              className="p-4 cursor-target rounded-xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 text-center transition-all duration-300 hover:border-gray-600"
+            >
+              <stat.icon className="text-3xl text-gray-400 mx-auto mb-2" />
+              <div className="text-2xl font-bold text-gray-200 mb-1">
+                {stat.number}
+              </div>
+              <div className="text-gray-400">{stat.label}</div>
+            </motion.div>
+          ))}
+        </div>
         {/* Services Section */}
         <motion.div
           variants={containerVariants}
@@ -226,56 +287,108 @@ const BusinessPage = () => {
           animate={isVisible ? "visible" : "hidden"}
           className="mb-20"
         >
+          {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Our <span className="text-gray-300">Services</span>
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Comprehensive business solutions designed to accelerate your
-              growth and success
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="relative"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                How <span className="text-gray-300">We Work!</span>
+              </h2>
+              {/* Underline Animation */}
+              <motion.div
+                initial={{ width: 0 }}
+                animate={isVisible ? { width: "30%" } : { width: 0 }}
+                transition={{ delay: 1.5, duration: 1.2 }}
+                className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-transparent via-gray-500 to-transparent"
+              />
+            </motion.div>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
-                whileTap={{ scale: 0.98 }}
-                className={`group relative p-8 rounded-2xl bg-gradient-to-b ${service.color} border border-gray-700/50 transition-all duration-500 hover:border-gray-500`}
-              >
-                <div className="relative z-10">
+          {/* Two Column Layout */}
+          <div className="grid lg:grid-cols-2 gap-16">
+            {/* Process Column */}
+            <motion.div
+              variants={itemVariants}
+              className="bg-gray-900/20 rounded-2xl p-8 border border-gray-800"
+            >
+              <h3 className="text-2xl font-bold text-gray-200 mb-8 flex items-center">
+                <span className="w-10 h-10 rounded-lg bg-gradient-to-r from-gray-700 to-gray-800 flex items-center justify-center mr-3">
+                  <FaRocket className="text-gray-300" />
+                </span>
+                Process
+              </h3>
+              <div className="space-y-6">
+                {prosesData.map((item, index) => (
                   <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                    className="w-16 h-16 mb-6 bg-gray-800 rounded-xl flex items-center justify-center text-gray-300 shadow-lg"
+                    key={index}
+                    variants={itemVariants}
+                    whileHover={{ x: 10 }}
+                    className="flex items-start gap-6 p-5 rounded-xl bg-gradient-to-br from-gray-800/30 to-gray-900/30 border border-gray-700/50 hover:border-gray-600 transition-all duration-300 group"
                   >
-                    <service.icon className="text-2xl" />
-                  </motion.div>
-
-                  <h3 className="text-xl font-bold text-gray-200 mb-4">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-gray-400 leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-
-                  <div className="space-y-3">
-                    {service.features.map((feature, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-center text-gray-400"
-                      >
-                        <div className="w-2 h-2 bg-gray-600 rounded-full mr-3"></div>
-                        {feature}
+                    <div className="flex-shrink-0 relative">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+                        <item.icon className="text-xl text-gray-300 group-hover:text-gray-200 transition-colors" />
                       </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                      <span className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-gray-800 text-gray-400 text-xs flex items-center justify-center border border-gray-700">
+                        {item.step}
+                      </span>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-200 mb-2 group-hover:text-white transition-colors">
+                        {item.title}
+                      </h4>
+                      <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
+                        {item.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Outcomes Column */}
+            <motion.div
+              variants={itemVariants}
+              className="bg-gray-900/20 rounded-2xl p-8 border border-gray-800"
+            >
+              <h3 className="text-2xl font-bold text-gray-200 mb-8 flex items-center">
+                <span className="w-10 h-10 rounded-lg bg-gradient-to-r from-gray-700 to-gray-800 flex items-center justify-center mr-3">
+                  <BiTargetLock className="text-gray-300" />
+                </span>
+                Outcomes
+              </h3>
+              <div className="space-y-6">
+                {outcomesData.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    whileHover={{ x: 10 }}
+                    className="flex items-start gap-6 p-5 rounded-xl bg-gradient-to-br from-gray-800/30 to-gray-900/30 border border-gray-700/50 hover:border-gray-600 transition-all duration-300 group"
+                  >
+                    <div className="flex-shrink-0 relative">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+                        <item.icon className="text-xl text-gray-300 group-hover:text-gray-200 transition-colors" />
+                      </div>
+                      <span className="absolute -top-3 -right-3 px-2 py-1 rounded-full bg-gray-800 text-gray-400 text-xs flex items-center justify-center border border-gray-700">
+                        {item.highlight}
+                      </span>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-200 mb-2 group-hover:text-white transition-colors">
+                        {item.title}
+                      </h4>
+                      <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
+                        {item.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </motion.div>
 

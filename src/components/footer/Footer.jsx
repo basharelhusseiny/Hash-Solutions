@@ -172,9 +172,14 @@ const Footer = () => {
             ease: "easeInOut",
             delay: 2,
           }}
-          className="absolute bottom-20 right-20 opacity-40"
+          className="absolute bottom-20 right-20 "
         >
-          <Image src="/images/hash-cup.png" alt="HASH" width={80} height={80} />
+          <Image
+            src="/images/Hash-box-new.png"
+            alt="HASH"
+            width={80}
+            height={80}
+          />
         </motion.div>
 
         {/* Gradient Orbs */}
@@ -205,12 +210,46 @@ const Footer = () => {
                   height={80}
                   className="mb-4"
                 />
-                <p className="text-gray-400 leading-relaxed max-w-md">
-                  Empowering businesses across Africa with innovative solutions
-                  and strategic growth opportunities. We focus on creating
-                  sustainable business growth through cutting-edge technology
-                  and ethical practices.
-                </p>
+                <div className="space-y-1">
+                  {/* Mission */}
+                  <div className="flex items-start space-x-2">
+                    <span className={`font-semibold ${theme.primary}`}>
+                      Mission:
+                    </span>
+                    <p className="text-gray-400">
+                      Inspire businesses to work smarter and grow stronger.
+                    </p>
+                  </div>
+
+                  {/* Vision */}
+                  <div className="flex items-start space-x-2">
+                    <span className={`font-semibold ${theme.primary}`}>
+                      Vision:
+                    </span>
+                    <p className="text-gray-400">
+                      High-ethics, high-quality service for vibrant private and
+                      public institutions.
+                    </p>
+                  </div>
+
+                  {/* Values */}
+                  <div className="flex items-start space-x-2">
+                    <span className={`font-semibold ${theme.primary}`}>
+                      Values:
+                    </span>
+                    <p className="text-gray-400">
+                      <span className="inline-flex gap-2">
+                        <span>Integrity</span>
+                        <span className="text-gray-500">•</span>
+                        <span>Practicality</span>
+                        <span className="text-gray-500">•</span>
+                        <span>Results</span>
+                        <span className="text-gray-500">•</span>
+                        <span>Respect</span>
+                      </span>
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* Stats */}
@@ -239,7 +278,7 @@ const Footer = () => {
                   <FaRocket
                     className={`${theme.statsIcon} text-xl mx-auto mb-1`}
                   />
-                  <div className="text-lg font-bold text-white">12+</div>
+                  <div className="text-lg font-bold text-white">14+</div>
                   <div className="text-xs text-gray-400">Years</div>
                 </div>
               </div>
@@ -255,14 +294,13 @@ const Footer = () => {
               </h3>
               <ul className="space-y-3">
                 {[
-                  { name: "Marketing " },
-                  { name: "Business Development" },
-                  { name: "Rubix Productions" },
-                  { name: "Contact Us" },
+                  { name: "Marketing Solutions", ref: "/marketing" },
+                  { name: "Business Development", ref: "/business" },
+                  { name: "Rubix Productions", ref: "/rubix" },
                 ].map((link, index) => (
                   <li key={index}>
                     <Link
-                      href={`#${link.name}`}
+                      href={`${link.ref}`}
                       className={`cursor-target text-gray-400 ${theme.linkHover} transition-colors duration-300 flex items-center group`}
                     >
                       <span
@@ -290,9 +328,8 @@ const Footer = () => {
                   />
                   <div>
                     <p className="text-gray-400 leading-relaxed">
-                      123 Business District
-                      <br />
-                      Cairo, Egypt
+                      Tong Ping, Airport Rd. Plot# 269
+                      <br /> Juba, South Sudan
                     </p>
                   </div>
                 </div>
@@ -314,10 +351,10 @@ const Footer = () => {
                     className={`${theme.contactIcons} group-hover:scale-110 transition-transform duration-300`}
                   />
                   <a
-                    href="mailto:info@HASHsolutions.com"
+                    href="mailto:info@hsmea.net"
                     className={`cursor-target ${theme.contactHover} text-gray-400 transition-colors duration-300`}
                   >
-                    info@HASHsolutions.com
+                    info@hsmea.net
                   </a>
                 </div>
               </div>

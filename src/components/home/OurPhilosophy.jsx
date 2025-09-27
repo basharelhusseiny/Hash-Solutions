@@ -2,11 +2,20 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import BlurText from "@/ui/BlurText";
-import { FaEye, FaBullseye, FaGem, FaRocket, FaStar } from "react-icons/fa";
+import {
+  FaEye,
+  FaBullseye,
+  FaGem,
+  FaRocket,
+  FaStar,
+  FaChartLine,
+} from "react-icons/fa";
+import { PiDownloadSimpleBold } from "react-icons/pi";
 import { FiTarget } from "react-icons/fi";
 import SectionHeader from "@/ui/SectionHeader";
 import Image from "next/image";
+import Link from "next/link";
+import StarBorder from "@/ui/StarBorderBtn/StarBorderBtn";
 
 const OurPhilosophy = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -143,54 +152,10 @@ const OurPhilosophy = () => {
             className="absolute top-1/3 right-16"
           >
             <Image
-              src="/images/hash-cup.png"
-              alt="Hash Main"
-              width={80}
-              height={80}
-            />
-          </motion.div>
-
-          <motion.div
-            animate={{
-              y: [0, -25, 0],
-              rotate: [0, 15, -15, 0],
-              scale: [1, 1.3, 1],
-            }}
-            transition={{
-              duration: 7,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2,
-            }}
-            className="absolute bottom-32 left-20"
-          >
-            <Image
-              src="/images/hash-cup.png"
+              src="/images/Hash-box-new.png"
               alt="Hash Main"
               width={90}
-              height={90}
-            />
-          </motion.div>
-
-          <motion.div
-            animate={{
-              y: [0, -15, 0],
-              rotate: [0, 8, -8, 0],
-              scale: [1.1, 0.9, 1.1],
-            }}
-            transition={{
-              duration: 9,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 4,
-            }}
-            className="absolute bottom-20 right-1/4"
-          >
-            <Image
-              src="/images/hash-main.png"
-              alt="Hash Main"
-              width={85}
-              height={85}
+              height={80}
             />
           </motion.div>
         </div>
@@ -201,36 +166,14 @@ const OurPhilosophy = () => {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-5">
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
             transition={{ duration: 0.8 }}
             className="relative inline-block"
           >
-            <SectionHeader title="Our Philosophy" />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-            className="relative"
-          >
-            <p className="text-xl text-gray-200 max-w-5xl mx-auto leading-relaxed font-light">
-              To re-invent how people share knowledge, tell stories, & inspire
-              their audience, and to put clients at the center of their business
-              by providing a range of creative high quality technical assistance
-              & professional service essentials to business enterprises at a
-              timely & cost effective manner.
-            </p>
-            {/* Underline Animation */}
-            <motion.div
-              initial={{ width: 0 }}
-              animate={isVisible ? { width: "60%" } : { width: 0 }}
-              transition={{ delay: 1.5, duration: 1.2 }}
-              className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-transparent via-purple-700 to-transparent"
-            />
+            <SectionHeader title="Why HASH SOLUTIONS?" />
           </motion.div>
         </div>
 
@@ -239,7 +182,7 @@ const OurPhilosophy = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
         >
           {/* Mission Card */}
           <motion.div
@@ -259,15 +202,15 @@ const OurPhilosophy = () => {
                 variants={iconVariants}
                 className="w-16 h-16 mb-5 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg"
               >
-                <FiTarget className="text-2xl text-white" />
+                <FaEye className="text-2xl text-white" />
               </motion.div>
 
               <h3 className="text-xl font-bold text-purple-300 mb-3 group-hover:text-white transition-colors duration-300">
-                OUR MISSION
+                Local insight
               </h3>
               <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-sm">
-                To inspire businesses & to help them become more productive &
-                successful.
+                regional experience Operating in South Sudan with a decade of
+                cross-market experience. We know what works on the ground.
               </p>
             </div>
           </motion.div>
@@ -289,15 +232,15 @@ const OurPhilosophy = () => {
                 variants={iconVariants}
                 className="w-16 h-16 mb-5 bg-gradient-to-br bg-[#771e73] to-pink-900 rounded-xl flex items-center justify-center shadow-lg"
               >
-                <FaEye className="text-2xl text-white" />
+                <FiTarget className="text-2xl text-white" />
               </motion.div>
 
               <h3 className="text-xl font-bold text-pink-300 mb-3 group-hover:text-white transition-colors duration-300">
-                VISION
+                Strategy First
               </h3>
               <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-sm">
-                To be a highly ethical & quality service house to vibrant privet
-                & governmental establishments.
+                execution always Clear plans tied to measurable goals—then
+                disciplined delivery across channels.
               </p>
             </div>
           </motion.div>
@@ -319,15 +262,15 @@ const OurPhilosophy = () => {
                 variants={iconVariants}
                 className="w-16 h-16 mb-5 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg"
               >
-                <FaBullseye className="text-2xl text-white" />
+                <FaGem className="text-2xl text-white" />
               </motion.div>
 
               <h3 className="text-xl font-bold text-purple-300 mb-3 group-hover:text-white transition-colors duration-300">
-                OUR GOALS
+                Full-Service
               </h3>
               <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-sm">
-                To create business growth by focusing on current & absent market
-                opportunities.
+                One accountable team Strategy, creative, media, events, and
+                business development under one roof.
               </p>
             </div>
           </motion.div>
@@ -349,88 +292,141 @@ const OurPhilosophy = () => {
                 variants={iconVariants}
                 className="w-16 h-16 mb-5 bg-gradient-to-br bg-[#771e73] to-pink-900 rounded-xl flex items-center justify-center shadow-lg"
               >
-                <FaGem className="text-2xl text-white" />
+                <FaBullseye className="text-2xl text-white" />
               </motion.div>
 
               <h3 className="text-xl font-bold text-pink-300 mb-3 group-hover:text-white transition-colors duration-300">
-                VALUES
+                Measurable Outcomes
               </h3>
-              <ul className="text-gray-200 tracking-wide space-y-2 group-hover:text-gray-200 transition-colors duration-300 text-sm">
-                <li className="flex items-center">
-                  <FaStar className="text-pink-400 mr-2 text-sm" />
-                  Focus on innovative business ideas
-                </li>
-                <li className="flex items-center">
-                  <FaStar className="text-pink-400 mr-2 text-sm" />
-                  Practice high ethical standards
-                </li>
-                <li className="flex items-center">
-                  <FaStar className="text-pink-400 mr-2 text-sm" />
-                  Respect and protect business
-                </li>
-                <li className="flex items-center">
-                  <FaStar className="text-pink-400 mr-2 text-sm" />
-                  Meet client needs and desires
-                </li>
-              </ul>
+              <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-sm">
+                We design work to be tracked—reach, leads, conversion, and
+                impact.
+              </p>
             </div>
           </motion.div>
-
-          {/* Perks Card - Spans 2 columns */}
-          <motion.div
-            variants={cardVariants}
-            whileHover={{
-              scale: 1.02,
-              y: -5,
-              boxShadow: "0 20px 40px rgba(34, 197, 94, 0.3)",
-            }}
-            className="group relative p-6 rounded-2xl bg-gradient-to-br from-purple-900/50 to-purple-800/20 backdrop-blur-lg border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500 overflow-hidden md:col-span-2"
+        </motion.div>
+        <Link href={""} className="w-[200px] block mx-auto mt-14">
+          <StarBorder
+            as="button"
+            className="custom-class cursor-target"
+            color="magenta"
+            speed="5s"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-purple-400/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            Book a Strategy Call
+          </StarBorder>
+        </Link>
+        {/* New Success Stories Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-24"
+        >
+          <div className="text-center mb-16">
+            <SectionHeader title="Our Success Stories" />
+          </div>
 
-            <div className="relative z-10">
-              <motion.div
-                variants={iconVariants}
-                className="w-16 h-16 mb-5 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg"
-              >
-                <FaRocket className="text-2xl text-white" />
-              </motion.div>
-
-              <h3 className="text-xl font-bold text-purple-300 mb-4 group-hover:text-white transition-colors duration-300">
-                OUR PERKS
-              </h3>
-              <div className="grid md:grid-cols-2 gap-4">
-                <ul className="text-gray-200 tracking-wide space-y-2 group-hover:text-gray-200 transition-colors duration-300 text-sm">
-                  <li className="flex items-center">
-                    <FaStar className="text-purple-400 mr-2 text-sm" />
-                    Create new business opportunities
-                  </li>
-                  <li className="flex items-center">
-                    <FaStar className="text-purple-400 mr-2 text-sm" />
-                    Increase productivity margin
-                  </li>
-                  <li className="flex items-center">
-                    <FaStar className="text-purple-400 mr-2 text-sm" />
-                    Increase efficiency
-                  </li>
-                </ul>
-                <ul className="text-gray-200 tracking-wide space-y-2 group-hover:text-gray-200 transition-colors duration-300 text-sm">
-                  <li className="flex items-center">
-                    <FaStar className="text-purple-400 mr-2 text-sm" />
-                    Capture bigger market share
-                  </li>
-                  <li className="flex items-center">
-                    <FaStar className="text-purple-400 mr-2 text-sm" />
-                    Provide better client service
-                  </li>
-                  <li className="flex items-center">
-                    <FaStar className="text-purple-400 mr-2 text-sm" />
-                    Improving the business
-                  </li>
-                </ul>
+          <div className="space-y-6 max-w-4xl mx-auto">
+            {/* TECNO Story */}
+            <motion.div whileHover={{ x: 10 }} className="relative group">
+              <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-purple-900/50 to-black border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500">
+                <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-purple-500 to-pink-500" />
+                <div className="p-6 pl-8">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                        TECNO COVID-19 Awareness Campaign
+                      </h3>
+                      <p className="text-purple-200 text-sm mb-3">
+                        Khartoum, Sudan 2020
+                      </p>
+                    </div>
+                    <div className="flex items-center space-x-2 bg-purple-900/40 px-4 py-2 rounded-lg">
+                      <FaStar className="text-purple-400" />
+                      <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        1M+
+                      </span>
+                      <span className="text-purple-200 text-sm">reach</span>
+                    </div>
+                  </div>
+                  <p className="text-gray-300">
+                    Boosted engagement and visibility at a capital scale
+                  </p>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+            {/* SEERO Story */}
+            <motion.div whileHover={{ x: 10 }} className="relative group">
+              <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-pink-900/50 to-black border border-pink-500/30 hover:border-pink-400/60 transition-all duration-500">
+                <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-pink-500 to-purple-500" />
+                <div className="p-6 pl-8">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-pink-300 transition-colors">
+                        SEERO Mobile Taxi Launch Campaign
+                      </h3>
+                      <p className="text-pink-200 text-sm">
+                        Khartoum, Sudan 2023
+                      </p>
+                    </div>
+                    <div className="flex flex-col space-y-2">
+                      <div className="flex items-center space-x-2 bg-pink-900/40 px-4 py-2 rounded-lg">
+                        <FaRocket className="text-purple-400" />
+                        <span className="text-xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+                          500K
+                        </span>
+                        <span className="text-pink-200 text-sm">Reach</span>
+                      </div>
+                      <div className="flex items-center space-x-2 bg-purple-900/40 px-4 py-2 rounded-lg">
+                        <PiDownloadSimpleBold className="text-purple-400 text-xl" />
+                        <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                          40K
+                        </span>
+                        <span className="text-purple-200 text-sm">
+                          Downloads
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-gray-300">
+                    Boosted engagement and visibility offline and online in 25
+                    days
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* H Brothers Story */}
+            <motion.div whileHover={{ x: 10 }} className="relative group">
+              <div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-purple-900/50 to-black border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500">
+                <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-purple-500 to-pink-500" />
+                <div className="p-6 pl-8">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                        H Brothers General Trading
+                      </h3>
+                      <p className="text-purple-200 text-sm mb-3">
+                        Since Feb 2025
+                      </p>
+                    </div>
+                    <div className="flex items-center space-x-2 bg-purple-900/40 px-4 py-2 rounded-lg">
+                      <FaChartLine className="text-purple-400" />
+                      <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        15%
+                      </span>
+                      <span className="text-purple-200 text-sm">increase</span>
+                    </div>
+                  </div>
+                  <p className="text-gray-300">
+                    Sales volume increase after strategic marketing rollout and
+                    business development planning
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
