@@ -8,6 +8,7 @@ import {
   FaGem,
   FaRocket,
   FaStar,
+  FaCalendarAlt,
   FaChartLine,
 } from "react-icons/fa";
 import { PiDownloadSimpleBold } from "react-icons/pi";
@@ -130,7 +131,7 @@ const OurPhilosophy = () => {
             className="absolute top-40 left-10"
           >
             <Image
-              src="/images/hash-main.png"
+              src="/images/Hash-box-new.png"
               alt="Hash Main"
               width={100}
               height={100}
@@ -205,10 +206,10 @@ const OurPhilosophy = () => {
                 <FaEye className="text-2xl text-white" />
               </motion.div>
 
-              <h3 className="text-xl font-bold text-purple-300 mb-3 group-hover:text-white transition-colors duration-300">
+              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-white transition-colors duration-300">
                 Local insight
               </h3>
-              <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-sm">
+              <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                 regional experience Operating in South Sudan with a decade of
                 cross-market experience. We know what works on the ground.
               </p>
@@ -235,10 +236,10 @@ const OurPhilosophy = () => {
                 <FiTarget className="text-2xl text-white" />
               </motion.div>
 
-              <h3 className="text-xl font-bold text-pink-300 mb-3 group-hover:text-white transition-colors duration-300">
+              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-white transition-colors duration-300">
                 Strategy First
               </h3>
-              <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-sm">
+              <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                 execution always Clear plans tied to measurable goals—then
                 disciplined delivery across channels.
               </p>
@@ -265,10 +266,10 @@ const OurPhilosophy = () => {
                 <FaGem className="text-2xl text-white" />
               </motion.div>
 
-              <h3 className="text-xl font-bold text-purple-300 mb-3 group-hover:text-white transition-colors duration-300">
+              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-white transition-colors duration-300">
                 Full-Service
               </h3>
-              <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-sm">
+              <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                 One accountable team Strategy, creative, media, events, and
                 business development under one roof.
               </p>
@@ -295,10 +296,10 @@ const OurPhilosophy = () => {
                 <FaBullseye className="text-2xl text-white" />
               </motion.div>
 
-              <h3 className="text-xl font-bold text-pink-300 mb-3 group-hover:text-white transition-colors duration-300">
+              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-white transition-colors duration-300">
                 Measurable Outcomes
               </h3>
-              <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300 text-sm">
+              <p className="text-gray-200 tracking-wide leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                 We design work to be tracked—reach, leads, conversion, and
                 impact.
               </p>
@@ -346,7 +347,9 @@ const OurPhilosophy = () => {
                       <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                         1M+
                       </span>
-                      <span className="text-purple-200 text-sm">reach</span>
+                      <span className="text-purple-200 max-sm:text-sm">
+                        Reach
+                      </span>
                     </div>
                   </div>
                   <p className="text-gray-300">
@@ -366,8 +369,11 @@ const OurPhilosophy = () => {
                       <h3 className="text-xl font-bold text-white mb-2 group-hover:text-pink-300 transition-colors">
                         SEERO Mobile Taxi Launch Campaign
                       </h3>
-                      <p className="text-pink-200 text-sm">
+                      <p className="text-pink-200 text-sm mb-2">
                         Khartoum, Sudan 2023
+                      </p>
+                      <p className="text-gray-300">
+                        Boosted engagement and visibility offline and online
                       </p>
                     </div>
                     <div className="flex flex-col space-y-2">
@@ -376,23 +382,30 @@ const OurPhilosophy = () => {
                         <span className="text-xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
                           500K
                         </span>
-                        <span className="text-pink-200 text-sm">Reach</span>
+                        <span className="text-pink-200 max-sm:text-sm">
+                          Reach
+                        </span>
                       </div>
                       <div className="flex items-center space-x-2 bg-purple-900/40 px-4 py-2 rounded-lg">
                         <PiDownloadSimpleBold className="text-purple-400 text-xl" />
                         <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                           40K
                         </span>
-                        <span className="text-purple-200 text-sm">
+                        <span className="text-purple-200 max-sm:text-sm">
                           Downloads
+                        </span>
+                      </div>
+                      <div className="flex items-center space-x-2  bg-rose-900/40 px-4 py-2 rounded-lg">
+                        <FaCalendarAlt className="text-purple-400 text-xl" />
+                        <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                          30
+                        </span>
+                        <span className="text-purple-200 max-sm:text-sm">
+                          Days
                         </span>
                       </div>
                     </div>
                   </div>
-                  <p className="text-gray-300">
-                    Boosted engagement and visibility offline and online in 25
-                    days
-                  </p>
                 </div>
               </div>
             </motion.div>
@@ -416,7 +429,9 @@ const OurPhilosophy = () => {
                       <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                         15%
                       </span>
-                      <span className="text-purple-200 text-sm">increase</span>
+                      <span className="text-purple-200 max-sm:text-sm">
+                        Increase
+                      </span>
                     </div>
                   </div>
                   <p className="text-gray-300">

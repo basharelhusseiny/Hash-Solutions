@@ -226,7 +226,7 @@ const Footer = () => {
                     <span className={`font-semibold ${theme.primary}`}>
                       Vision:
                     </span>
-                    <p className="text-gray-400">
+                    <p className="text-gray-400 pl-[11px]">
                       High-ethics, high-quality service for vibrant private and
                       public institutions.
                     </p>
@@ -237,7 +237,7 @@ const Footer = () => {
                     <span className={`font-semibold ${theme.primary}`}>
                       Values:
                     </span>
-                    <p className="text-gray-400">
+                    <p className="text-gray-400 pl-2">
                       <span className="inline-flex gap-2">
                         <span>Integrity</span>
                         <span className="text-gray-500">•</span>

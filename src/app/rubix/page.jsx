@@ -164,33 +164,22 @@ const RubixPage = () => {
                 >
                   <span className="text-[#bcfd5e]">clarify your message</span>
                 </motion.span>{" "}
-                and{" "}
+                &{" "}
                 <motion.span
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 1.8, duration: 0.8 }}
                   className="relative inline-block font-medium"
                 >
-                  <span className="text-[#bcfd5e]">tell your story</span>
+                  <span className="text-[#bcfd5e]">
+                    tell your story
+                    <span className="font-bold bg-gradient-to-r from-[#bcfd5e] to-green-400 bg-clip-text text-transparent">
+                      {" "}
+                      Creatively
+                    </span>
+                  </span>
                 </motion.span>
               </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2.2, duration: 0.8 }}
-                className="relative inline-block"
-              >
-                <span className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#bcfd5e] to-green-400 bg-clip-text text-transparent">
-                  creatively
-                </span>
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ delay: 2.6, duration: 1 }}
-                  className="absolute -bottom-1 left-0 h-[2px] bg-gradient-to-r from-transparent via-[#bcfd5e] to-transparent"
-                />
-              </motion.div>
             </div>
           </motion.div>
 
@@ -240,20 +229,17 @@ const RubixPage = () => {
                 delay: 0.2,
               },
               {
-                title: "On-location expertise",
-                description: "in Sudan / South Sudan",
+                title: "On-location expertise in Sudan / South Sudan",
                 icon: FaMapMarkedAlt,
                 delay: 0.4,
               },
               {
-                title: "Broadcast-quality",
-                description: "equipment",
+                title: "Broadcast-quality equipment",
                 icon: FaVideo,
                 delay: 0.6,
               },
               {
-                title: "Fast, reliable",
-                description: "delivery",
+                title: "Fast, reliable delivery",
                 icon: FaBolt,
                 delay: 0.8,
               },
@@ -264,21 +250,16 @@ const RubixPage = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: item.delay, duration: 0.6 }}
                 whileHover={{ scale: 1.02 }}
-                className="group relative p-4 rounded-xl bg-black/20 border border-[#bcfd5e]/20 hover:border-[#bcfd5e]/40 transition-all duration-300"
+                className="group flex items-center relative p-4 rounded-xl bg-black/20 border border-[#bcfd5e]/20 hover:border-[#bcfd5e]/40 transition-all duration-300"
               >
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#bcfd5e]/20 to-green-400/20 flex items-center justify-center">
+                <div className="flex items-center gap-3">
+                  <div className="min-w-10 h-10 rounded-lg bg-gradient-to-br from-[#bcfd5e]/20 to-green-400/20 flex items-center justify-center">
                     <item.icon className="text-xl text-[#bcfd5e] group-hover:text-green-400 transition-colors" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-0.5 group-hover:text-[#bcfd5e] transition-colors">
                       {item.title}
                     </h3>
-                    {item.description && (
-                      <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
-                        {item.description}
-                      </p>
-                    )}
                   </div>
                 </div>
                 <motion.div

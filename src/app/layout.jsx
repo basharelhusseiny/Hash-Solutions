@@ -4,6 +4,7 @@ import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import TargetCursor from "@/ui/TargetCursor";
 import BubbleMenu from "@/components/header/BubbleMenu";
+import PillNav from "@/components/PillNav";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -58,8 +59,27 @@ export default function RootLayout({ children }) {
       <body
         className={`${roboto.className} antialiased min-h-screen flex flex-col`}
       >
-        <Header />
-        <BubbleMenu
+        <div className="w-full mx-auto">
+          <PillNav
+            logo={"/images/new-cup-mo-wh.png"}
+            logoAlt="Company Logo"
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Marketing", href: "/marketing" },
+              { label: "Business Development", href: "/business" },
+              { label: "Rubix Productions", href: "/rubix" },
+              { label: "Contact us", href: "/contact" },
+            ]}
+            activeHref=""
+            className="custom-nav mx-auto"
+            ease="power2.easeOut"
+            baseColor="#000000"
+            pillColor="#ffffff"
+            hoveredPillTextColor="#ffffff"
+            pillTextColor="#000000"
+          />
+        </div>
+        {/* <BubbleMenu
           logo={
             <img
               src="/images/HASH-SOLUTIONS-LOGO2.png"
@@ -76,7 +96,7 @@ export default function RootLayout({ children }) {
           animationDuration={0.5}
           staggerDelay={0.12}
           className="larger-logo block lg:hidden"
-        />
+        /> */}
         <main className="flex-grow">{children}</main>
         <Footer />
         <div className="hidden md:block">

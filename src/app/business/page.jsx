@@ -6,7 +6,7 @@ import {
   FaChartLine,
   FaLightbulb,
   FaGlobe,
-  FaCogs,
+  FaProjectDiagram,
   FaHandshake,
   FaRocket,
   FaBuilding,
@@ -116,6 +116,12 @@ const BusinessPage = () => {
 
   const businessOffersData = [
     {
+      title: "Business Process Management consultation",
+      description:
+        "Streamline organizations operations by analyzing, improving, and automating workflows. BPM service ensures your business runs more efficiently, reduces costs, and delivers better results through well-structured processes.",
+      icon: FaProjectDiagram,
+    },
+    {
       title: "Go-to-Market Planning",
       description:
         "Prioritize segments, define value propositions, and map acquisition channels.",
@@ -176,7 +182,7 @@ const BusinessPage = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="text-gray-100">Strategically Expanding </span>
               <span className="text-gray-200">Businesses </span>
-              <span className="text-gray-300">and </span>
+              <span className="text-gray-300">& </span>
               <span className="text-gray-400"> Driving</span>
               <span className="text-gray-500"> Growth</span>
             </h1>
@@ -186,7 +192,7 @@ const BusinessPage = () => {
               transition={{ delay: 0.8, duration: 0.8 }}
               className="relative"
             >
-              <p className="text-[20px] text-gray-200 max-w-5xl mx-auto leading-relaxed font-light">
+              <p className="text-[20px] text-gray-200 max-w-5xl mx-auto leading-relaxed font-semibold">
                 We help you identify opportunities, build partnerships, and
                 streamline your commercial engine to grow revenue.
               </p>
@@ -198,13 +204,6 @@ const BusinessPage = () => {
                 className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-transparent via-gray-500 to-transparent"
               />
             </motion.div>
-            {/* <div className="flex justify-center items-center gap-4 my-8">
-              <div className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent w-24" />
-              <span className="text-xl font-bold text-gray-400">
-                Let's Hash It Up!
-              </span>
-              <div className="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent w-24" />
-            </div> */}
           </motion.div>
 
           {/* Hero Image and Content */}
@@ -233,10 +232,27 @@ const BusinessPage = () => {
             {/* Content Side */}
             {/* Content Side */}
             <div className="text-left order-1 lg:order-2">
-              <h3 className="text-2xl font-bold text-gray-200 mb-6">
-                Business Process Management
-                <span className="text-gray-400"> consultation (BPM)</span>
-              </h3>
+              <motion.div variants={itemVariants} className="text-center mb-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={
+                    isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                  }
+                  transition={{ delay: 0.8, duration: 0.8 }}
+                  className="relative"
+                >
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-100 mb-6">
+                    Our The Service
+                  </h2>
+                  {/* Underline Animation */}
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={isVisible ? { width: "30%" } : { width: 0 }}
+                    transition={{ delay: 1.5, duration: 1.2 }}
+                    className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-transparent via-gray-500 to-transparent"
+                  />
+                </motion.div>
+              </motion.div>
 
               <div className="space-y-6">
                 {businessOffersData.map((item, index) => (
@@ -250,10 +266,10 @@ const BusinessPage = () => {
                       <item.icon className="text-xl text-gray-300 group-hover:text-gray-200 transition-colors" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-200 mb-1 group-hover:text-white transition-colors">
+                      <h4 className="text-xl font-semibold text-gray-100 mb-1 group-hover:text-white transition-colors">
                         {item.title}
                       </h4>
-                      <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
+                      <p className="text-gray-300 leading-relaxed group-hover:text-gray-300 transition-colors">
                         {item.description}
                       </p>
                     </div>
@@ -263,7 +279,7 @@ const BusinessPage = () => {
             </div>
           </motion.div>
         </motion.div>
-        {/* Grid ============================= */}
+        {/* ============================= Grid ============================= */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
           {stats.map((stat, index) => (
             <motion.div
@@ -296,7 +312,7 @@ const BusinessPage = () => {
               className="relative"
             >
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                How <span className="text-gray-300">We Work!</span>
+                Process
               </h2>
               {/* Underline Animation */}
               <motion.div
@@ -307,7 +323,61 @@ const BusinessPage = () => {
               />
             </motion.div>
           </motion.div>
+          {/* ================== */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            className="flex justify-center mb-16"
+          >
+            <div className=" flex items-center gap-12 px-12 py-6 rounded-2xl bg-gray-800/30 border border-gray-700/50 relative group">
+              <div className="flex items-center gap-4">
+                <span className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+                  <FaRocket className="text-2xl text-gray-300 group-hover:text-gray-200 transition-colors" />
+                </span>
+                <span className="text-2xl text-gray-300 font-medium">
+                  How We Work!
+                </span>
+              </div>
 
+              <motion.div
+                animate={{
+                  x: [0, 15, 0],
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="flex items-center gap-2"
+              >
+                <motion.div
+                  className="h-14 flex items-center"
+                  animate={{ x: [0, 10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  <FaArrowRight className="text-3xl text-gray-500 group-hover:text-gray-400 transition-colors" />
+                </motion.div>
+              </motion.div>
+
+              <div className="flex items-center gap-4">
+                <span className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+                  <BiTargetLock className="text-2xl text-gray-300 group-hover:text-gray-200 transition-colors" />
+                </span>
+                <span className="text-2xl text-gray-300 font-medium">
+                  Outcomes
+                </span>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.2 }}
+                whileHover={{ opacity: 0.3 }}
+                className="absolute inset-0 bg-gradient-to-r from-gray-800/0 via-gray-700/5 to-gray-800/0 rounded-2xl transition-opacity duration-300"
+              />
+            </div>
+          </motion.div>
           {/* Two Column Layout */}
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Process Column */}
@@ -319,8 +389,9 @@ const BusinessPage = () => {
                 <span className="w-10 h-10 rounded-lg bg-gradient-to-r from-gray-700 to-gray-800 flex items-center justify-center mr-3">
                   <FaRocket className="text-gray-300" />
                 </span>
-                Process
+                How We Work!
               </h3>
+
               <div className="space-y-6">
                 {prosesData.map((item, index) => (
                   <motion.div
@@ -373,7 +444,7 @@ const BusinessPage = () => {
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
                         <item.icon className="text-xl text-gray-300 group-hover:text-gray-200 transition-colors" />
                       </div>
-                      <span className="absolute -top-3 -right-3 px-2 py-1 rounded-full bg-gray-800 text-gray-400 text-xs flex items-center justify-center border border-gray-700">
+                      <span className="absolute -top-6 left-1/2 -translate-x-1/2 px-2 py-1 rounded-full bg-gray-800 text-gray-400 text-sm flex items-center justify-center border border-gray-700">
                         {item.highlight}
                       </span>
                     </div>
@@ -392,17 +463,19 @@ const BusinessPage = () => {
           </div>
         </motion.div>
 
+        {/* Add this between the Process title and the two columns */}
+
         {/* CTA Section */}
         <motion.div
           variants={itemVariants}
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
-          className="text-center bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-12"
+          className="text-center bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-8"
         >
           <h3 className="text-3xl md:text-4xl font-bold text-gray-200 mb-6">
             Ready to Transform Your Business?
           </h3>
-          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 mb-6 max-w-3xl mx-auto">
             Let's discuss how our business development solutions can drive your
             success
           </p>

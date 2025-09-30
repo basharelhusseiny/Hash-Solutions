@@ -123,6 +123,72 @@ const CompanyOverview = () => {
         <div className="absolute top-120 left-20 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-blue-600/15 rounded-full blur-3xl animate-pulse delay-1000" />
         <div className="absolute bottom-0 right-10 w-80 h-80 bg-blue-600/15 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute inset-0 pointer-events-none">
+          <motion.div
+            animate={{
+              y: [0, -20, 0],
+              rotate: [0, 5, -5, 0],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute top-40 left-10"
+          >
+            <Image
+              src="/images/Hash-box-new.png"
+              alt="Hash Main"
+              width={100}
+              height={100}
+            />
+          </motion.div>
+
+          <motion.div
+            animate={{
+              y: [0, -25, 0],
+              rotate: [0, 5, -5, 0],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1,
+            }}
+            className="absolute top-20 right-10"
+          >
+            <Image
+              src="/images/Hash-box-new.png"
+              alt="Hash Main"
+              width={90}
+              height={80}
+            />
+          </motion.div>
+
+          <motion.div
+            animate={{
+              y: [0, -25, 0],
+              rotate: [0, 5, -5, 0],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1,
+            }}
+            className="absolute bottom-10 right-70"
+          >
+            <Image
+              src="/images/Hash-box-new.png"
+              alt="Hash Main"
+              width={90}
+              height={80}
+            />
+          </motion.div>
+        </div>
 
         <div className="container mx-auto px-5 relative z-20">
           <SectionHeader title="What We Do?" />
@@ -145,20 +211,11 @@ const CompanyOverview = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Card Icon */}
-              <div className="absolute -top-9 -right-9 transition-opacity duration-300">
-                <Image
-                  src="/images/Hash-box-new.png"
-                  alt="Hash Main"
-                  width={70}
-                  height={60}
-                  className="filter brightness-150"
-                />
-              </div>
 
               <div className="relative z-10">
                 <div className="flex items-center mb-4">
                   <div className="w-3 h-3 bg-purple-500 rounded-full mr-3 animate-pulse" />
-                  <span className="text-purple-300 text-sm font-medium">
+                  <span className="text-purple-300 text-xl md:text-[22px] font-bold tracking-wide">
                     Strategic Marketing
                   </span>
                 </div>
@@ -182,20 +239,11 @@ const CompanyOverview = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Card Icon */}
-              <div className="absolute -top-9 -right-9 transition-opacity duration-300">
-                <Image
-                  src="/images/Hash-box-new.png"
-                  alt="Hash Main"
-                  width={70}
-                  height={60}
-                  className="filter brightness-150"
-                />
-              </div>
 
               <div className="relative z-10">
                 <div className="flex items-center mb-4">
                   <div className="w-3 h-3 bg-blue-500 rounded-full mr-3 animate-pulse delay-500" />
-                  <span className="text-blue-300 text-sm font-medium">
+                  <span className="text-blue-300 text-xl md:text-[22px] font-bold tracking-wide">
                     Business Development
                   </span>
                 </div>
@@ -217,20 +265,11 @@ const CompanyOverview = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-fuchsia-600/10 to-purple-600/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Card Icon */}
-              <div className="absolute -top-9 -right-9 transition-opacity duration-300">
-                <Image
-                  src="/images/Hash-box-new.png"
-                  alt="Hash Main"
-                  width={70}
-                  height={60}
-                  className="filter brightness-150"
-                />
-              </div>
 
               <div className="relative z-10">
                 <div className="flex items-center mb-4">
                   <div className="w-3 h-3 bg-fuchsia-500 rounded-full mr-3 animate-pulse delay-500" />
-                  <span className="text-fuchsia-300 text-sm font-medium">
+                  <span className="text-fuchsia-300 text-xl md:text-[22px] font-bold tracking-wide">
                     Creative & Media
                   </span>
                 </div>
@@ -264,7 +303,7 @@ const CompanyOverview = () => {
                 <div className="text-2xl md:text-3xl font-bold text-purple-300 mb-1">
                   {stat.number}
                 </div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
+                <div className="text-gray-400">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
