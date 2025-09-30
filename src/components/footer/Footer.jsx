@@ -339,10 +339,10 @@ const Footer = () => {
                     className={`${theme.contactIcons} group-hover:scale-110 transition-transform duration-300`}
                   />
                   <a
-                    href="tel:+201234567890"
+                    href="tel:+211981222666"
                     className={`cursor-target text-gray-400 ${theme.contactHover} transition-colors duration-300`}
                   >
-                    +20 123 456 7890
+                   +211 981 222 666
                   </a>
                 </div>
 
