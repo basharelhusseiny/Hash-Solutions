@@ -27,7 +27,7 @@ const HeroSection = () => {
 
       {/* Content Layer */}
       <div className="relative z-10 container mx-auto px-5 h-full flex items-center justify-center py-10">
-        <div className="flex flex-col items-center justify-center gap-6 sm:gap-6 w-full max-w-5xl">
+        <div className="flex flex-col items-center justify-center gap-6 sm:gap-6 w-full max-w-6xl">
           {/* Logo */}
           <div className="w-full max-w-xs sm:max-w-[600px] -mt-8 sm:mt-2">
             <Image
@@ -42,7 +42,7 @@ const HeroSection = () => {
 
           {/* Main Focus Text */}
           <div className="w-full">
-            <div className="flex gap-3 sm:gap-4 justify-center items-center flex-wrap text-2xl sm:text-3xl md:text-5xl font-black text-white -mt-8 sm:-mt-16">
+            <div className="flex gap-3 sm:gap-4 justify-center items-center flex-wrap text-2xl sm:text-3xl md:text-4xl font-black text-white -mt-8 sm:-mt-16">
               <TrueFocus
                 sentence="EMPOWERING BUSINESS GROWTH IN AFRICA AND BEYOND."
                 manualMode={false}
