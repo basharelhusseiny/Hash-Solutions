@@ -42,7 +42,7 @@ const HeroSection = () => {
 
           {/* Main Focus Text */}
           <div className="w-full">
-            <div className="flex gap-3 sm:gap-4 justify-center items-center flex-wrap text-2xl sm:text-3xl md:text-4xl font-black text-white -mt-8 sm:-mt-16">
+            <div className="flex gap-3 sm:gap-4 justify-center items-center flex-wrap text-2xl sm:text-3xl md:text-5xl font-black text-white -mt-8 sm:-mt-16">
               <TrueFocus
                 sentence="EMPOWERING BUSINESS GROWTH IN AFRICA AND BEYOND."
                 manualMode={false}
