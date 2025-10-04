@@ -182,9 +182,11 @@ const BusinessPage = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="text-gray-100">Strategically Expanding </span>
               <span className="text-gray-200">Businesses </span>
-              <span className="text-gray-300">& </span>
-              <span className="text-gray-400"> Driving</span>
-              <span className="text-gray-500"> Growth</span>
+              <div className="mt-2">
+                <span className="text-gray-300">and </span>
+                <span className="text-gray-400"> Driving</span>
+                <span className="text-gray-500"> Growth</span>
+              </div>
             </h1>
             <motion.div
               initial={{ opacity: 0, y: 20 }}

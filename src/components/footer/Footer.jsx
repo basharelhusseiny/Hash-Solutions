@@ -134,6 +134,34 @@ const Footer = () => {
     },
   };
 
+  // Add offices data at the top with other constants
+  const offices = [
+    {
+      location: "Sudan Office",
+      address: "Al-Riyadh, Khartoum, Sudan",
+      phones: ["+249-90-11 22 666", "+249-99-999 02 41"],
+      icon: FaMapMarkerAlt,
+    },
+    {
+      location: "Juba Office",
+      address: "Tong Ping, South Sudan",
+      phones: ["+211-98-1222666"],
+      icon: FaMapMarkerAlt,
+    },
+    {
+      location: "Egypt Office",
+      address: "Mokattam Hills, Cairo",
+      phones: ["+20-15-58077117"],
+      icon: FaMapMarkerAlt,
+    },
+    // {
+    //   location: "UAE Office",
+    //   address: "Dubai/Al-Aian",
+    //   phones: ["+971-50-5933277"],
+    //   icon: FaMapMarkerAlt,
+    // },
+  ];
+
   return (
     <footer
       className={`relative pt-16 pb-10 bg-gradient-to-b ${theme.gradient} border-t ${theme.border} overflow-hidden`}
@@ -204,7 +232,7 @@ const Footer = () => {
             <motion.div variants={itemVariants} className="lg:col-span-2">
               <div className="mb-6">
                 <Image
-                  src="/images/HASH-SOLUTIONS-LOGO-white-removebg-preview.png"
+                  src="/images/new-full-wh.png"
                   alt="HASH Solutions Logo"
                   width={200}
                   height={80}
@@ -287,30 +315,46 @@ const Footer = () => {
             {/* Quick Links */}
             <motion.div variants={itemVariants}>
               <h3 className="text-xl font-bold text-white mb-6 relative">
-                Quick Links
+                Our Presence
                 <div
                   className={`absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r ${theme.highlight}`}
                 ></div>
               </h3>
-              <ul className="space-y-3">
-                {[
-                  { name: "Marketing Solutions", ref: "/marketing" },
-                  { name: "Business Development", ref: "/business" },
-                  { name: "Rubix Productions", ref: "/rubix" },
-                ].map((link, index) => (
-                  <li key={index}>
-                    <Link
-                      href={`${link.ref}`}
-                      className={`cursor-target text-gray-400 ${theme.linkHover} transition-colors duration-300 flex items-center group`}
-                    >
-                      <span
-                        className={`w-2 h-2 ${theme.dotIndicator} rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                      ></span>
-                      {link.name}
-                    </Link>
-                  </li>
+              <div className="space-y-4">
+                {offices.map((office, index) => (
+                  <motion.div
+                    key={index}
+                    className="group"
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="flex items-start space-x-3">
+                      <office.icon
+                        className={`${theme.contactIcons} mt-1 group-hover:scale-110 transition-transform duration-300`}
+                      />
+                      <div>
+                        <h4 className={`font-medium ${theme.primary} mb-1`}>
+                          {office.location}
+                        </h4>
+                        <p className="text-gray-400 text-sm mb-1">
+                          {office.address}
+                        </p>
+                        <div className="space-y-1">
+                          {office.phones.map((phone, idx) => (
+                            <a
+                              key={idx}
+                              href={`tel:${phone.replace(/[- ]/g, "")}`}
+                              className={`block text-sm text-gray-400 ${theme.contactHover} transition-colors duration-300`}
+                            >
+                              {phone}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
                 ))}
-              </ul>
+              </div>
             </motion.div>
 
             {/* Contact Info */}
@@ -342,7 +386,7 @@ const Footer = () => {
                     href="tel:+211981222666"
                     className={`cursor-target text-gray-400 ${theme.contactHover} transition-colors duration-300`}
                   >
-                   +211 981 222 666
+                    +211 981 222 666
                   </a>
                 </div>
 
@@ -367,23 +411,23 @@ const Footer = () => {
                     {
                       icon: FaFacebookF,
                       hoverClass: theme.socialHover.facebook,
-                    },
-                    {
-                      icon: FaTwitter,
-                      hoverClass: theme.socialHover.twitter,
+                      link: "https://m.facebook.com/Hash.solutions.sd/",
                     },
                     {
                       icon: FaLinkedinIn,
                       hoverClass: theme.socialHover.linkedin,
+                      link: "S",
                     },
                     {
                       icon: FaInstagram,
                       hoverClass: theme.socialHover.instagram,
+                      link: "https://www.instagram.com/hash_solutions?igsh=c3FhNzRndDQ1N25r&utm_source=qr",
                     },
                   ].map((social, index) => (
                     <motion.a
                       key={index}
-                      href="#"
+                      href={social.link}
+                      target="_blank"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       className={`cursor-target w-10 h-10 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-400 transition-all duration-300 ${social.hoverClass}`}

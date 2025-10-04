@@ -4,24 +4,30 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import {
   FaBullhorn,
+  FaChartLine,
   FaPalette,
   FaRocket,
-  FaStar,
   FaArrowRight,
-  FaCheckCircle,
   FaLightbulb,
-  FaChartLine,
-  FaDiamond,
+  FaUsers,
+  FaHandshake,
+  FaChartBar,
+  FaRegBuilding,
+  FaCogs,
+  FaGlobe,
+  FaRegComments,
+  FaSearchDollar,
+  FaUserFriends,
 } from "react-icons/fa";
-import { IoDiamond } from "react-icons/io5";
 
 const MarketingPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
-  const [activeImage, setActiveImage] = useState("/images/hash-marketing.png"); // State للصورة النشطة
+  const [activeImage, setActiveImage] = useState("/images/hash-marketing.png");
   const [activeDesignImage, setActiveDesignImage] = useState(
     "/images/meetHash.png"
-  ); // New state for design image
+  );
+  const [clickedItem, setClickedItem] = useState(null); // Add this state for clicked item
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -74,64 +80,90 @@ const MarketingPage = () => {
 
   const marketingSolutions = [
     {
-      icon: FaBullhorn,
-      title: "Brand Strategy & Brand Positioning",
-      description: "Strategic brand development and market positioning",
-      color: "from-purple-600 to-purple-800",
-      image: "/images/hash-chair.png",
-    },
-    {
       icon: FaChartLine,
-      title: "Marketing & Sales Strategy",
-      description: "Comprehensive marketing and sales frameworks",
+      title: "Marketing Strategy",
+      description:
+        "Market Research, Positioning, Audience Segmentation, Messaging, and Channel Planning.",
+      deliverables: ["Strategy Document", "Content Plan", "KPI Framework"],
+      color: "from-purple-600 to-purple-800",
+    },
+    {
+      icon: FaCogs,
+      title: "Campaign Management",
+      description:
+        "End-to-end Campaign Execution Across Digital and Offline Channels.",
+      deliverables: [
+        "Creative Concepts",
+        "Assets",
+        "Media Plan",
+        "Weekly Performance Reports",
+      ],
       color: "from-violet-500 to-purple-700",
-      image: "/images/hash-cup.png",
     },
     {
-      icon: FaRocket,
-      title: "Campaign Creation & Execution",
-      description: "End-to-end campaign management and optimization",
+      icon: FaPalette,
+      title: "Brand & Design",
+      description: "Identity Systems, Guidelines, and Visual Mockups.",
+      deliverables: ["Logo", "Brand Kit", "Templates", "Stationery", "Signage"],
       color: "from-indigo-500 to-purple-600",
-      image: "/images/hash-lens.png",
     },
     {
-      icon: FaLightbulb,
-      title: "Sales Training Workshops",
-      description: "Professional sales training and skill development",
+      icon: FaRegComments,
+      title: "Social Media Management",
+      description: "Media Strategy, Content, Design, and Community Management.",
+      deliverables: [
+        "Monthly Action Plan Calendar",
+        "Campaigning",
+        "Monthly Performance Dashboard Report",
+      ],
       color: "from-purple-500 to-indigo-600",
-      image: "/images/hash-camira.png",
+    },
+    {
+      icon: FaGlobe,
+      title: "Web & Landing Pages",
+      description:
+        "Conversion-focused Websites That Communicates Clearly and Generates Business Leads",
+      deliverables: [
+        "Content Copywriters",
+        "UX Copy",
+        "Design",
+        "Build",
+        "Analytics Setup",
+      ],
+      color: "from-purple-500 to-indigo-600",
     },
   ];
 
   const designSolutions = [
     {
-      icon: FaPalette,
-      title: "Brand Identity & Logo Design",
-      description: "Complete brand identity and visual design systems",
-      color: "from-violet-600 to-purple-600",
-      image: "/images/hash-chair.png",
-    },
-    {
-      icon: FaStar,
-      title: "Artwork & Visual Design",
-      description: "Creative artwork and visual communication design",
-      color: "from-purple-600 to-violet-700",
-      image: "/images/hash-cup.png",
-    },
-    {
       icon: FaBullhorn,
-      title: "Social Media Branding",
-      description: "Social media visual identity and content design",
-      color: "from-indigo-600 to-purple-600",
-      image: "/images/hash-lens.png",
+      title: "Clear Market Positioning",
+      color: "from-violet-600 to-purple-600",
+      image: "/images/clear market positioning 1.png",
     },
     {
-      icon: FaRocket,
-      title: "Print Materials & Promotional Items",
-      description:
-        "Flyers, billboards, corporate gifts and promotional materials",
+      icon: FaHandshake,
+      title: "Consistent Brand Presence",
+      color: "from-purple-600 to-violet-700",
+      image: "/images/consistant brand.png",
+    },
+    {
+      icon: FaSearchDollar,
+      title: "Qualified Leads Generation",
+      color: "from-indigo-600 to-purple-600",
+      image: "/images/qualified lead generation.png",
+    },
+    {
+      icon: FaChartBar,
+      title: "Lower Cost per Acquisition",
       color: "from-purple-500 to-violet-600",
-      image: "/images/hash-camira.png",
+      image: "/images/Lower cost.png",
+    },
+    {
+      icon: FaUserFriends,
+      title: "Stronger Customer Engagement Process",
+      color: "from-purple-500 to-violet-600",
+      image: "/images/strong cosutumer.png",
     },
   ];
 
@@ -193,22 +225,14 @@ const MarketingPage = () => {
           className="text-center mb-20"
         >
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            MARKETING &
+            Strategic
+            <span className="text-purple-200"> Marketing </span>
+            <span className="text-purple-300"> The </span>
+            <span className="text-purple-400"> Gets </span>
+            <span className="text-purple-500">Results </span>
             <br />
-            <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">
-              DESIGN
-            </span>
-            <br />
-            SOLUTIONS
+            <span className="bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent"></span>
           </h1>
-
-          <div className="flex items-center justify-center gap-3 text-purple-300 mb-8">
-            <FaStar className="text-violet-400" />
-            <span className="text-xl font-medium">
-              Creative Excellence & Strategic Growth
-            </span>
-            <FaStar className="text-violet-400" />
-          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -250,11 +274,10 @@ const MarketingPage = () => {
               className="relative"
             >
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+                Core{" "}
                 <span className="bg-gradient-to-r from-purple-400 to-violet-400 bg-clip-text text-transparent">
-                  MARKETING
+                  Services
                 </span>
-                <br />
-                SOLUTIONS
               </h2>
             </motion.div>
 
@@ -264,15 +287,26 @@ const MarketingPage = () => {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  onHoverStart={() => setHoveredItem(`marketing-${index}`)}
-                  onHoverEnd={() => setHoveredItem(null)}
-                  onTouchStart={() => setHoveredItem(`marketing-${index}`)}
-                  onTouchEnd={() => setHoveredItem(null)}
-                  onClick={() => setActiveImage(service.image)} // تحديث الصورة النشطة
+                  onHoverStart={() =>
+                    !clickedItem && setHoveredItem(`marketing-${index}`)
+                  }
+                  onHoverEnd={() => !clickedItem && setHoveredItem(null)}
+                  onClick={() => {
+                    if (clickedItem === `marketing-${index}`) {
+                      setClickedItem(null); // Unselect if already selected
+                    } else {
+                      setClickedItem(`marketing-${index}`); // Select new item
+                      setHoveredItem(`marketing-${index}`);
+                    }
+                  }}
                   whileHover={{ x: 10, scale: 1.02 }}
-                  className="group relative cursor-pointer" // إضافة تأثير المؤشر
+                  className={`group relative cursor-pointer ${
+                    clickedItem === `marketing-${index}`
+                      ? "ring-2 ring-purple-500 ring-opacity-50"
+                      : ""
+                  }`}
                 >
-                  <div className="flex items-start p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
+                  <div className="flex items-center p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
                     {/* Icon */}
                     <motion.div
                       whileHover={{ scale: 1.2, rotate: 360 }}
@@ -292,8 +326,8 @@ const MarketingPage = () => {
 
                     {/* Content */}
                     <div className="flex-1">
-                      <div className="flex items-start justify-between mb-3">
-                        <h3 className="text-white font-bold text-lg leading-tight group-hover:text-purple-200 transition-colors duration-300">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-white font-bold text-2xl leading-tight group-hover:text-purple-300 transition-colors duration-300">
                           {service.title}
                         </h3>
                         <motion.div
@@ -305,13 +339,6 @@ const MarketingPage = () => {
                         >
                           <FaArrowRight className="text-lg" />
                         </motion.div>
-                      </div>
-
-                      <div className="flex items-center mb-2">
-                        <FaCheckCircle className="text-violet-400 text-sm mr-2" />
-                        <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300 text-sm leading-relaxed">
-                          {service.description}
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -334,60 +361,79 @@ const MarketingPage = () => {
             variants={imageVariants}
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}
-            className="relative"
+            className="relative min-h-[500px]" // Added min-height for stability
           >
-            {/* Main Image Container */}
-            <motion.div
-              whileHover={{ scale: 1.05, rotateY: 5 }}
-              transition={{ duration: 0.6 }}
-              className="relative group"
-            >
+            <motion.div className="relative group h-full">
               {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600/30 to-violet-600/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500 animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600/30 to-violet-600/30 rounded-3xl blur-2xl transition-all duration-500" />
 
-              {/* Image */}
-              <div className="relative bg-black/20 backdrop-blur-sm border border-purple-500/30 rounded-3xl p-8 shadow-2xl">
-                <Image
-                  src={activeImage} // استخدام الصورة النشطة
-                  alt="Marketing Solutions"
-                  width={600}
-                  height={500}
-                  className="w-full h-auto drop-shadow-2xl filter brightness-110 contrast-110"
-                  priority
-                  quality={95}
-                />
+              {/* Content Container */}
+              <div className="relative bg-black/40 backdrop-blur-sm border border-purple-500/30 rounded-3xl p-8 shadow-2xl h-full">
+                {hoveredItem || clickedItem ? (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                    className="space-y-6"
+                  >
+                    {/* Service Description */}
+                    <div className="mb-8">
+                      <h3 className="text-2xl font-bold text-purple-200 mb-4">
+                        {
+                          marketingSolutions[
+                            parseInt((hoveredItem || clickedItem).split("-")[1])
+                          ].title
+                        }
+                      </h3>
+                      <p className="text-gray-300 text-lg font-semibold tracking-wide leading-relaxed">
+                        {
+                          marketingSolutions[
+                            parseInt((hoveredItem || clickedItem).split("-")[1])
+                          ].description
+                        }
+                      </p>
+                    </div>
+
+                    {/* Deliverables Section */}
+                    <div>
+                      <h4 className="text-xl font-semibold text-purple-400 mb-4">
+                        Deliverables:
+                      </h4>
+                      <div className="grid grid-cols-1 gap-4">
+                        {marketingSolutions[
+                          parseInt((hoveredItem || clickedItem).split("-")[1])
+                        ].deliverables.map((item, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            className="flex items-center gap-3"
+                          >
+                            <span className="w-2 h-2 rounded-full bg-purple-500" />
+                            <span className="text-gray-200 text-lg">
+                              {item}
+                            </span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="flex items-center justify-center h-full"
+                  >
+                    <p className="text-gray-400 text-xl text-center">
+                      Select a service to view details
+                    </p>
+                  </motion.div>
+                )}
               </div>
-
-              {/* Floating Elements */}
-              <motion.div
-                animate={{
-                  y: [0, -20, 0],
-                  rotate: [0, 10, -10, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-r from-purple-500 to-violet-500 rounded-full shadow-lg"
-              />
-
-              <motion.div
-                animate={{
-                  y: [0, 15, 0],
-                  rotate: [0, -15, 15, 0],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-                className="absolute -bottom-4 -right-4 w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full shadow-lg"
-              />
             </motion.div>
 
-            {/* Background Decoration */}
+            {/* Decorative Border */}
             <div className="absolute -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
               <div className="w-full h-full border-2 border-purple-500/20 rounded-3xl transform rotate-6" />
               <div className="absolute inset-0 w-full h-full border-2 border-violet-500/20 rounded-3xl transform -rotate-3" />
@@ -402,25 +448,25 @@ const MarketingPage = () => {
             variants={imageVariants}
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}
-            className="relative order-2 lg:order-1"
+            className="relative order-2 lg:order-1 h-full" // Add h-full
           >
             {/* Main Image Container */}
             <motion.div
-              whileHover={{ scale: 1.05, rotateY: -5 }}
+              whileHover={{ scale: 1.02, rotateY: -5 }}
               transition={{ duration: 0.6 }}
-              className="relative group"
+              className="relative group h-full" // Add h-full
             >
               {/* Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-violet-600/30 to-purple-600/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500 animate-pulse" />
 
               {/* Image */}
-              <div className="relative bg-black/20 backdrop-blur-sm border border-violet-500/30 rounded-3xl p-8 shadow-2xl">
+              <div className="relative bg-black/20 backdrop-blur-sm border border-violet-500/30 rounded-3xl p-8 shadow-2xl h-full flex items-center">
                 <Image
-                  src={activeDesignImage} // Update this line
+                  src={activeDesignImage}
                   alt="Design & Branding Solutions"
                   width={600}
                   height={500}
-                  className="w-full h-auto drop-shadow-2xl filter brightness-110 contrast-110"
+                  className="w-full h-[600px] object-contain drop-shadow-2xl filter brightness-110 contrast-110"
                   priority
                   quality={95}
                 />
@@ -479,11 +525,10 @@ const MarketingPage = () => {
               className="relative"
             >
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+                Outcomes We{"  "}
                 <span className="bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
-                  DESIGN &
+                  Focus On
                 </span>
-                <br />
-                BRANDING
               </h2>
             </motion.div>
 
@@ -501,7 +546,7 @@ const MarketingPage = () => {
                   whileHover={{ x: 10, scale: 1.02 }}
                   className="group relative cursor-pointer" // Add cursor-pointer
                 >
-                  <div className="flex items-start p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-violet-500/30 hover:border-violet-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-violet-500/20">
+                  <div className="flex items-center p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-violet-500/30 hover:border-violet-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-violet-500/20">
                     {/* Icon */}
                     <motion.div
                       whileHover={{ scale: 1.2, rotate: 360 }}
@@ -520,8 +565,8 @@ const MarketingPage = () => {
 
                     {/* Content */}
                     <div className="flex-1">
-                      <div className="flex items-start justify-between mb-3">
-                        <h3 className="text-white font-bold text-lg leading-tight group-hover:text-violet-200 transition-colors duration-300">
+                      <div className="flex items-start justify-between ">
+                        <h3 className="text-white font-bold text-2xl leading-tight group-hover:text-violet-200 transition-colors duration-300">
                           {service.title}
                         </h3>
                         <motion.div
@@ -532,13 +577,6 @@ const MarketingPage = () => {
                         >
                           <FaArrowRight className="text-lg" />
                         </motion.div>
-                      </div>
-
-                      <div className="flex items-center mb-2">
-                        <FaCheckCircle className="text-purple-400 text-sm mr-2" />
-                        <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300 text-sm leading-relaxed">
-                          {service.description}
-                        </p>
                       </div>
                     </div>
                   </div>

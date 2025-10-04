@@ -1,9 +1,7 @@
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer/Footer";
-import Header from "@/components/header/Header";
 import TargetCursor from "@/ui/TargetCursor";
-import BubbleMenu from "@/components/header/BubbleMenu";
 import PillNav from "@/components/PillNav";
 
 const roboto = Roboto({
@@ -61,7 +59,7 @@ export default function RootLayout({ children }) {
       >
         <div className="w-full mx-auto">
           <PillNav
-            logo={"/images/new-cup-mo-wh.png"}
+            logo={"/images/hash-main.png"}
             logoAlt="Company Logo"
             items={[
               { label: "Home", href: "/" },
@@ -73,30 +71,12 @@ export default function RootLayout({ children }) {
             activeHref=""
             className="custom-nav mx-auto"
             ease="power2.easeOut"
-            baseColor="#000000"
+            baseColor="#4b004f"
             pillColor="#ffffff"
             hoveredPillTextColor="#ffffff"
-            pillTextColor="#000000"
+            pillTextColor="#4b004f"
           />
         </div>
-        {/* <BubbleMenu
-          logo={
-            <img
-              src="/images/HASH-SOLUTIONS-LOGO2.png"
-              alt="logo Hash Solution"
-              className="cursor-target w-full h-full object-contain"
-            />
-          }
-          items={items}
-          menuAriaLabel="Toggle navigation"
-          menuBg="transparent"
-          menuContentColor="#111111"
-          useFixedPosition={false}
-          animationEase="back.out(1.5)"
-          animationDuration={0.5}
-          staggerDelay={0.12}
-          className="larger-logo block lg:hidden"
-        /> */}
         <main className="flex-grow">{children}</main>
         <Footer />
         <div className="hidden md:block">

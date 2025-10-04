@@ -26,11 +26,11 @@ body {
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(61, 19, 100);
+  background-color: #4b004f;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(43, 13, 70);
+  background: #300132;
 }
 .min-scrollbar::-webkit-scrollbar {
   width: 6px;
