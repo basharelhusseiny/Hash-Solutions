@@ -1,10 +1,18 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState, useEffect } from "react"; // Add this import
 import MagicBento from "@/ui/MagicBento";
 import { FaBullseye, FaMapMarkedAlt, FaVideo, FaBolt } from "react-icons/fa";
 
 const RubixPage = () => {
+  // Add this at the top of the component
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   return (
     <div id="RUBiX" className="pt-40 sm:pt-30 pb-16 relative overflow-hidden">
       <div className="container mx-auto px-5">
@@ -106,35 +114,28 @@ const RubixPage = () => {
           initial={{ opacity: 0, scale: 0.8, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="flex justify-center mb-8 relative z-10"
+          className="flex justify-center relative z-10"
         >
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="relative group"
           >
-            {/* Glow Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#bcfd5e]/30 to-green-400/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500 animate-pulse will-change-transform" />
-
-            {/* Logo Container */}
-            <div className="relative bg-black/50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl">
+            {/* Logo Container - Removed background and box */}
+            <div className="relative p-6">
               <Image
                 src="/images/Productions.png"
                 alt="Rubix Logo"
-                width={370}
-                height={80}
-                className="drop-shadow-2xl filter"
+                width={500} // Increased size
+                height={110} // Increased size
+                className="drop-shadow-2xl filter brightness-110" // Added brightness
                 priority
-                quality={90}
+                quality={100}
               />
             </div>
-
-            {/* Floating Particles */}
-            <div className="absolute -top-1 -left-1 w-5 h-5 bg-[#bcfd5e] rounded-full animate-ping opacity-75 will-change-transform" />
-            <div className="absolute bottom-5 -right-1 w-5 h-5 bg-[#bcfd5e] rounded-full animate-ping opacity-75 will-change-transform" />
           </motion.div>
         </motion.div>
-        <div className="relative mt-8 mb-12 text-center">
+        <div className="relative mt-4 mb-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -146,7 +147,7 @@ const RubixPage = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 1 }}
-                className="text-xl md:text-2xl font-light text-gray-200 max-w-2xl mx-auto leading-relaxed"
+                className="text-xl md:text-2xl font-medium text-gray-200 max-w-2xl mx-auto leading-relaxed"
               >
                 <motion.span
                   initial={{ opacity: 0, y: 10 }}
@@ -179,6 +180,12 @@ const RubixPage = () => {
                     </span>
                   </span>
                 </motion.span>
+                <motion.span
+                  initial={{ width: 0 }}
+                  animate={isVisible ? { width: "40%" } : { width: 0 }}
+                  transition={{ delay: 1.5, duration: 1.2 }}
+                  className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-transparent via-[#bcfd5e] to-transparent"
+                />
               </motion.p>
             </div>
           </motion.div>

@@ -24,13 +24,13 @@ const cardData = [
     color: "#060010",
     title: "Reels",
     description: "Creative engagement social media short videos.",
-    img: "/images/Productions.png",
+    img: "/images/Rubix-1.png",
   },
   {
     color: "#060010",
     title: "Event Coverage",
     description: "Capture moments, messages, and impact with precision.",
-    img: "/images/Productions.png",
+    img: "/images/rubix-2.png",
   },
   {
     color: "#060010",
