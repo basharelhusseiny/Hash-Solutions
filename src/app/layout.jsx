@@ -2,7 +2,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer/Footer";
 import TargetCursor from "@/ui/TargetCursor";
-import PillNav from "@/components/PillNav";
+import Header from "@/components/header/Header";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -15,68 +15,12 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const items = [
-    {
-      label: "Home",
-      href: "/",
-      ariaLabel: "Home",
-      rotation: -8,
-      hoverStyles: { bgColor: "#3b82f6", textColor: "#ffffff" },
-    },
-    {
-      label: "Marketing",
-      href: "/marketing",
-      ariaLabel: "marketing",
-      rotation: -8,
-      hoverStyles: { bgColor: "#3b82f6", textColor: "#ffffff" },
-    },
-    {
-      label: "Business Development",
-      href: "/business",
-      ariaLabel: "business Development",
-      rotation: 8,
-      hoverStyles: { bgColor: "#10b981", textColor: "#ffffff" },
-    },
-    {
-      label: "Rubix Productions",
-      href: "/rubix",
-      ariaLabel: "Rubix",
-      rotation: 8,
-      hoverStyles: { bgColor: "#f59e0b", textColor: "#ffffff" },
-    },
-    {
-      label: "Contact us",
-      href: "/contact",
-      ariaLabel: "contact",
-      rotation: -8,
-      hoverStyles: { bgColor: "#8b5cf6", textColor: "#ffffff" },
-    },
-  ];
   return (
     <html lang="en">
       <body
         className={`${roboto.className} antialiased min-h-screen flex flex-col`}
       >
-        <div className="w-full mx-auto">
-          <PillNav
-            logo={"/images/hash-main.png"}
-            logoAlt="Company Logo"
-            items={[
-              { label: "Home", href: "/" },
-              { label: "Marketing", href: "/marketing" },
-              { label: "Business Development", href: "/business" },
-              { label: "Rubix Productions", href: "/rubix" },
-              { label: "Contact us", href: "/contact" },
-            ]}
-            activeHref=""
-            className="custom-nav mx-auto"
-            ease="power2.easeOut"
-            baseColor="#4b004f"
-            pillColor="#ffffff"
-            hoveredPillTextColor="#ffffff"
-            pillTextColor="#4b004f"
-          />
-        </div>
+        <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
         <div className="hidden md:block">

@@ -19,6 +19,7 @@ import { BiTargetLock } from "react-icons/bi";
 import { BsSpeedometer } from "react-icons/bs";
 import { TbArrowsJoin } from "react-icons/tb";
 import { FiTarget } from "react-icons/fi";
+import LogoLoop from "@/components/LogoLoop";
 
 const BusinessPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -156,6 +157,114 @@ const BusinessPage = () => {
     { icon: FaHandshake, number: "2", label: "Countries" },
   ];
 
+  const imageLogos = [
+    {
+      src: "/images/partners/1.png",
+      alt: "Company 1",
+      href: "https://company1.com",
+    },
+    {
+      src: "/images/partners/2.png",
+      alt: "Company 2",
+      href: "https://company2.com",
+    },
+    {
+      src: "/images/partners/3.png",
+      alt: "Company 3",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/4.png",
+      alt: "Company 4",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/5.png",
+      alt: "Company 5",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/6.png",
+      alt: "Company 6",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/7.png",
+      alt: "Company 7",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/8.png",
+      alt: "Company 8",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/9.png",
+      alt: "Company 9",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/10.png",
+      alt: "Company 10",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/11.png",
+      alt: "Company 11",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/12.png",
+      alt: "Company 12",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/13.png",
+      alt: "Company 13",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/14.png",
+      alt: "Company 14",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/15.png",
+      alt: "Company 15",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/16.png",
+      alt: "Company 16",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/17.png",
+      alt: "Company 17",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/18.png",
+      alt: "Company 18",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/19.png",
+      alt: "Company 19",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/20.png",
+      alt: "Company 20",
+      href: "https://company3.com",
+    },
+    {
+      src: "/images/partners/21.png",
+      alt: "Company 21",
+      href: "https://company3.com",
+    },
+  ];
+
   return (
     <div
       ref={sectionRef}
@@ -173,7 +282,7 @@ const BusinessPage = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
-          className="text-center mb-20"
+          className="text-center mb-8"
         >
           <motion.div variants={itemVariants} className="mb-20">
             <span className="inline-block px-6 py-2 bg-gray-800 text-gray-300 rounded-full font-medium border border-gray-700 mb-6">
@@ -281,29 +390,31 @@ const BusinessPage = () => {
             </div>
           </motion.div>
         </motion.div>
-        {/* ============================= Grid ============================= */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              className="p-4 cursor-target rounded-xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 text-center transition-all duration-300 hover:border-gray-600"
-            >
-              <stat.icon className="text-3xl text-gray-400 mx-auto mb-2" />
-              <div className="text-2xl font-bold text-gray-200 mb-1">
-                {stat.number}
-              </div>
-              <div className="text-gray-400">{stat.label}</div>
-            </motion.div>
-          ))}
+        {/* ============================ Partners ======================== */}
+
+        <div
+          style={{ height: "180px", position: "relative", overflow: "hidden" }}
+        >
+          <LogoLoop
+            logos={imageLogos}
+            speed={120}
+            direction="left"
+            logoHeight={180}
+            gap={40}
+            pauseOnHover
+            scaleOnHover
+            fadeOut
+            fadeOutColor="#000000"
+            ariaLabel="Technology partners"
+          />
         </div>
+
         {/* Services Section */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isVisible ? "visible" : "hidden"}
-          className="mb-20"
+          className="my-20"
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
@@ -465,7 +576,23 @@ const BusinessPage = () => {
           </div>
         </motion.div>
 
-        {/* Add this between the Process title and the two columns */}
+        {/* ============================= Grid ============================= */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              className="p-4 cursor-target rounded-xl bg-gray-800/50 backdrop-blur-sm border border-gray-700 text-center transition-all duration-300 hover:border-gray-600"
+            >
+              <stat.icon className="text-3xl text-gray-400 mx-auto mb-2" />
+              <div className="text-2xl font-bold text-gray-200 mb-1">
+                {stat.number}
+              </div>
+              <div className="text-gray-400">{stat.label}</div>
+            </motion.div>
+          ))}
+        </div>
 
         {/* CTA Section */}
         <motion.div

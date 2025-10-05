@@ -7,6 +7,7 @@ import Link from "next/link";
 import Beams from "@/ui/Beams";
 import RotatingText from "../RotatingText";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
@@ -29,7 +30,16 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-5 h-full flex items-center justify-center py-10">
         <div className="flex flex-col items-center justify-center gap-6 sm:gap-6 w-full max-w-6xl">
           {/* Logo */}
-          <div className="w-full max-w-xs sm:max-w-[600px] -mt-8 sm:mt-2">
+          <motion.div
+            initial={{ x: "-100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              duration: 1.5,
+              ease: "easeOut",
+              delay: 0.5,
+            }}
+            className="w-full max-w-xs sm:max-w-[600px] -mt-8 sm:mt-2"
+          >
             <Image
               src="/images/new-full-wh.png"
               alt="Logo"
@@ -38,7 +48,7 @@ const HeroSection = () => {
               className="w-full h-auto"
               priority
             />
-          </div>
+          </motion.div>
 
           {/* Main Focus Text */}
           <div className="w-full">
@@ -99,6 +109,27 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Hash Solutions Image - Added Section */}
+      <motion.div
+        initial={{ x: "-100%", opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          duration: 1.5,
+          ease: "easeOut",
+          delay: 0.8, // Slightly delayed after the first logo
+        }}
+        className="absolute bottom-0 left-0 w-48 sm:w-64 md:w-72"
+      >
+        <Image
+          src="/images/hash-main.png"
+          alt="Hash Solutions"
+          width={300}
+          height={300}
+          className="w-full h-auto"
+          priority
+        />
+      </motion.div>
 
       {/* Global CSS Override */}
       <style jsx global>{`
