@@ -135,9 +135,19 @@ const AboutPage = () => {
               </h2>
               <div className="space-y-8 text-2xl text-purple-100/90 relative z-10 leading-relaxed">
                 <p className="leading-relaxed">
-                  Founded in 2018, HASH SOLUTIONS operates from Juba, South
-                  Sudan, serving Business Owners, Corporates, NGOs, SMEs, and
-                  Government institutions.
+                  Founded in 2018 in Khartoum, Sudan, and proudly expanded to
+                  Juba, South Sudan in 2023—where we now call home— HASH
+                  SOLUTIONS is a creative marketing and business development
+                  company dedicated to driving business growth across the
+                  region. With a talented, results-driven team, we deliver
+                  advanced marketing solutions and strategic consulting tailored
+                  to the unique needs of organizations in Sudan, Juba, South
+                  Sudan and the region. Our expertise spans brand identity,
+                  digital marketing, media production, and business consulting,
+                  making us the trusted partner for companies seeking
+                  innovative, measurable results. We combine local insight with
+                  forward-thinking creativity to help our clients achieve
+                  sustainable success in today’s dynamic markets.
                 </p>
                 <p className="leading-relaxed">
                   We bring regional experience and local execution to every

@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import {
@@ -24,6 +24,8 @@ import LogoLoop from "@/components/LogoLoop";
 const BusinessPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeCard, setActiveCard] = useState(null);
+  const [selectedService, setSelectedService] = useState(null);
+  const [displayImage, setDisplayImage] = useState("/images/meetHash.png");
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -119,37 +121,44 @@ const BusinessPage = () => {
     {
       title: "Business Process Management consultation",
       description:
-        "Streamline organizations operations by analyzing, improving, and automating workflows. BPM service ensures your business runs more efficiently, reduces costs, and delivers better results through well-structured processes.",
+        "Streamline organizations operations by analyzing, improving, and automating workflows. BPM service ensures your business runs more efficiently, reduces costs, and delivers better results through well-structured processes.",
       icon: FaProjectDiagram,
+      img: "/images/Business/Business Process Management consultation.jpg",
     },
     {
       title: "Go-to-Market Planning",
       description:
         "Prioritize segments, define value propositions, and map acquisition channels.",
       icon: FaChartLine,
+      img: "/images/Business/Go-to-Market Planning.jpg",
     },
     {
       title: "Pipeline & Partnerships",
       description:
         "Prospecting frameworks, outreach, and partnership structuring.",
       icon: FaHandshake,
+      img: "/images/Business/Pipeline & Partnerships.jpg",
     },
     {
       title: "Sales Enablement",
       description: "Offers, proposals, pitch materials.",
       icon: FaRocket,
+      img: "/images/Business/Sales Enablement.jpg",
     },
     {
       title: "Pricing & Packaging",
       description: "Design service tiers.",
       icon: FaBuilding,
+      img: "/images/Business/Pricing & Packaging.webp",
     },
     {
       title: "Sales & Customer Service",
       description: "Training and development programs.",
       icon: FaUsers,
+      img: "/images/Business/Sales & Customer Servic.webp",
     },
   ];
+
   const stats = [
     { icon: FaUsers, number: "500+", label: "Clients Served" },
     { icon: FaRocket, number: "14+", label: "Years Experience" },
@@ -320,29 +329,35 @@ const BusinessPage = () => {
           {/* Hero Image and Content */}
           <motion.div
             variants={itemVariants}
-            className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto"
+            className="flex lg:gap-12 items-stretch max-w-6xl mx-auto"
           >
             {/* Image Side */}
             <motion.div
               whileHover={{ scale: 1.02 }}
               className="relative group order-2 lg:order-1"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-gray-800/20 to-gray-700/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
-              <div className="relative flex items-center justify-center bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-8 shadow-2xl">
-                <Image
-                  src="/images/meetHash.png"
-                  alt="Business Development"
-                  width={370}
-                  height={200}
-                  className="rounded-2xl shadow-xl"
-                  priority
-                />
+              <div className="w-1/2 absolute inset-0 bg-gradient-to-r from-gray-800/20 to-gray-700/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
+              <div className="hidden relative h-full lg:flex items-center justify-center bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-3xl p-8 shadow-2xl">
+                <motion.div
+                  key={displayImage}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    src={displayImage}
+                    alt="Business Development"
+                    width={470}
+                    height={500}
+                    className="rounded-2xl shadow-xl"
+                    priority
+                  />
+                </motion.div>
               </div>
             </motion.div>
 
             {/* Content Side */}
-            {/* Content Side */}
-            <div className="text-left order-1 lg:order-2">
+            <div className="w-full lg:w-1/2 text-left order-1 lg:order-2">
               <motion.div variants={itemVariants} className="text-center mb-6">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -371,7 +386,8 @@ const BusinessPage = () => {
                     key={index}
                     variants={itemVariants}
                     whileHover={{ x: 10 }}
-                    className="group flex items-start gap-4 p-4 rounded-xl bg-gray-800/20 border border-gray-700/50 hover:border-gray-600 transition-all duration-300"
+                    onClick={() => setDisplayImage(item.img)}
+                    className="cursor-pointer group flex items-start gap-4 p-4 rounded-xl bg-gray-800/20 border border-gray-700/50 hover:border-gray-600 transition-all duration-300"
                   >
                     <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center flex-shrink-0">
                       <item.icon className="text-xl text-gray-300 group-hover:text-gray-200 transition-colors" />
@@ -390,8 +406,8 @@ const BusinessPage = () => {
             </div>
           </motion.div>
         </motion.div>
-        {/* ============================ Partners ======================== */}
 
+        {/* Partners */}
         <div
           style={{ height: "180px", position: "relative", overflow: "hidden" }}
         >
@@ -436,14 +452,14 @@ const BusinessPage = () => {
               />
             </motion.div>
           </motion.div>
-          {/* ================== */}
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="flex justify-center mb-16"
+            className="flex justify-center md:mb-16"
           >
-            <div className=" flex items-center gap-12 px-12 py-6 rounded-2xl bg-gray-800/30 border border-gray-700/50 relative group">
+            <div className="w-full hidden md:flex justify-evenly items-center gap-12 px-12 py-6 rounded-2xl bg-gray-800/30 border border-gray-700/50 relative group">
               <div className="flex items-center gap-4">
                 <span className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
                   <FaRocket className="text-2xl text-gray-300 group-hover:text-gray-200 transition-colors" />
@@ -455,8 +471,8 @@ const BusinessPage = () => {
 
               <motion.div
                 animate={{
-                  x: [0, 15, 0],
-                  scale: [1, 1.1, 1],
+                  x: [0, -35, 0],
+                  scale: [1, 1.3, 1],
                 }}
                 transition={{
                   duration: 2,
@@ -467,7 +483,7 @@ const BusinessPage = () => {
               >
                 <motion.div
                   className="h-14 flex items-center"
-                  animate={{ x: [0, 10, 0] }}
+                  animate={{ x: [0, 0, 0] }}
                   transition={{ duration: 3, repeat: Infinity }}
                 >
                   <FaArrowRight className="text-3xl text-gray-500 group-hover:text-gray-400 transition-colors" />
@@ -491,6 +507,7 @@ const BusinessPage = () => {
               />
             </div>
           </motion.div>
+
           {/* Two Column Layout */}
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Process Column */}
@@ -576,7 +593,7 @@ const BusinessPage = () => {
           </div>
         </motion.div>
 
-        {/* ============================= Grid ============================= */}
+        {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
           {stats.map((stat, index) => (
             <motion.div

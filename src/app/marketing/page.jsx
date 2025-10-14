@@ -262,7 +262,7 @@ const MarketingPage = () => {
             variants={containerVariants}
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}
-            className="space-y-8"
+            className="space-y-8 order-2 lg:order-1"
           >
             {/* Section Header */}
             <motion.div
@@ -361,7 +361,7 @@ const MarketingPage = () => {
             variants={imageVariants}
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}
-            className="relative min-h-[500px]" // Added min-height for stability
+            className="relative order-1 lg:order-2"
           >
             <motion.div className="relative group h-full">
               {/* Glow Effect */}
@@ -448,7 +448,7 @@ const MarketingPage = () => {
             variants={imageVariants}
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}
-            className="relative order-2 lg:order-1 h-full" // Add h-full
+            className="relative order-2 lg:order-1 h-full hidden lg:block" // Add h-full
           >
             {/* Main Image Container */}
             <motion.div
@@ -466,7 +466,7 @@ const MarketingPage = () => {
                   alt="Design & Branding Solutions"
                   width={600}
                   height={500}
-                  className="w-full h-[600px] object-contain drop-shadow-2xl filter brightness-110 contrast-110"
+                  className="w-full h-[600px] rounded-2xl lg:mx-0 xl:mx-24 drop-shadow-2xl filter brightness-110 contrast-110"
                   priority
                   quality={95}
                 />
@@ -575,7 +575,7 @@ const MarketingPage = () => {
                           }}
                           className="text-violet-400 opacity-60 group-hover:opacity-100 transition-opacity duration-300 ml-4"
                         >
-                          <FaArrowRight className="text-lg" />
+                          <FaArrowRight className="text-lg hidden lg:block" />
                         </motion.div>
                       </div>
                     </div>

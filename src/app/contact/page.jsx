@@ -3,16 +3,13 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import {
   FaPhone,
-  FaMapMarkerAlt,
   FaEnvelope,
-  FaGlobe,
   FaFacebook,
   FaInstagram,
   FaPaperPlane,
   FaUser,
   FaBuilding,
   FaStar,
-  FaHeart,
   FaChartLine,
   FaPalette,
   FaHashtag,
@@ -96,22 +93,16 @@ const ContactUsPage = () => {
 
   const contactInfo = [
     {
-      icon: FaGlobe,
-      label: "Website",
-      value: "www.hsmea.net",
-      link: "https://www.hsmea.net",
-    },
-    {
       icon: FaFacebook,
       label: "Facebook",
       value: "Hash Solutions SD",
-      link: "#",
+      link: "https://m.facebook.com/Hash.solutions.sd/",
     },
     {
       icon: FaInstagram,
       label: "Instagram",
       value: "@hash_solutions",
-      link: "#",
+      link: "https://www.instagram.com/hash_solutions?igsh=c3FhNzRndDQ1N25r&utm_source=qr",
     },
     {
       icon: FaEnvelope,
@@ -458,7 +449,7 @@ const ContactUsPage = () => {
                 </span>
               </h3>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 {contactInfo.map((info, index) => (
                   <motion.a
                     key={index}

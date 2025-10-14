@@ -11,37 +11,45 @@ const MOBILE_BREAKPOINT = 768;
 const cardData = [
   {
     color: "#060010",
-    title: "Corporate Visual Profile",
+    title: "Photography",
     description:
-      "A Brand Short Film Purpose-driven stories for internal and external audiences.",
+      "Professional Studio/Outdoor photography services for corporate profiles, product, lifestyle, and editorial. ",
+    img: "/images/Rubix icon/Photography.png",
   },
   {
     color: "#060010",
-    title: "TVC",
-    description: "TV & Social Media Commercials.",
-  },
-  {
-    color: "#060010",
-    title: "Reels",
-    description: "Creative engagement social media short videos.",
-    img: "/images/Rubix-1.png",
-  },
-  {
-    color: "#060010",
-    title: "Event Coverage",
-    description: "Capture moments, messages, and impact with precision.",
+    title: "Events Coverage",
+    description:
+      "Reliable event media team that capture moments, messages, and impact with precision, providing both event video highlights & stunning event photo album.",
     img: "/images/rubix-2.png",
   },
   {
     color: "#060010",
-    title: "Photography",
-    description: "Corporate profiles, product, lifestyle, and editorial.",
+    title: "Reels",
+    description:
+      "Production of creative social media Reels to drive higher engagement for your social platform.",
+    img: "/images/Rubix-1.png",
+  },
+  {
+    color: "#060010",
+    title: "Corporate Visual Profile",
+    description:
+      "A Business Brand Short Film, a purpose-driven project crafted for both internal and external audiences, delivering customized business messages and agendas.",
+    img: "/images/Rubix icon/Coorprate.png",
+  },
+  {
+    color: "#060010",
+    title: "TVC",
+    description:
+      "Professional TV & Social Media commercial production, from creative concepts to carting and filming. We provide it all.",
+    img: "/images/Rubix icon/TVC.png",
   },
   {
     color: "#060010",
     title: "Post-Production",
     description:
-      "Editing, color, sound design, motion graphics, and versioning. ",
+      "Professional video editing, color, sound design, motion graphics, and after effects.",
+    img: "/images/Rubix icon/Post production.png",
   },
 ];
 
@@ -540,9 +548,9 @@ const MagicBento = ({
           
           .card-responsive {
             grid-template-columns: 1fr;
-            width: 90%;
+            width: 100%;
             margin: 0 auto;
-            padding: 0.5rem;
+            padding: 0.2rem;
           }
           @media (min-width: 600px) {
             .card-responsive {
@@ -661,7 +669,7 @@ const MagicBento = ({
       <BentoCardGrid gridRef={gridRef}>
         <div className="card-responsive grid gap-2">
           {cardData.map((card, index) => {
-            const baseClassName = `card flex flex-col justify-between relative aspect-[4/3] min-h-[200px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
+            const baseClassName = `card flex flex-col justify-between relative aspect-[4/3] min-h-[400px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
               enableBorderGlow ? "card--border-glow" : ""
             }`;
 
@@ -697,7 +705,7 @@ const MagicBento = ({
                       {card.title}
                     </h3>
                     <p
-                      className={`card__description text-sm tracking-wide ${
+                      className={`card__description text-[15px] tracking-wide ${
                         textAutoHide ? "" : ""
                       }`}
                     >

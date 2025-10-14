@@ -67,7 +67,7 @@ const Header = () => {
         activeHref=""
         className="custom-nav mx-auto"
         ease="power2.easeOut"
-        baseColor="#ffffff"
+        baseColor="#000000"
         pillColor={
           pathname === "/rubix"
             ? "#74cf00"
@@ -79,8 +79,8 @@ const Header = () => {
           pathname === "/rubix"
             ? "#74cf00"
             : pathname === "/business"
-            ? "#3f4755"
-            : "#4b004f"
+            ? "#ffffff"
+            : "#ffffff"
         }
         pillTextColor="#ffffff"
       />
