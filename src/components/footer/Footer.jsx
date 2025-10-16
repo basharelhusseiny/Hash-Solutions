@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,7 +7,6 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaFacebookF,
-  FaTwitter,
   FaLinkedinIn,
   FaInstagram,
   FaArrowUp,
@@ -16,12 +14,11 @@ import {
   FaUsers,
   FaRocket,
 } from "react-icons/fa";
-import { usePathname } from "next/navigation"; // Add this import
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
-  const pathname = usePathname(); // Add this hook
+  const pathname = usePathname();
 
-  // Add color theme configuration based on path
   const getThemeColors = () => {
     switch (pathname) {
       case "/business":
@@ -50,6 +47,11 @@ const Footer = () => {
           contactIcons: "text-gray-400",
           contactHover: "hover:text-gray-200",
           bottomBorder: "border-gray-500/50",
+          images: {
+            floatingTop: "/images/new-cup-mo-wh.png",
+            floatingBottom: "/images/new-cup-mo-wh.png",
+            mainLogo: "/images/new-full-white.png",
+          },
         };
       case "/rubix":
         return {
@@ -77,6 +79,11 @@ const Footer = () => {
           contactIcons: "text-green-400",
           contactHover: "hover:text-green-400",
           bottomBorder: "border-green-500/50",
+          images: {
+            floatingTop: "/images/new-cup-mo-wh.png",
+            floatingBottom: "/images/new-cup-mo-wh.png",
+            mainLogo: "/images/new-full-white.png",
+          },
         };
       default:
         return {
@@ -104,6 +111,11 @@ const Footer = () => {
           contactIcons: "text-purple-400",
           contactHover: "hover:text-purple-400",
           bottomBorder: "border-purple-500/50",
+          images: {
+            floatingTop: "/images/hash-main.png",
+            floatingBottom: "/images/Hash-box-new.png",
+            mainLogo: "/images/new-full-wh.png",
+          },
         };
     }
   };
@@ -134,7 +146,6 @@ const Footer = () => {
     },
   };
 
-  // Add offices data at the top with other constants
   const offices = [
     {
       location: "Sudan Office",
@@ -143,23 +154,11 @@ const Footer = () => {
       icon: FaMapMarkerAlt,
     },
     {
-      location: "Juba Office",
-      address: "Tong Ping, South Sudan",
-      phones: ["+211-98-1222666"],
-      icon: FaMapMarkerAlt,
-    },
-    {
       location: "Egypt Office",
       address: "Mokattam Hills, Cairo",
       phones: ["+20-15-58077117"],
       icon: FaMapMarkerAlt,
     },
-    // {
-    //   location: "UAE Office",
-    //   address: "Dubai/Al-Aian",
-    //   phones: ["+971-50-5933277"],
-    //   icon: FaMapMarkerAlt,
-    // },
   ];
 
   return (
@@ -168,7 +167,6 @@ const Footer = () => {
     >
       {/* Animated Background */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Floating HASH Images */}
         <motion.div
           animate={{
             y: [0, -15, 0],
@@ -182,8 +180,8 @@ const Footer = () => {
           className="absolute top-10 left-10 opacity-30"
         >
           <Image
-            src="/images/hash-main.png"
-            alt="HASH"
+            src={theme.images.floatingTop}
+            alt="Floating Logo"
             width={60}
             height={60}
           />
@@ -200,17 +198,16 @@ const Footer = () => {
             ease: "easeInOut",
             delay: 2,
           }}
-          className="absolute bottom-20 right-20 "
+          className="absolute bottom-20 right-20"
         >
           <Image
-            src="/images/Hash-box-new.png"
-            alt="HASH"
+            src={theme.images.floatingBottom}
+            alt="Floating Logo"
             width={80}
             height={80}
           />
         </motion.div>
 
-        {/* Gradient Orbs */}
         <div
           className={`absolute top-0 left-50 w-96 h-96 ${theme.orbs.first} rounded-full blur-3xl`}
         />
@@ -230,43 +227,44 @@ const Footer = () => {
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-12">
             {/* Company Info */}
             <motion.div variants={itemVariants} className="lg:col-span-2">
-              <div className="mb-6">
+              <div className="mb-6 flex flex-col items-center lg:items-start">
                 <Image
-                  src="/images/new-full-wh.png"
-                  alt="HASH Solutions Logo"
+                  src={theme.images.mainLogo}
+                  alt="Solutions Logo"
                   width={200}
                   height={80}
-                  className="mb-4"
+                  className="mb-4 w-full max-w-[180px] sm:max-w-[200px] object-contain"
                 />
-                <div className="space-y-1">
-                  {/* Mission */}
-                  <div className="flex items-start space-x-2">
-                    <span className={`font-semibold ${theme.primary}`}>
+                <div className="space-y-3 text-center lg:text-left">
+                  <div className="flex flex-col sm:flex-row sm:items-start space-y-2 sm:space-y-0 sm:space-x-3">
+                    <span
+                      className={`font-semibold ${theme.primary} text-sm sm:text-base`}
+                    >
                       Mission:
                     </span>
-                    <p className="text-gray-400">
+                    <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
                       Inspire businesses to work smarter and grow stronger.
                     </p>
                   </div>
-
-                  {/* Vision */}
-                  <div className="flex items-start space-x-2">
-                    <span className={`font-semibold ${theme.primary}`}>
+                  <div className="flex flex-col sm:flex-row sm:items-start space-y-2 sm:space-y-0 sm:space-x-3">
+                    <span
+                      className={`font-semibold ${theme.primary} text-sm sm:text-base`}
+                    >
                       Vision:
                     </span>
-                    <p className="text-gray-400 pl-[11px]">
+                    <p className="text-gray-400 text-sm sm:text-base leading-relaxed pl-0 sm:pl-[11px]">
                       High-ethics, high-quality service for vibrant private and
                       public institutions.
                     </p>
                   </div>
-
-                  {/* Values */}
-                  <div className="flex items-start space-x-2">
-                    <span className={`font-semibold ${theme.primary}`}>
+                  <div className="flex flex-col sm:flex-row sm:items-start space-y-2 sm:space-y-0 sm:space-x-3">
+                    <span
+                      className={`font-semibold ${theme.primary} text-sm sm:text-base`}
+                    >
                       Values:
                     </span>
-                    <p className="text-gray-400 pl-2">
-                      <span className="inline-flex gap-2">
+                    <p className="text-gray-400 text-sm sm:text-base leading-relaxed pl-0 sm:pl-2">
+                      <span className="inline-flex flex-wrap gap-2">
                         <span>Integrity</span>
                         <span className="text-gray-500">•</span>
                         <span>Practicality</span>
@@ -280,39 +278,48 @@ const Footer = () => {
                 </div>
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                 <div
-                  className={`text-center p-3 rounded-lg ${theme.statsBg} border ${theme.statsBorder}`}
+                  className={`text-center p-4 rounded-lg ${theme.statsBg} border ${theme.statsBorder}`}
                 >
                   <FaUsers
-                    className={`${theme.statsIcon} text-xl mx-auto mb-1`}
+                    className={`${theme.statsIcon} text-xl sm:text-2xl mx-auto mb-2`}
                   />
-                  <div className="text-lg font-bold text-white">100+</div>
-                  <div className="text-xs text-gray-400">Projects</div>
+                  <div className="text-lg sm:text-xl font-bold text-white">
+                    100+
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-400">
+                    Projects
+                  </div>
                 </div>
                 <div
-                  className={`text-center p-3 rounded-lg ${theme.statsBg} border ${theme.statsBorder}`}
+                  className={`text-center p-4 rounded-lg ${theme.statsBg} border ${theme.statsBorder}`}
                 >
                   <FaGlobe
-                    className={`${theme.statsIcon} text-xl mx-auto mb-1`}
+                    className={`${theme.statsIcon} text-xl sm:text-2xl mx-auto mb-2`}
                   />
-                  <div className="text-lg font-bold text-white">2+</div>
-                  <div className="text-xs text-gray-400">Countries</div>
+                  <div className="text-lg sm:text-xl font-bold text-white">
+                    2+
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-400">
+                    Countries
+                  </div>
                 </div>
                 <div
-                  className={`text-center p-3 rounded-lg ${theme.statsBg} border ${theme.statsBorder}`}
+                  className={`text-center p-4 rounded-lg ${theme.statsBg} border ${theme.statsBorder}`}
                 >
                   <FaRocket
-                    className={`${theme.statsIcon} text-xl mx-auto mb-1`}
+                    className={`${theme.statsIcon} text-xl sm:text-2xl mx-auto mb-2`}
                   />
-                  <div className="text-lg font-bold text-white">14+</div>
-                  <div className="text-xs text-gray-400">Years</div>
+                  <div className="text-lg sm:text-xl font-bold text-white">
+                    14+
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-400">Years</div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Quick Links */}
+            {/* Quick Links - Our Presence */}
             <motion.div variants={itemVariants}>
               <h3 className="text-xl font-bold text-white mb-6 relative">
                 Our Presence
@@ -328,28 +335,35 @@ const Footer = () => {
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <div className="flex items-start space-x-3">
+                    <div className="flex items-center space-x-3 mb-2">
                       <office.icon
-                        className={`${theme.contactIcons} mt-1 group-hover:scale-110 transition-transform duration-300`}
+                        className={`${theme.contactIcons} group-hover:scale-110 transition-transform duration-300`}
                       />
-                      <div>
-                        <h4 className={`font-medium ${theme.primary} mb-1`}>
-                          {office.location}
-                        </h4>
-                        <p className="text-gray-400 text-sm mb-1">
-                          {office.address}
-                        </p>
-                        <div className="space-y-1">
-                          {office.phones.map((phone, idx) => (
+                      <h4 className={`font-medium ${theme.primary}`}>
+                        {office.location}
+                      </h4>
+                    </div>
+                    <div className="ml-7">
+                      <p className="text-gray-400 text-sm mb-2">
+                        {office.address}
+                      </p>
+                      <div className="space-y-1">
+                        {office.phones.map((phone, idx) => (
+                          <div
+                            key={idx}
+                            className="flex items-center space-x-2"
+                          >
+                            <FaPhone
+                              className={`${theme.contactIcons} text-xs`}
+                            />
                             <a
-                              key={idx}
                               href={`tel:${phone.replace(/[- ]/g, "")}`}
-                              className={`block text-sm text-gray-400 ${theme.contactHover} transition-colors duration-300`}
+                              className={`text-sm text-gray-400 ${theme.contactHover} transition-colors duration-300`}
                             >
                               {phone}
                             </a>
-                          ))}
-                        </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </motion.div>
@@ -403,7 +417,6 @@ const Footer = () => {
                 </div>
               </div>
 
-              {/* Social Links */}
               <div className="mt-6">
                 <h4 className="text-white font-semibold mb-3">Follow Us</h4>
                 <div className="flex space-x-3">
@@ -416,7 +429,7 @@ const Footer = () => {
                     {
                       icon: FaLinkedinIn,
                       hoverClass: theme.socialHover.linkedin,
-                      link: "S",
+                      link: "#",
                     },
                     {
                       icon: FaInstagram,
@@ -440,7 +453,6 @@ const Footer = () => {
             </motion.div>
           </div>
 
-          {/* Bottom Section */}
           <motion.div
             variants={itemVariants}
             className={`border-t ${theme.bottomBorder} pt-9 flex flex-col md:flex-row mx-auto justify-center items-center`}

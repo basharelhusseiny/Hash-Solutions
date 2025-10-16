@@ -306,7 +306,7 @@ const OurPhilosophy = () => {
             </div>
           </motion.div>
         </motion.div>
-        <Link href={""} className="w-[200px] block mx-auto mt-14">
+        <Link href={"/contact"} className="w-[200px] block mx-auto mt-14">
           <StarBorder
             as="button"
             className="custom-class cursor-target"

@@ -51,6 +51,7 @@ import { usePathname } from "next/navigation";
 const Header = () => {
   const pathname = usePathname();
   console.log(pathname);
+
   return (
     <div className="w-full mx-auto">
       <PillNav
@@ -64,7 +65,7 @@ const Header = () => {
           { label: "About us", href: "/about" },
           { label: "Contact us", href: "/contact" },
         ]}
-        activeHref=""
+        activeHref={pathname} // هنا الحل! بدل "" حط pathname
         className="custom-nav mx-auto"
         ease="power2.easeOut"
         baseColor="#000000"

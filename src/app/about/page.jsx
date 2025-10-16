@@ -133,7 +133,7 @@ const AboutPage = () => {
                 Our Story
                 <div className="h-1 w-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mt-3" />
               </h2>
-              <div className="space-y-8 text-2xl text-purple-100/90 relative z-10 leading-relaxed">
+              <div className="space-y-8 md:text-2xl text-purple-100/90 relative z-10 leading-relaxed">
                 <p className="leading-relaxed">
                   Founded in 2018 in Khartoum, Sudan, and proudly expanded to
                   Juba, South Sudan in 2023—where we now call home— HASH

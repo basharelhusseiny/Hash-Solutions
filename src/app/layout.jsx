@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "@/components/footer/Footer";
 import TargetCursor from "@/ui/TargetCursor";
 import Header from "@/components/header/Header";
+import FixedButtons from "@/ui/FixedButtons";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <FixedButtons />
         <div className="hidden md:block">
           <TargetCursor spinDuration={2} hideDefaultCursor={true} />
         </div>

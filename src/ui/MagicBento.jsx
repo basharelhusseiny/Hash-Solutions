@@ -48,7 +48,7 @@ const cardData = [
     color: "#060010",
     title: "Post-Production",
     description:
-      "Professional video editing, color, sound design, motion graphics, and after effects.",
+      "Professional video editing, color, sound design, motion graphics, and after effects.",
     img: "/images/Rubix icon/Post production.png",
   },
 ];
@@ -552,6 +552,7 @@ const MagicBento = ({
             margin: 0 auto;
             padding: 0.2rem;
           }
+          
           @media (min-width: 600px) {
             .card-responsive {
               grid-template-columns: repeat(2, 1fr);
@@ -576,6 +577,28 @@ const MagicBento = ({
             .card-responsive .card:nth-child(6) {
               grid-column: 4;
               grid-row: 3;
+            }
+          }
+          
+          .card {
+            aspect-ratio: auto !important;
+            min-height: 160px !important;
+          }
+          
+          @media (min-width: 600px) {
+            .card {
+              min-height: 220px !important;
+            }
+          }
+          
+          @media (min-width: 1024px) {
+            .card:nth-child(3),
+            .card:nth-child(4) {
+              min-height: 280px !important;
+            }
+            
+            .card:not(:nth-child(3)):not(:nth-child(4)) {
+              min-height: 240px !important;
             }
           }
           
@@ -639,20 +662,6 @@ const MagicBento = ({
             overflow: hidden;
             text-overflow: ellipsis;
           }
-          
-          @media (max-width: 599px) {
-            .card-responsive {
-              grid-template-columns: 1fr;
-              width: 90%;
-              margin: 0 auto;
-              padding: 0.5rem;
-            }
-            
-            .card-responsive .card {
-              width: 100%;
-              min-height: 180px;
-            }
-          }
         `}
       </style>
 
@@ -669,7 +678,7 @@ const MagicBento = ({
       <BentoCardGrid gridRef={gridRef}>
         <div className="card-responsive grid gap-2">
           {cardData.map((card, index) => {
-            const baseClassName = `card flex flex-col justify-between relative aspect-[4/3] min-h-[400px] w-full max-w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
+            const baseClassName = `card flex flex-col justify-between relative w-full p-5 rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(0,0,0,0.15)] ${
               enableBorderGlow ? "card--border-glow" : ""
             }`;
 

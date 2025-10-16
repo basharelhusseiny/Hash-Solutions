@@ -45,7 +45,7 @@ const HeroSection = () => {
               alt="Logo"
               width={700}
               height={500}
-              className="w-full h-auto"
+              className="w-full h-auto opacity-80"
               priority
             />
           </motion.div>
@@ -126,7 +126,7 @@ const HeroSection = () => {
           alt="Hash Solutions"
           width={300}
           height={300}
-          className="w-full h-auto"
+          className="w-full h-auto opacity-70"
           priority
         />
       </motion.div>

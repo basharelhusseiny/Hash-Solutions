@@ -625,16 +625,17 @@ const BusinessPage = () => {
             Let's discuss how our business development solutions can drive your
             success
           </p>
-          <motion.button
+          <motion.a
+            href="mailto:info@hsmea.net"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="cursor-target group px-8 py-4 bg-gray-800 rounded-xl text-gray-200 font-bold text-lg shadow-2xl hover:bg-gray-700 transition-all duration-300"
+            className="cursor-target block w-fit mx-auto group px-8 py-4 bg-gray-800 rounded-xl text-gray-200 font-bold text-lg shadow-2xl hover:bg-gray-700 transition-all duration-300"
           >
             <span className="relative z-10 flex items-center gap-3">
               Get Started Today
               <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
             </span>
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </div>

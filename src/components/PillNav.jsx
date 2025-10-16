@@ -29,6 +29,36 @@ const PillNav = ({
   const mobileMenuRef = useRef(null);
   const navItemsRef = useRef(null);
   const logoRef = useRef(null);
+  const prevActiveHref = useRef(activeHref);
+
+  // إغلاق القائمة عند تغيير الصفحة
+  useEffect(() => {
+    // فقط لو الـ activeHref اتغير فعلاً
+    if (
+      prevActiveHref.current !== activeHref &&
+      prevActiveHref.current !== undefined
+    ) {
+      const hamburger = hamburgerRef.current;
+      const menu = mobileMenuRef.current;
+
+      // إرجاع الـ hamburger للحالة الطبيعية
+      if (hamburger) {
+        const lines = hamburger.querySelectorAll(".hamburger-line");
+        gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3, ease });
+        gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3, ease });
+      }
+
+      // إخفاء القائمة
+      if (menu) {
+        gsap.set(menu, { visibility: "hidden", opacity: 0 });
+      }
+
+      setIsMobileMenuOpen(false);
+    }
+
+    // حفظ القيمة الحالية
+    prevActiveHref.current = activeHref;
+  }, [activeHref, ease]);
 
   useEffect(() => {
     const layout = () => {
@@ -234,16 +264,16 @@ const PillNav = ({
     ["--pill-bg"]: pillColor,
     ["--hover-text"]: hoveredPillTextColor,
     ["--pill-text"]: resolvedPillTextColor,
-    ["--nav-h"]: "42px",
-    ["--logo"]: "36px",
-    ["--pill-pad-x"]: "18px",
-    ["--pill-gap"]: "3px",
+    ["--nav-h"]: "52px", // زيادة الارتفاع
+    ["--logo"]: "48px", // زيادة حجم اللوجو
+    ["--pill-pad-x"]: "20px",
+    ["--pill-gap"]: "4px",
   };
 
   return (
     <div className="fixed top-[2em] z-[1000] w-full left-0 ">
       <nav
-        className={`w-full md:w-max flex items-center justify-between md:justify-start box-border px-4 md:px-0 ${className}`}
+        className={`w-full lg:w-max flex items-center justify-between lg:justify-start box-border px-4 lg:px-0 ${className}`}
         aria-label="Primary"
         style={cssVars}
       >
@@ -296,7 +326,7 @@ const PillNav = ({
 
         <div
           ref={navItemsRef}
-          className="relative items-center rounded-full hidden md:flex ml-2"
+          className="relative items-center rounded-full hidden lg:flex ml-2"
           style={{
             height: "var(--nav-h)",
             background: "var(--base, #000)",
@@ -304,7 +334,7 @@ const PillNav = ({
         >
           <ul
             role="menubar"
-            className="list-none flex items-stretch m-0 p-[3px] h-full"
+            className="list-none flex items-stretch m-0 p-[4px] h-full"
             style={{ gap: "var(--pill-gap)" }}
           >
             {items.map((item, i) => {
@@ -359,7 +389,7 @@ const PillNav = ({
               );
 
               const basePillClasses =
-                "relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[16px] leading-[0] uppercase tracking-[0.2px] whitespace-nowrap cursor-pointer px-0";
+                "relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[17px] leading-[0] uppercase tracking-[0.2px] whitespace-nowrap cursor-pointer px-0";
 
               return (
                 <li key={item.href} role="none" className="flex h-full">
@@ -399,7 +429,7 @@ const PillNav = ({
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
-          className="md:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1 cursor-pointer p-0 relative"
+          className="lg:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1.5 cursor-pointer p-0 relative"
           style={{
             width: "var(--nav-h)",
             height: "var(--nav-h)",
@@ -407,24 +437,24 @@ const PillNav = ({
           }}
         >
           <span
-            className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-[10ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]"
+            className="hamburger-line w-5 h-0.5 rounded origin-center"
             style={{ background: "var(--pill-bg, #fff)" }}
           />
           <span
-            className="hamburger-line w-4 h-0.5 rounded origin-center transition-all duration-[10ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]"
+            className="hamburger-line w-5 h-0.5 rounded origin-center"
             style={{ background: "var(--pill-bg, #fff)" }}
           />
         </button>
       </nav>
       <div
         ref={mobileMenuRef}
-        className="md:hidden absolute top-[3em] left-4 right-4 rounded-[27px] shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-[998] origin-top"
+        className="lg:hidden absolute top-[3.5em] left-4 right-4 rounded-[28px] shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-[998] origin-top"
         style={{
           ...cssVars,
           background: "var(--base, #f0f0f0)",
         }}
       >
-        <ul className="list-none m-0 p-[3px] flex flex-col gap-[3px]">
+        <ul className="list-none m-0 p-[4px] flex flex-col gap-[4px]">
           {items.map((item) => {
             const defaultStyle = {
               background: "var(--pill-bg, #fff)",
@@ -440,7 +470,7 @@ const PillNav = ({
             };
 
             const linkClasses =
-              "block py-3 px-4 text-[16px] font-medium rounded-[50px] transition-all duration-200 ease-[cubic-bezier(0.25,0.1,0.25,1)]";
+              "block py-3.5 px-5 text-[17px] font-medium rounded-[50px] transition-all duration-200 ease-[cubic-bezier(0.25,0.1,0.25,1)]";
 
             return (
               <li key={item.href}>

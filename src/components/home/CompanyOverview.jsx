@@ -224,6 +224,13 @@ const CompanyOverview = () => {
                   Drive awareness, demand, and measurable ROI through
                   research-led strategy, campaigns, and content.
                 </p>
+                <Link
+                  href="/marketing"
+                  className="cursor-target inline-flex items-center gap-2 mt-4 text-purple-400 font-semibold hover:text-purple-300 transition-all duration-300 group"
+                >
+                  Read More
+                  <span className="w-0 group-hover:w-5 h-[1.5px] bg-purple-400 transition-all duration-300"></span>
+                </Link>
               </div>
             </motion.div>
 
@@ -252,6 +259,13 @@ const CompanyOverview = () => {
                   Open new markets, build partnerships, and improve sales
                   processes to convert opportunities into revenue.
                 </p>
+                <Link
+                  href="/business"
+                  className="cursor-target inline-flex items-center gap-2 mt-4 text-blue-400 font-semibold hover:text-blue-300 transition-all duration-300 group"
+                >
+                  Read More
+                  <span className="w-0 group-hover:w-5 h-[1.5px] bg-blue-400 transition-all duration-300"></span>
+                </Link>
               </div>
             </motion.div>
             <motion.div
@@ -278,6 +292,13 @@ const CompanyOverview = () => {
                   Brand identity, design, photography, and high quality video
                   production that clarify your value and inspire action.
                 </p>
+                <Link
+                  href="/rubix"
+                  className="cursor-target inline-flex items-center gap-2 mt-4 text-fuchsia-400 font-semibold hover:text-fuchsia-300 transition-all duration-300 group"
+                >
+                  Read More
+                  <span className="w-0 group-hover:w-5 h-[1.5px] bg-fuchsia-400 transition-all duration-300"></span>
+                </Link>
               </div>
             </motion.div>
           </motion.div>
@@ -307,16 +328,6 @@ const CompanyOverview = () => {
               </motion.div>
             ))}
           </motion.div>
-          <Link href={""} className="w-[200px] block mx-auto mt-14">
-            <StarBorder
-              as="button"
-              className="custom-class cursor-target"
-              color="magenta"
-              speed="5s"
-            >
-              Explore Services
-            </StarBorder>
-          </Link>
         </div>
       </div>
     </section>
