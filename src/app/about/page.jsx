@@ -13,6 +13,7 @@ import {
 import { MdPsychology } from "react-icons/md";
 
 import Link from "next/link";
+import Image from "next/image";
 
 const AboutPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -93,6 +94,41 @@ const AboutPage = () => {
 
       {/* Rest of the content */}
       <div className="container mx-auto px-5 relative z-10">
+        {/* Add Logo Here */}
+        {/* <motion.div
+          initial={{ x: "-100%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 1.5,
+            ease: "easeOut",
+            delay: 0.8,
+          }}
+          className="absolute -left-0 top-110 w-48 sm:w-64 md:w-72 lg:w-80 z-20"
+        >
+          <motion.div
+            animate={{
+              y: [0, -10, 0],
+              rotate: [0, 2, 0],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="relative"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/30 to-pink-600/30 rounded-full blur-2xl opacity-50 animate-pulse" />
+            <Image
+              src="/images/hash-main.png"
+              alt="Hash Solutions"
+              width={300}
+              height={300}
+              className="w-full h-auto drop-shadow-2xl filter brightness-125"
+              priority
+            />
+          </motion.div>
+        </motion.div> */}
+
         <motion.div
           variants={containerVariants}
           initial="hidden"

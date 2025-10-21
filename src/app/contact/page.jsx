@@ -258,7 +258,7 @@ const ContactUsPage = () => {
                       Full Name *
                     </label>
                     <div className="relative">
-                      <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-pink-400" />
+                      <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-pink-400 text-xl z-10" />
                       <input
                         type="text"
                         name="name"
@@ -276,7 +276,7 @@ const ContactUsPage = () => {
                       Email Address *
                     </label>
                     <div className="relative">
-                      <FaEnvelope className="absolute left-4 top-1/2 transform -translate-y-1/2 text-pink-400" />
+                      <FaEnvelope className="absolute left-4 top-1/2 transform -translate-y-1/2 text-pink-400 text-xl z-10" />
                       <input
                         type="email"
                         name="email"
@@ -296,7 +296,7 @@ const ContactUsPage = () => {
                       Organization
                     </label>
                     <div className="relative">
-                      <FaBuilding className="absolute left-4 top-1/2 transform -translate-y-1/2 text-pink-400" />
+                      <FaBuilding className="absolute left-4 top-1/2 transform -translate-y-1/2 text-pink-400 text-xl z-10" />
                       <input
                         type="text"
                         name="company"
@@ -313,7 +313,7 @@ const ContactUsPage = () => {
                       Phone Number
                     </label>
                     <div className="relative">
-                      <FaPhone className="absolute left-4 top-1/2 transform -translate-y-1/2 text-pink-400" />
+                      <FaPhone className="absolute left-4 top-1/2 transform -translate-y-1/2 text-pink-400 text-xl z-10" />
                       <input
                         type="tel"
                         name="phone"

@@ -8,10 +8,14 @@ import Beams from "@/ui/Beams";
 import RotatingText from "../RotatingText";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import HashModal from "../HashModal";
+import { useState } from "react";
 
 const HeroSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <section className="relative w-full min-h-screen h-screen overflow-hidden">
+      <HashModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       {/* Beams Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <Beams
@@ -95,17 +99,15 @@ const HeroSection = () => {
           </div>
 
           {/* CTA Button */}
-          <div>
-            <Link href={""}>
-              <StarBorder
-                as="button"
-                className="px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-semibold text-white hover:scale-105 transition-transform"
-                color="magenta"
-                speed="5s"
-              >
-                Let's HASH it Up!
-              </StarBorder>
-            </Link>
+          <div onClick={() => setIsModalOpen(true)}>
+            <StarBorder
+              as="button"
+              className="cursor-target px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-semibold text-white hover:scale-105 transition-transform"
+              color="magenta"
+              speed="5s"
+            >
+              Let's HASH it Up!
+            </StarBorder>
           </div>
         </div>
       </div>

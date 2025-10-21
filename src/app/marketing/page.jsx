@@ -422,13 +422,37 @@ const MarketingPage = () => {
                             key={index}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            className="flex items-center gap-3"
+                            transition={{
+                              delay: index * 0.1,
+                              duration: 0.3,
+                              type: "spring",
+                              stiffness: 100,
+                            }}
+                            className="flex items-center gap-3 group"
                           >
-                            <span className="w-2 h-2 rounded-full bg-purple-500" />
-                            <span className="text-gray-200 text-lg">
+                            <motion.span
+                              className="w-2 h-2 rounded-full bg-purple-500"
+                              animate={{
+                                scale: [1, 1.2, 1],
+                                opacity: [0.7, 1, 0.7],
+                              }}
+                              transition={{
+                                duration: 1.5,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                              }}
+                            />
+                            <motion.span
+                              className="text-gray-200 text-lg"
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{
+                                delay: index * 0.1 + 0.2,
+                                duration: 0.3,
+                              }}
+                            >
                               {item}
-                            </span>
+                            </motion.span>
                           </motion.div>
                         ))}
                       </div>

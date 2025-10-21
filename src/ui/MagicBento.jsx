@@ -11,17 +11,17 @@ const MOBILE_BREAKPOINT = 768;
 const cardData = [
   {
     color: "#060010",
-    title: "Photography",
+    title: "TVC",
     description:
-      "Professional Studio/Outdoor photography services for corporate profiles, product, lifestyle, and editorial. ",
-    img: "/images/Rubix icon/Photography.png",
+      "Professional TV & Social Media commercial production, from creative concepts to carting and filming. We provide it all.",
+    img: "/images/Rubix icon/TVC.png",
   },
   {
     color: "#060010",
-    title: "Events Coverage",
+    title: "Post-Production",
     description:
-      "Reliable event media team that capture moments, messages, and impact with precision, providing both event video highlights & stunning event photo album.",
-    img: "/images/rubix-2.png",
+      "Professional video editing, color, sound design, motion graphics, and after effects.",
+    img: "/images/Rubix icon/Post production.png",
   },
   {
     color: "#060010",
@@ -35,21 +35,21 @@ const cardData = [
     title: "Corporate Visual Profile",
     description:
       "A Business Brand Short Film, a purpose-driven project crafted for both internal and external audiences, delivering customized business messages and agendas.",
+    img: "/images/rubix-2.png",
+  },
+  {
+    color: "#060010",
+    title: "Photography",
+    description:
+      "Professional Studio/Outdoor photography services for corporate profiles, product, lifestyle, and editorial. ",
+    img: "/images/Rubix icon/Photography.png",
+  },
+  {
+    color: "#060010",
+    title: "Events Coverage",
+    description:
+      "Reliable event media team that capture moments, messages, and impact with precision, providing both event video highlights & stunning event photo album.",
     img: "/images/Rubix icon/Coorprate.png",
-  },
-  {
-    color: "#060010",
-    title: "TVC",
-    description:
-      "Professional TV & Social Media commercial production, from creative concepts to carting and filming. We provide it all.",
-    img: "/images/Rubix icon/TVC.png",
-  },
-  {
-    color: "#060010",
-    title: "Post-Production",
-    description:
-      "Professional video editing, color, sound design, motion graphics, and after effects.",
-    img: "/images/Rubix icon/Post production.png",
   },
 ];
 
