@@ -81,7 +81,7 @@ const HeroSection = () => {
 
           {/* Rotating Text Section */}
           <div className="flex items-center justify-center w-full my-2">
-            <div className="flex items-center text-xl sm:text-2xl md:text-3xl font-bold gap-2 sm:gap-3 flex-wrap justify-center">
+            <div className="flex items-center text-2xl md:text-3xl font-bold gap-2 sm:gap-3 flex-wrap justify-center">
               <p className="text-white">Creative</p>
               <RotatingText
                 texts={["Campaigning", "Marketing", "Service", "Tools"]}

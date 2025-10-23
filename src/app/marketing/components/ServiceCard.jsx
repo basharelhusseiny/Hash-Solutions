@@ -101,7 +101,7 @@ const ServiceCard = ({ service, index, type, clickedItem, onClick }) => {
                 initial={{ opacity: 0, y: -6 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className="text-white font-semibold text-lg mb-2"
+                className="font-semibold text-2xl text-purple-300 mb-2"
               >
                 {service.title}
               </motion.h4>
@@ -112,7 +112,7 @@ const ServiceCard = ({ service, index, type, clickedItem, onClick }) => {
                   initial={{ opacity: 0, y: -4 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05, duration: 0.35 }}
-                  className="text-gray-300 text-sm leading-relaxed mb-3"
+                  className="text-gray-300 text-base leading-relaxed mb-3"
                 >
                   {service.description}
                 </motion.p>
@@ -126,7 +126,7 @@ const ServiceCard = ({ service, index, type, clickedItem, onClick }) => {
                   transition={{ delay: 0.08, duration: 0.35 }}
                   className="mb-2"
                 >
-                  <h5 className="text-purple-300 font-medium">Deliverables</h5>
+                  <h5 className="text-xl text-purple-300 font-semibold">Deliverables:</h5>
                 </motion.div>
               )}
 
@@ -142,7 +142,7 @@ const ServiceCard = ({ service, index, type, clickedItem, onClick }) => {
                       duration: 0.32,
                       ease: "easeOut",
                     }}
-                    className="flex items-start gap-3"
+                    className="flex items-center gap-3"
                   >
                     <motion.span
                       initial={{ scale: 0 }}
@@ -151,9 +151,9 @@ const ServiceCard = ({ service, index, type, clickedItem, onClick }) => {
                         delay: 0.12 + i * 0.08,
                         duration: 0.28,
                       }}
-                      className="mt-1 w-2 h-2 rounded-full bg-purple-500 flex-shrink-0"
+                      className="w-2 h-2 rounded-full bg-purple-500 animate-pulse flex-shrink-0"
                     />
-                    <span className="text-gray-300 text-sm">{deliverable}</span>
+                    <span className="text-gray-300 font-medium">{deliverable}</span>
                   </motion.div>
                 ))}
               </div>
