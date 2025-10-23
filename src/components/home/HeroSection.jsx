@@ -5,7 +5,7 @@ import TrueFocus from "@/ui/TrueFocus";
 import StarBorder from "@/ui/StarBorderBtn/StarBorderBtn";
 import Link from "next/link";
 import Beams from "@/ui/Beams";
-import RotatingText from "../RotatingText";
+import RotatingText from "../../ui/RotatingText";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import HashModal from "../HashModal";
@@ -42,7 +42,7 @@ const HeroSection = () => {
               ease: "easeOut",
               delay: 0.5,
             }}
-            className="w-full max-w-xs sm:max-w-[600px] -mt-8 sm:mt-2"
+            className="w-full max-w-xs sm:max-w-[550px] -mt-8 sm:mt-2"
           >
             <Image
               src="/images/new-full-wh.png"
@@ -56,13 +56,13 @@ const HeroSection = () => {
 
           {/* Main Focus Text */}
           <div className="w-full">
-            <div className="flex gap-3 sm:gap-4 justify-center items-center flex-wrap text-2xl sm:text-3xl md:text-4xl font-black text-white -mt-8 sm:-mt-16">
+            <div className="flex gap-3 sm:gap-4 justify-center items-center flex-wrap text-xl sm:text-2xl md:text-4xl font-black text-white -mt-8 sm:-mt-16">
               <TrueFocus
-                sentence="EMPOWERING BUSINESS GROWTH IN AFRICA AND BEYOND."
+                sentence="EMPOWERING BUSINESS GROWTH IN AFRICA & BEYOND."
                 manualMode={false}
                 blurAmount={3}
                 borderColor="blueviolet"
-                animationDuration={0.5}
+                animationDuration={0.3}
                 pauseBetweenAnimations={1}
               />
             </div>
@@ -70,7 +70,7 @@ const HeroSection = () => {
 
           {/* Description Text */}
           <div className="w-full max-w-5xl px-2 sm:-mt-6">
-            <div className="text-center text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
+            <div className="text-center text-base md:text-lg text-white/90 leading-relaxed">
               <ShinyText
                 text="We guide organizations and businesses develop, enhance marketing, strengthen brands, and accelerate growth with strategic marketing, business development, and media production solutions."
                 disabled={false}
@@ -99,16 +99,16 @@ const HeroSection = () => {
           </div>
 
           {/* CTA Button */}
-          <div onClick={() => setIsModalOpen(true)}>
+          {/* <div onClick={() => setIsModalOpen(true)}>
             <StarBorder
               as="button"
               className="cursor-target px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-semibold text-white hover:scale-105 transition-transform"
               color="magenta"
               speed="5s"
             >
-              Let's HASH it Up!
+              Get My HASH Business Boost!
             </StarBorder>
-          </div>
+          </div> */}
         </div>
       </div>
 

@@ -1,9 +1,6 @@
-import CompanyOverview from "@/components/home/CompanyOverview";
-import HeroSection from "@/components/home/HeroSection";
-import OurPhilosophy from "@/components/home/OurPhilosophy";
 import LogoLoop from "@/ui/LogoLoop";
 
-const Home = () => {
+const PartnersSection = () => {
   const imageLogos = [
     {
       src: "/images/partners/1.png",
@@ -111,29 +108,23 @@ const Home = () => {
       href: "https://company3.com",
     },
   ];
+
   return (
-    <main>
-      <HeroSection />
-      <div
-        style={{ height: "180px", position: "relative", overflow: "hidden" }}
-      >
-        <LogoLoop
-          logos={imageLogos}
-          speed={120}
-          direction="left"
-          logoHeight={180}
-          gap={40}
-          pauseOnHover
-          scaleOnHover
-          fadeOut
-          fadeOutColor="#000"
-          ariaLabel="Technology partners"
-        />
-      </div>
-      <CompanyOverview />
-      <OurPhilosophy />
-    </main>
+    <div style={{ height: "180px", position: "relative", overflow: "hidden" }}>
+      <LogoLoop
+        logos={imageLogos}
+        speed={120}
+        direction="left"
+        logoHeight={180}
+        gap={40}
+        pauseOnHover
+        scaleOnHover
+        fadeOut
+        fadeOutColor="#000000"
+        ariaLabel="Technology partners"
+      />
+    </div>
   );
 };
 
-export default Home;
+export default PartnersSection;

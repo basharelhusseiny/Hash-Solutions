@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
         <main className="flex-grow">{children}</main>
         <Footer />
         <FixedButtons />
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <TargetCursor spinDuration={2} hideDefaultCursor={true} />
         </div>
       </body>

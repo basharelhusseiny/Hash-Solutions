@@ -1,11 +1,10 @@
 "use client";
 import React from "react";
-import PillNav from "../PillNav";
+import PillNav from "../../ui/PillNav";
 import { usePathname } from "next/navigation";
 
 const Header = () => {
   const pathname = usePathname();
-  console.log(pathname);
 
   return (
     <div className="w-full mx-auto">

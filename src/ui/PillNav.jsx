@@ -31,24 +31,18 @@ const PillNav = ({
   const logoRef = useRef(null);
   const prevActiveHref = useRef(activeHref);
 
-  // إغلاق القائمة عند تغيير الصفحة
   useEffect(() => {
-    // فقط لو الـ activeHref اتغير فعلاً
     if (
       prevActiveHref.current !== activeHref &&
       prevActiveHref.current !== undefined
     ) {
       const hamburger = hamburgerRef.current;
       const menu = mobileMenuRef.current;
-
-      // إرجاع الـ hamburger للحالة الطبيعية
       if (hamburger) {
         const lines = hamburger.querySelectorAll(".hamburger-line");
         gsap.to(lines[0], { rotation: 0, y: 0, duration: 0.3, ease });
         gsap.to(lines[1], { rotation: 0, y: 0, duration: 0.3, ease });
       }
-
-      // إخفاء القائمة
       if (menu) {
         gsap.set(menu, { visibility: "hidden", opacity: 0 });
       }
@@ -56,7 +50,6 @@ const PillNav = ({
       setIsMobileMenuOpen(false);
     }
 
-    // حفظ القيمة الحالية
     prevActiveHref.current = activeHref;
   }, [activeHref, ease]);
 
@@ -264,7 +257,7 @@ const PillNav = ({
     ["--pill-bg"]: pillColor,
     ["--hover-text"]: hoveredPillTextColor,
     ["--pill-text"]: resolvedPillTextColor,
-    ["--nav-h"]: "52px", // زيادة الارتفاع
+    ["--nav-h"]: "45px", // زيادة الارتفاع
     ["--logo"]: "48px", // زيادة حجم اللوجو
     ["--pill-pad-x"]: "20px",
     ["--pill-gap"]: "4px",
@@ -286,7 +279,7 @@ const PillNav = ({
             ref={(el) => {
               logoRef.current = el;
             }}
-            className="rounded-full p-2 inline-flex items-center justify-center overflow-hidden"
+            className="cursor-target rounded-full p-2 inline-flex items-center justify-center overflow-hidden"
             style={{
               width: "var(--nav-h)",
               height: "var(--nav-h)",
@@ -308,7 +301,7 @@ const PillNav = ({
             ref={(el) => {
               logoRef.current = el;
             }}
-            className="rounded-full p-2 inline-flex items-center justify-center overflow-hidden"
+            className="cursor-target rounded-full p-2 inline-flex items-center justify-center overflow-hidden"
             style={{
               width: "var(--nav-h)",
               height: "var(--nav-h)",
@@ -389,7 +382,7 @@ const PillNav = ({
               );
 
               const basePillClasses =
-                "relative overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[17px] leading-[0] uppercase tracking-[0.2px] whitespace-nowrap cursor-pointer px-0";
+                "relative cursor-target overflow-hidden inline-flex items-center justify-center h-full no-underline rounded-full box-border font-semibold text-[17px] leading-[0] uppercase tracking-[0.2px] whitespace-nowrap cursor-pointer px-0";
 
               return (
                 <li key={item.href} role="none" className="flex h-full">

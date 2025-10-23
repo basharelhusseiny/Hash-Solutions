@@ -76,18 +76,25 @@ const HashModal = ({ isModalOpen, setIsModalOpen }) => {
         </motion.button>
 
         <div className="p-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Get Free Consulting Support from Hash Solution
+          <div className="text-center mb-4">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
+              Grab Your Free HASH Business Boost Sessions: 2 Expert Audits
+              (Marketing & Business Development)
             </h2>
             <p className="text-gray-300 mb-2">
-              We're offering complimentary insights to help your brand grow
-              smarter and faster.
+              What to Unlock with our Free Audits? A deep insight into your
+              Marketing Or Business Development, with a clear guide & strategy
+              outcome.
             </p>
             <p className="text-sm text-gray-400">
-              Fill in your details below, and our team will reach out with
-              tailored advice, strategy tips, and personalized recommendations
-              for your business.
+              Book a free Marketing or Business Development Audit & get expert
+              feedback tailored to your business needs. Just fill in your
+              details below—our team will review your information & email you to
+              schedule a one-on-one online call. Get ready for actionable
+              insights & personalized recommendations, completely free!
+            </p>
+            <p className="mt-4 text-3xl md:text-4xl text-purple-700 font-bold">
+              Let’s HASH it Up!
             </p>
           </div>
 
@@ -205,7 +212,7 @@ const HashModal = ({ isModalOpen, setIsModalOpen }) => {
                 type="submit"
                 className="cursor-target px-6 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
               >
-                Submit
+                Free Session!
               </motion.button>
             </div>
           </form>
