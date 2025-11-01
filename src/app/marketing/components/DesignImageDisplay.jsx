@@ -89,7 +89,7 @@ const DesignImageDisplay = ({ activeDesignImage, isVisible }) => {
           />
 
           {/* Image Container with Padding for Shadow Space */}
-          <div className="relative w-full h-full flex items-center justify-center py-8 overflow-hidden rounded-xl">
+          <div className="relative w-full h-full flex items-center justify-center overflow-hidden rounded-xl">
             <div className="relative w-full h-full overflow-hidden rounded-xl">
               <Image
                 src={activeDesignImage}
@@ -97,7 +97,7 @@ const DesignImageDisplay = ({ activeDesignImage, isVisible }) => {
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-contain transition-transform duration-700 group-hover:scale-105"
+                className="object-contain transition-transform duration-700 group-hover:scale-110"
                 style={{
                   filter:
                     "drop-shadow(0 25px 50px rgba(139, 92, 246, 0.5)) drop-shadow(0 10px 30px rgba(192, 132, 252, 0.4))",

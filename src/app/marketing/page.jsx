@@ -104,31 +104,31 @@ const MarketingPage = () => {
       icon: FaBullhorn,
       title: "Clear Market Positioning",
       color: "from-violet-600 to-purple-600",
-      image: "/images/clear market positioning 1.png",
+      image: "/images/latest-bus-mar/3.png",
     },
     {
       icon: FaHandshake,
       title: "Consistent Brand Presence",
       color: "from-purple-600 to-violet-700",
-      image: "/images/consistant brand.png",
+      image: "/images/latest-bus-mar/2.png",
     },
     {
       icon: FaSearchDollar,
       title: "Qualified Leads Generation",
       color: "from-indigo-600 to-purple-600",
-      image: "/images/qualified lead generation.png",
+      image: "/images/latest-bus-mar/4.png",
     },
     {
       icon: FaChartBar,
       title: "Lower Cost per Acquisition",
       color: "from-purple-500 to-violet-600",
-      image: "/images/Lower cost.png",
+      image: "/images/latest-bus-mar/5.png",
     },
     {
       icon: FaUserFriends,
       title: "Stronger Customer Engagement Process",
       color: "from-purple-500 to-violet-600",
-      image: "/images/strong cosutumer.png",
+      image: "/images/latest-bus-mar/1.png",
     },
   ];
 

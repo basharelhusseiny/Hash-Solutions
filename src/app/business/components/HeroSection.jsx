@@ -21,39 +21,39 @@ const HeroSection = ({
       description:
         "Streamline organizations operations by analyzing, improving, and automating workflows. BPM service ensures your business runs more efficiently, reduces costs, and delivers better results through well-structured processes.",
       icon: FaProjectDiagram,
-      img: "/images/Business/Business Process Management consultation.jpg",
+      img: "/images/latest-bus-mar/6.png",
     },
     {
       title: "Go-to-Market Planning",
       description:
         "Prioritize segments, define value propositions, and map acquisition channels.",
       icon: FaChartLine,
-      img: "/images/Business/Go-to-Market Planning.jpg",
+      img: "/images/latest-bus-mar/7.png",
     },
     {
       title: "Pipeline & Partnerships",
       description:
         "Prospecting frameworks, outreach, and partnership structuring.",
       icon: FaHandshake,
-      img: "/images/Business/Pipeline & Partnerships.jpg",
+      img: "/images/latest-bus-mar/8.png",
     },
     {
       title: "Sales Enablement",
       description: "Offers, proposals, pitch materials.",
       icon: FaRocket,
-      img: "/images/Business/Sales Enablement.jpg",
+      img: "/images/latest-bus-mar/11.png",
     },
     {
       title: "Pricing & Packaging",
       description: "Design service tiers.",
       icon: FaBuilding,
-      img: "/images/Business/Pricing & Packaging.webp",
+      img: "/images/latest-bus-mar/9.png",
     },
     {
       title: "Sales & Customer Service",
       description: "Training and development programs.",
       icon: FaUsers,
-      img: "/images/Business/Sales & Customer Servic.webp",
+      img: "/images/latest-bus-mar/10.png",
     },
   ];
 
