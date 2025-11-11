@@ -163,7 +163,16 @@ const Footer = () => {
 
   return (
     <footer
-      className={`relative pt-16 pb-10 bg-gradient-to-b ${theme.gradient} border-t ${theme.border} overflow-hidden`}
+      className={`${
+        pathname === "/login" ||
+        pathname === "/signup" ||
+        pathname === "/dashboard/hash-sessions" ||
+        pathname === "/dashboard/users-list"
+          ? "hidden"
+          : "block"
+      } relative pt-16 pb-10 bg-gradient-to-b ${theme.gradient} border-t ${
+        theme.border
+      } overflow-hidden`}
     >
       {/* Animated Background */}
       <div className="absolute inset-0 pointer-events-none">

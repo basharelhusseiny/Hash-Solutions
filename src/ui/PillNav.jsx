@@ -7,7 +7,7 @@ import Link from "next/link";
 const PillNav = ({
   logo,
   logoAlt = "Logo",
-  items,
+  items = [],
   activeHref,
   className = "",
   ease = "power3.easeOut",
@@ -17,9 +17,19 @@ const PillNav = ({
   pillTextColor,
   onMobileMenuClick,
   initialLoadAnimation = true,
+
+  // new login props
+  loginVisible = false,
+  loginIcon = null,
+  loginHref = null,
+  loginAriaLabel = "Login",
+  onLoginClick = null,
+  loginClassName = "",
+  loginIsExternal = false,
 }) => {
   const resolvedPillTextColor = pillTextColor ?? baseColor;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const circleRefs = useRef([]);
   const tlRefs = useRef([]);
   const activeTweenRefs = useRef([]);
@@ -156,6 +166,11 @@ const PillNav = ({
     return () => window.removeEventListener("resize", onResize);
   }, [items, ease, initialLoadAnimation]);
 
+  useEffect(() => {
+    // ensure client-only rendering for DOM-dependent parts to avoid hydration mismatch
+    setMounted(true);
+  }, []);
+
   const handleEnter = (i) => {
     const tl = tlRefs.current[i];
     if (!tl) return;
@@ -243,22 +258,32 @@ const PillNav = ({
   };
 
   const isExternalLink = (href) =>
-    href.startsWith("http://") ||
-    href.startsWith("https://") ||
-    href.startsWith("//") ||
-    href.startsWith("mailto:") ||
-    href.startsWith("tel:") ||
-    href.startsWith("#");
+    href &&
+    (href.startsWith("http://") ||
+      href.startsWith("https://") ||
+      href.startsWith("//") ||
+      href.startsWith("mailto:") ||
+      href.startsWith("tel:") ||
+      href.startsWith("#"));
 
   const isRouterLink = (href) => href && !isExternalLink(href);
+
+  const isLoginRouterLink = (href) =>
+    href &&
+    !href.startsWith("http://") &&
+    !href.startsWith("https://") &&
+    !href.startsWith("//") &&
+    !href.startsWith("mailto:") &&
+    !href.startsWith("tel:") &&
+    !href.startsWith("#");
 
   const cssVars = {
     ["--base"]: baseColor,
     ["--pill-bg"]: pillColor,
     ["--hover-text"]: hoveredPillTextColor,
     ["--pill-text"]: resolvedPillTextColor,
-    ["--nav-h"]: "45px", // زيادة الارتفاع
-    ["--logo"]: "48px", // زيادة حجم اللوجو
+    ["--nav-h"]: "45px",
+    ["--logo"]: "48px",
     ["--pill-pad-x"]: "20px",
     ["--pill-gap"]: "4px",
   };
@@ -266,7 +291,7 @@ const PillNav = ({
   return (
     <div className="fixed top-[2em] z-[1000] w-full left-0 ">
       <nav
-        className={`w-full lg:w-max flex items-center justify-between lg:justify-start box-border px-4 lg:px-0 ${className}`}
+        className={`w-full xl:w-max flex items-center justify-between xl:justify-start box-border px-4 xl:px-0 ${className}`}
         aria-label="Primary"
         style={cssVars}
       >
@@ -319,7 +344,7 @@ const PillNav = ({
 
         <div
           ref={navItemsRef}
-          className="relative items-center rounded-full hidden lg:flex ml-2"
+          className="relative items-center rounded-full hidden xl:flex ml-2"
           style={{
             height: "var(--nav-h)",
             background: "var(--base, #000)",
@@ -335,7 +360,7 @@ const PillNav = ({
 
               const pillStyle = {
                 background: "var(--pill-bg, #fff)",
-                color: "var(--pill-text, var(--base, #000))",
+                color: "var(--pill-text, #000)",
                 paddingLeft: "var(--pill-pad-x)",
                 paddingRight: "var(--pill-pad-x)",
               };
@@ -417,12 +442,61 @@ const PillNav = ({
           </ul>
         </div>
 
+        {/* login icon (desktop) */}
+        {loginVisible && (
+          <div className="ml-3 flex items-center">
+            {loginHref ? (
+              isLoginRouterLink(loginHref) ? (
+                <Link
+                  href={loginHref}
+                  aria-label={loginAriaLabel}
+                  className={`inline-flex items-center justify-center rounded-full p-2 cursor-pointer focus:outline-none ${loginClassName}`}
+                >
+                  <span
+                    style={{ color: "var(--pill-text)" }}
+                    className="text-lg"
+                  >
+                    {loginIcon}
+                  </span>
+                </Link>
+              ) : (
+                <a
+                  href={loginHref}
+                  target={loginIsExternal ? "_blank" : undefined}
+                  rel={loginIsExternal ? "noreferrer" : undefined}
+                  aria-label={loginAriaLabel}
+                  className={`inline-flex items-center justify-center rounded-full p-2 cursor-pointer ${loginClassName}`}
+                >
+                  <span
+                    style={{ color: "var(--pill-text)" }}
+                    className="text-lg"
+                  >
+                    {loginIcon}
+                  </span>
+                </a>
+              )
+            ) : (
+              <button
+                type="button"
+                aria-label={loginAriaLabel}
+                onClick={onLoginClick}
+                className={`inline-flex cursor-target items-center justify-center rounded-full p-2 cursor-pointer focus:outline-none ${loginClassName}`}
+              >
+                <span style={{ color: "var(--pill-text)" }} className="text-lg">
+                  {loginIcon}
+                </span>
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* hamburger (mobile) */}
         <button
           ref={hamburgerRef}
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
           aria-expanded={isMobileMenuOpen}
-          className="lg:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1.5 cursor-pointer p-0 relative"
+          className="xl:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1.5 cursor-pointer p-0 relative"
           style={{
             width: "var(--nav-h)",
             height: "var(--nav-h)",
@@ -439,62 +513,66 @@ const PillNav = ({
           />
         </button>
       </nav>
-      <div
-        ref={mobileMenuRef}
-        className="lg:hidden absolute top-[3.5em] left-4 right-4 rounded-[28px] shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-[998] origin-top"
-        style={{
-          ...cssVars,
-          background: "var(--base, #f0f0f0)",
-        }}
-      >
-        <ul className="list-none m-0 p-[4px] flex flex-col gap-[4px]">
-          {items.map((item) => {
-            const defaultStyle = {
-              background: "var(--pill-bg, #fff)",
-              color: "var(--pill-text, #fff)",
-            };
-            const hoverIn = (e) => {
-              e.currentTarget.style.background = "var(--base)";
-              e.currentTarget.style.color = "var(--hover-text, #fff)";
-            };
-            const hoverOut = (e) => {
-              e.currentTarget.style.background = "var(--pill-bg, #fff)";
-              e.currentTarget.style.color = "var(--pill-text, #fff)";
-            };
 
-            const linkClasses =
-              "block py-3.5 px-5 text-[17px] font-medium rounded-[50px] transition-all duration-200 ease-[cubic-bezier(0.25,0.1,0.25,1)]";
+      {/* mobile menu (render only on client to avoid SSR/CSR mismatch) */}
+      {mounted && (
+        <div
+          ref={mobileMenuRef}
+          className="xl:hidden absolute top-[3.5em] left-4 right-4 rounded-[28px] shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-[998] origin-top"
+          style={{
+            ...cssVars,
+            background: "var(--base, #f0f0f0)",
+          }}
+        >
+          <ul className="list-none m-0 p-[4px] flex flex-col gap-[4px]">
+            {items.map((item) => {
+              const defaultStyle = {
+                background: "var(--pill-bg, #fff)",
+                color: "var(--pill-text, #fff)",
+              };
+              const hoverIn = (e) => {
+                e.currentTarget.style.background = "var(--base)";
+                e.currentTarget.style.color = "var(--hover-text, #fff)";
+              };
+              const hoverOut = (e) => {
+                e.currentTarget.style.background = "var(--pill-bg, #fff)";
+                e.currentTarget.style.color = "var(--pill-text, #fff)";
+              };
 
-            return (
-              <li key={item.href}>
-                {isRouterLink(item.href) ? (
-                  <Link
-                    href={item.href}
-                    className={linkClasses}
-                    style={defaultStyle}
-                    onMouseEnter={hoverIn}
-                    onMouseLeave={hoverOut}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <a
-                    href={item.href}
-                    className={linkClasses}
-                    style={defaultStyle}
-                    onMouseEnter={hoverIn}
-                    onMouseLeave={hoverOut}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                )}
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+              const linkClasses =
+                "block py-3.5 px-5 text-[17px] font-medium rounded-[50px] transition-all duration-200 ease-[cubic-bezier(0.25,0.1,0.25,1)]";
+
+              return (
+                <li key={item.href}>
+                  {isRouterLink(item.href) ? (
+                    <Link
+                      href={item.href}
+                      className={linkClasses}
+                      style={defaultStyle}
+                      onMouseEnter={hoverIn}
+                      onMouseLeave={hoverOut}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className={linkClasses}
+                      style={defaultStyle}
+                      onMouseEnter={hoverIn}
+                      onMouseLeave={hoverOut}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </a>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

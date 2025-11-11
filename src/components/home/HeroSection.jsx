@@ -99,7 +99,7 @@ const HeroSection = () => {
           </div>
 
           {/* CTA Button */}
-          {/* <div onClick={() => setIsModalOpen(true)}>
+          <div onClick={() => setIsModalOpen(true)}>
             <StarBorder
               as="button"
               className="cursor-target px-6 sm:px-8 py-2.5 sm:py-3 text-base sm:text-lg font-semibold text-white hover:scale-105 transition-transform"
@@ -108,7 +108,7 @@ const HeroSection = () => {
             >
               Get My HASH Business Boost!
             </StarBorder>
-          </div> */}
+          </div>
         </div>
       </div>
 
