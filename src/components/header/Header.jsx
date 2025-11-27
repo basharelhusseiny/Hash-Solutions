@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import PillNav from "../../ui/PillNav";
 import { usePathname, useRouter } from "next/navigation";
 import { FaUser, FaSignOutAlt } from "react-icons/fa";
-import { supabase } from "@/lib/supabase";
+import { auth, profiles } from "@/lib/api";
 
 const Header = () => {
   const pathname = usePathname();
@@ -14,16 +14,11 @@ const Header = () => {
 
   useEffect(() => {
     const getUser = async () => {
-      const { data, error } = await supabase.auth.getUser();
+      const { user: currentUser, error } = await auth.getCurrentUser();
 
-      if (data?.user) {
-        const { data: profile } = await supabase
-          .from("profiles")
-          .select("role")
-          .eq("id", data.user.id)
-          .single();
-
-        setUser({ ...data.user, role: profile?.role });
+      if (currentUser) {
+        const { profile } = await profiles.getProfile(currentUser.id);
+        setUser({ ...currentUser, role: profile?.role });
       } else {
         setUser(null);
       }
@@ -32,7 +27,7 @@ const Header = () => {
 
     getUser();
 
-    const { data: listener } = supabase.auth.onAuthStateChange(() => {
+    const listener = auth.onAuthStateChange(() => {
       getUser();
     });
 
@@ -43,7 +38,7 @@ const Header = () => {
 
   const handleAuthClick = async () => {
     if (user) {
-      await supabase.auth.signOut();
+      await auth.signOut();
       setUser(null);
       router.push("/login");
     } else {

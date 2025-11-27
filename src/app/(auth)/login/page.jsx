@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import Image from "next/image";
-import { supabase } from "@/lib/supabase";
+import { auth, profiles } from "@/lib/api";
 import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
@@ -29,31 +29,30 @@ const LoginPage = () => {
 
     const { email, password } = formData;
 
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    // 1️⃣ Sign in with auth API
+    const { user, error } = await auth.signIn(email, password);
 
     if (error) {
       console.error("Login error:", error.message);
       alert(error.message);
+      setIsLoading(false);
+      return;
     }
-    const user = data.user;
-    if (!user) return;
 
-    // 2️⃣ جلب بيانات المستخدم من جدول profiles
-    const { data: profile, error: profileError } = await supabase
-      .from("profiles")
-      .select("role, first_name, last_name, email, phone")
-      .eq("id", user.id)
-      .single();
+    if (!user) {
+      setIsLoading(false);
+      return;
+    }
+
+    // 2️⃣ Get user profile
+    const { profile, error: profileError } = await profiles.getProfile(user.id);
 
     if (profileError) {
       console.error("Error fetching profile:", profileError.message);
     } else {
       console.log("✅ Profile:", profile);
 
-      // 3️⃣ توجيه حسب الدور
+      // 3️⃣ Redirect based on role
       if (profile.role === "admin") {
         router.push("/dashboard");
       } else {
@@ -141,7 +140,7 @@ const LoginPage = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className="w-full pl-12 pr-4 py-4 bg-black/40 border border-purple-500/30 rounded-xl text-white placeholder-gray-400 
+                className="cursor-target cursor-pointer w-full pl-12 pr-4 py-4 bg-black/40 border border-purple-500/30 rounded-xl text-white placeholder-gray-400 
         focus:outline-none focus:border-purple-400/70 focus:ring-2 focus:ring-purple-500/20 
         transition-all duration-300 hover:border-purple-400/50"
               />
@@ -158,7 +157,7 @@ const LoginPage = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Enter your password"
-                className="w-full pl-12 pr-12 py-4 bg-black/40 border border-purple-500/30 rounded-xl text-white placeholder-gray-400 
+                className="cursor-target cursor-pointer w-full pl-12 pr-12 py-4 bg-black/40 border border-purple-500/30 rounded-xl text-white placeholder-gray-400 
         focus:outline-none focus:border-purple-400/70 focus:ring-2 focus:ring-purple-500/20 
         transition-all duration-300 hover:border-purple-400/50"
               />
@@ -183,7 +182,7 @@ const LoginPage = () => {
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={isLoading}
-              className="w-full py-4 mt-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl 
+              className="cursor-target cursor-pointer w-full py-4 mt-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl 
   shadow-lg hover:shadow-purple-500/25 transition-all duration-300 relative overflow-hidden group"
             >
               <span className="relative z-10 flex items-center justify-center gap-2 text-lg">
@@ -209,14 +208,14 @@ const LoginPage = () => {
             </motion.button>
 
             {/* 🆕 Sign Up Redirect */}
-            <div className="text-center">
-              <p className="text-gray-400">
+            <div className="text-center mt-6">
+              <p className="text-gray-400 text-lg">
                 Don’t have an account?{" "}
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => router.push("/signup")}
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 font-semibold hover:underline transition-all"
+                  className="cursor-target text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 hover:opacity-90 transition-all sm:ml-2"
                 >
                   Sign up
                 </motion.button>

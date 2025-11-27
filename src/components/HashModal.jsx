@@ -7,10 +7,11 @@ import {
   FaTiktok,
   FaLinkedin,
   FaTwitter,
+  FaGlobe,
 } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { motion } from "framer-motion";
-import { supabase } from "@/lib/supabase";
+import { auth, sessions } from "@/lib/api";
 import { useRouter } from "next/navigation";
 
 const HashModal = ({ isModalOpen, setIsModalOpen }) => {
@@ -20,12 +21,13 @@ const HashModal = ({ isModalOpen, setIsModalOpen }) => {
     name: "",
     companyName: "",
     businessDescription: "",
+    website: "",
     facebook: "",
     instagram: "",
     tiktok: "",
     linkedin: "",
     twitter: "",
-    consultation_type: [], // 🆕 لتخزين أنواع الاستشارات المختارة
+    consultation_type: "", // 🆕 لتخزين نوع الاستشارة (قيمة واحدة)
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -42,27 +44,21 @@ const HashModal = ({ isModalOpen, setIsModalOpen }) => {
   };
 
   // ✅ التعامل مع الاختيارات (Business / Marketing)
-  const handleCheckboxChange = (type) => {
-    setFormData((prev) => {
-      const alreadySelected = prev.consultation_type.includes(type);
-      return {
-        ...prev,
-        consultation_type: alreadySelected
-          ? prev.consultation_type.filter((t) => t !== type)
-          : [...prev.consultation_type, type],
-      };
-    });
+  // ✅ التعامل مع الاختيارات (Business / Marketing) - Radio Button
+  const handleRadioChange = (type) => {
+    setFormData((prev) => ({
+      ...prev,
+      consultation_type: type,
+    }));
   };
 
-  // ✅ إرسال البيانات إلى Supabase
+  // ✅ Submit session request using API
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // 1️⃣ التحقق من إذا كان المستخدم عامل login
-    const {
-      data: { session },
-    } = await supabase.auth.getSession();
+    // 1️⃣ Check if user is logged in
+    const { session } = await auth.getSession();
 
     if (!session) {
       alert("Please log in first to submit your request.");
@@ -74,22 +70,21 @@ const HashModal = ({ isModalOpen, setIsModalOpen }) => {
     const userEmail = session.user.email;
     const userId = session.user.id;
 
-    // 2️⃣ إدخال البيانات إلى Supabase
-    const { error } = await supabase.from("sessions_requests").insert([
-      {
-        user_id: userId,
-        user_email: userEmail,
-        name: formData.name,
-        company_name: formData.companyName,
-        business_description: formData.businessDescription,
-        facebook: formData.facebook,
-        instagram: formData.instagram,
-        tiktok: formData.tiktok,
-        linkedin: formData.linkedin,
-        twitter: formData.twitter,
-        consultation_type: formData.consultation_type,
-      },
-    ]);
+    // 2️⃣ Create session request using sessions API
+    const { error } = await sessions.createSessionRequest({
+      user_id: userId,
+      user_email: userEmail,
+      name: formData.name,
+      company_name: formData.companyName,
+      business_description: formData.businessDescription,
+      facebook: formData.facebook,
+      instagram: formData.instagram,
+      tiktok: formData.tiktok,
+      linkedin: formData.linkedin,
+      twitter: formData.twitter,
+      website: formData.website,
+      consultation_type: formData.consultation_type,
+    });
 
     if (error) {
       console.error("Error submitting request:", error.message);
@@ -105,7 +100,8 @@ const HashModal = ({ isModalOpen, setIsModalOpen }) => {
         tiktok: "",
         linkedin: "",
         twitter: "",
-        consultation_type: [],
+        website: "",
+        consultation_type: "",
       });
       setIsModalOpen(false);
     }
@@ -161,13 +157,13 @@ const HashModal = ({ isModalOpen, setIsModalOpen }) => {
                 a clear guide & strategy outcome.
               </span>
             </p>
-            <p className="mt-4">
+            <p className="mt-4 text-[15px]">
               Book a Free Marketing or Business Development Audit & get expert
               feedback tailored to your business needs. Just fill in your
               details below—our team will review your information & email you to
-              schedule a one-on-one online call. Get ready for actionable
+              schedule a one-on-one online call. <br /> Get ready for actionable
               insights & personalized recommendations, completely free!{" "}
-              <span className="text-2xl font-bold block text-purple-700 mt-5">
+              <span className="text-2xl font-bold block text-purple-400 mt-5">
                 Let’s HASH it Up!
               </span>
             </p>
@@ -209,18 +205,21 @@ const HashModal = ({ isModalOpen, setIsModalOpen }) => {
               <div className="flex gap-4">
                 <label className="cursor-target flex items-center gap-2 cursor-pointer">
                   <input
-                    type="checkbox"
-                    checked={formData.consultation_type.includes("Marketing")}
-                    onChange={() => handleCheckboxChange("Marketing")}
+                    type="radio"
+                    name="consultation_type"
+                    checked={formData.consultation_type === "Marketing"}
+                    onChange={() => handleRadioChange("Marketing")}
                     className="cursor-target accent-purple-600 w-5 h-5"
+                    required
                   />
                   <span>Marketing</span>
                 </label>
                 <label className="cursor-target flex items-center gap-2 cursor-pointer">
                   <input
-                    type="checkbox"
-                    checked={formData.consultation_type.includes("Business")}
-                    onChange={() => handleCheckboxChange("Business")}
+                    type="radio"
+                    name="consultation_type"
+                    checked={formData.consultation_type === "Business"}
+                    onChange={() => handleRadioChange("Business")}
                     className="cursor-target accent-purple-600 w-5 h-5"
                   />
                   <span>Business Development</span>
@@ -231,6 +230,11 @@ const HashModal = ({ isModalOpen, setIsModalOpen }) => {
             {/* 🌐 السوشيال ميديا */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
+                {
+                  name: "website",
+                  icon: FaGlobe,
+                  placeholder: "Website",
+                },
                 { name: "facebook", icon: FaFacebook, placeholder: "Facebook" },
                 {
                   name: "instagram",

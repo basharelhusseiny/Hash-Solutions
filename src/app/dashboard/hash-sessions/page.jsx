@@ -1,23 +1,21 @@
 "use client";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { sessions } from "@/lib/api";
 import { ExternalLink, MessageSquareText, RefreshCw } from "lucide-react";
+import BackgroundEffects from "@/app/contact/components/BackgroundEffects";
 
 const HashSessions = () => {
-  const [sessions, setSessions] = useState([]);
+  const [sessionsList, setSessionsList] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchSessions = async () => {
     setLoading(true);
-    const { data, error } = await supabase
-      .from("sessions_requests")
-      .select("*")
-      .order("created_at", { ascending: false });
+    const { requests, error } = await sessions.getAllSessionRequests();
 
     if (error) {
       console.error("Error fetching sessions:", error);
     } else {
-      setSessions(data || []);
+      setSessionsList(requests || []);
     }
     setLoading(false);
   };
@@ -28,17 +26,10 @@ const HashSessions = () => {
 
   // Real-time updates
   useEffect(() => {
-    const channel = supabase
-      .channel("sessions-changes")
-      .on(
-        "postgres_changes",
-        { event: "*", schema: "public", table: "sessions_requests" },
-        () => fetchSessions()
-      )
-      .subscribe();
+    const channel = sessions.subscribeToSessionChanges(() => fetchSessions());
 
     return () => {
-      supabase.removeChannel(channel);
+      sessions.unsubscribeFromSessionChanges(channel);
     };
   }, []);
 
@@ -51,7 +42,7 @@ const HashSessions = () => {
     );
   }
 
-  if (sessions.length === 0) {
+  if (sessionsList.length === 0) {
     return (
       <div className="text-center mt-20 text-gray-400">
         <MessageSquareText size={64} className="mx-auto mb-4 opacity-50" />
@@ -66,6 +57,7 @@ const HashSessions = () => {
     { key: "tiktok", label: "TikTok" },
     { key: "linkedin", label: "LinkedIn" },
     { key: "twitter", label: "Twitter" },
+    { key: "website", label: "Website" },
   ];
 
   const getStatusColor = (status) => {
@@ -94,7 +86,8 @@ const HashSessions = () => {
   return (
     <>
       <div className="px-6 pb-6 pt-28 grid gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 w-full">
-        {sessions.map((session) => (
+        <BackgroundEffects />
+        {sessionsList.map((session) => (
           <div
             key={session.id}
             className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-xl shadow-lg p-5 flex flex-col justify-between hover:border-purple-500 transition-all duration-300 w-full max-w-full overflow-hidden"
@@ -118,19 +111,13 @@ const HashSessions = () => {
             )}
 
             {/* Consultation Types */}
-            {session.consultation_type &&
-              session.consultation_type.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {session.consultation_type.map((type, idx) => (
-                    <span
-                      key={idx}
-                      className="bg-purple-900/50 text-purple-200 text-xs px-3 py-1 rounded-full"
-                    >
-                      {type}
-                    </span>
-                  ))}
-                </div>
-              )}
+            {session.consultation_type && (
+              <span
+                className="bg-purple-900/50 text-purple-200 text-xs px-3 py-1 rounded-full w-fit mb-5"
+              >
+                {session.consultation_type}
+              </span>
+            )}
 
             {/* Social Links */}
             <div className="flex flex-wrap gap-3 mb-4">

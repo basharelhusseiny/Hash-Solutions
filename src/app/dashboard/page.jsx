@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { supabase } from "@/lib/supabase";
+import { auth, profiles } from "@/lib/api";
 
 export default function DashboardRedirect() {
   const router = useRouter();
@@ -9,20 +9,14 @@ export default function DashboardRedirect() {
 
   useEffect(() => {
     const checkUser = async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
+      const { user } = await auth.getCurrentUser();
 
       if (!user) {
         router.push("/login");
         return;
       }
 
-      const { data: profile } = await supabase
-        .from("profiles")
-        .select("role")
-        .eq("id", user.id)
-        .single();
+      const { profile } = await profiles.getProfile(user.id);
 
       if (profile?.role !== "admin") {
         router.push("/");

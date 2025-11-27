@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { profiles } from "@/lib/api";
 import { User, RefreshCw, Mail, Phone } from "lucide-react";
+import BackgroundEffects from "@/app/about/components/BackgroundEffects";
 
 const UsersList = () => {
   const [users, setUsers] = useState([]);
@@ -9,14 +10,12 @@ const UsersList = () => {
 
   const fetchUsers = async () => {
     setLoading(true);
-    const { data, error } = await supabase
-      .from("profiles")
-      .select("id, first_name, last_name, phone, role, email");
+    const { profiles: userProfiles, error } = await profiles.getAllProfiles();
 
     if (error) {
       console.error("Error fetching users:", error);
     } else {
-      setUsers(data || []);
+      setUsers(userProfiles || []);
     }
     setLoading(false);
   };
@@ -57,6 +56,7 @@ const UsersList = () => {
   return (
     <>
       <div className="px-6 pb-6 pt-28 grid gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 w-full">
+           <BackgroundEffects />
         {users.map((user) => (
           <div
             key={user.id}
