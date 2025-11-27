@@ -25,13 +25,13 @@ const FixedButtons = () => {
     if (pathname === "/rubix") {
       switch (type) {
         case "whatsapp":
-          return "bg-green-400 hover:bg-green-400";
+          return "bg-[#8aee0a] hover:bg-[#8aee0a]";
         case "facebook":
-          return "bg-green-700 hover:bg-green-500";
+          return "bg-[#74cf00] hover:bg-[#74cf00]";
         case "phone":
-          return "bg-green-900 hover:bg-green-600";
+          return "bg-[#63ab07] hover:bg-[#63ab07]";
         default:
-          return "bg-green-600 hover:bg-green-500";
+          return "bg-[#63ab07] hover:bg-[#63ab07]";
       }
     }
 

@@ -106,7 +106,7 @@ const HeroSection = () => {
               color="magenta"
               speed="5s"
             >
-              Get My HASH Business Boost!
+            Get Your “HASH Business Boost” Now!
             </StarBorder>
           </div>
         </div>

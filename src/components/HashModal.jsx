@@ -228,6 +228,7 @@ const HashModal = ({ isModalOpen, setIsModalOpen }) => {
             </div>
 
             {/* 🌐 السوشيال ميديا */}
+              <p className="mb-2 font-medium text-gray-300">Inter your website & social links:</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 {
@@ -272,7 +273,7 @@ const HashModal = ({ isModalOpen, setIsModalOpen }) => {
                 type="submit"
                 className="cursor-target px-6 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
               >
-                {isLoading ? "Submitting..." : "Free Session!"}
+                {isLoading ? "Submitting..." : "Request Free Session"}
               </motion.button>
             </div>
           </form>
